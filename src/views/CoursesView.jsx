@@ -3,6 +3,10 @@ import { isAuthenticated } from "../store/auth.store.js";
 import { renderToast } from "../components/ToastContainer.jsx";
 import { el } from "../utils/dom.js";
 import { COURSES } from "../data/courses.js";
+import { BookmarkButton } from "../components/BookmarkButton.jsx";
+import { ShareButton } from "../components/ShareButton.jsx";
+import { courseShareMessage } from "../utils/wa-share.js";
+import { SAVED_TYPES } from "../services/saved.service.js";
 
 const STYLES = `
   .mmp-courses { font-family: inherit; color: #1a3b5d; padding-bottom: 60px; }
@@ -18,6 +22,8 @@ const STYLES = `
   .mmp-courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px; max-width: 1200px; margin: 0 auto; }
   .mmp-course-card { background: #fff; border: 1px solid #B8D8D8; border-radius: 12px; padding: 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); text-align: center; }
   .mmp-course-card:hover { transform: translateY(-5px); border-color: #0A8791; }
+  .mmp-course-card__topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .mmp-course-card__topbar > * { display: inline-flex; align-items: center; }
   .mmp-course-level { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 16px; }
   .mmp-course-level.beginner { background: #d4edda; color: #155724; }
   .mmp-course-level.intermediate { background: #fff3cd; color: #856404; }
@@ -92,6 +98,12 @@ function CoursesView() {
     gridSection.innerHTML = "";
     filtered.forEach((course) => {
       const card = el("article", "mmp-course-card");
+
+      const topbar = el("div", "mmp-course-card__topbar");
+      topbar.appendChild(BookmarkButton({ type: SAVED_TYPES.COURSE, item: course, compact: true }));
+      topbar.appendChild(ShareButton({ message: courseShareMessage(course), label: "Share" }));
+      card.appendChild(topbar);
+
       card.appendChild(el("h3", null, course.title));
       card.appendChild(el("span", `mmp-course-level ${course.level}`, course.level));
       card.appendChild(el("p", null, course.summary));

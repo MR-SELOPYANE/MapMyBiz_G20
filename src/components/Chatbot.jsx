@@ -300,7 +300,7 @@ function Chatbot() {
   const widget = document.createElement("div");
   widget.className = "chatbot-widget";
 
-  let isOpen = true;
+  let isOpen = false;
   let isTyping = false;
   const messages = [{ sender: "bot", text: GREETING }];
 
@@ -309,7 +309,7 @@ function Chatbot() {
   toggleBtn.className = "chatbot-button";
   toggleBtn.type = "button";
   toggleBtn.setAttribute("aria-label", "Open AI Mentor chat");
-  toggleBtn.setAttribute("aria-expanded", "true");
+  toggleBtn.setAttribute("aria-expanded", "false");
   toggleBtn.innerHTML = '<span aria-hidden="true">💬</span>';
 
   // Panel

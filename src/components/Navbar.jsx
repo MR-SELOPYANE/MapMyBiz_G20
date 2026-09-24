@@ -66,6 +66,16 @@ function Navbar() {
   logoLink.appendChild(logoImg);
   logoContainer.appendChild(logoLink);
 
+  const menuToggle = document.createElement("button");
+  menuToggle.className = "menu-toggle";
+  menuToggle.setAttribute("aria-label", "Toggle navigation menu");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.innerHTML = '<span class="menu-toggle-bar"></span><span class="menu-toggle-bar"></span><span class="menu-toggle-bar"></span>';
+  menuToggle.addEventListener("click", () => {
+    const expanded = header.classList.toggle("header-menu-open");
+    menuToggle.setAttribute("aria-expanded", expanded);
+  });
+
   const nav = document.createElement("nav");
   nav.className = "nav-menu";
   nav.setAttribute("aria-label", "Main navigation");
@@ -86,6 +96,8 @@ function Navbar() {
     a.textContent = link.label;
     a.addEventListener("click", (e) => {
       e.preventDefault();
+      header.classList.remove("header-menu-open");
+      menuToggle.setAttribute("aria-expanded", "false");
       navigate(link.path);
     });
     nav.appendChild(a);
@@ -195,6 +207,7 @@ function Navbar() {
   header._cleanup = () => unsubscribe();
 
   header.appendChild(logoContainer);
+  header.appendChild(menuToggle);
   header.appendChild(nav);
   header.appendChild(langSelector);
   header.appendChild(authSlot);

@@ -2,6 +2,10 @@ import { getJobs } from "../services/jobs.service.js";
 import { JOBS } from "../data/jobs.js";
 import { navigate } from "../router/index.js";
 import { el } from "../utils/dom.js";
+import { BookmarkButton } from "../components/BookmarkButton.jsx";
+import { ShareButton } from "../components/ShareButton.jsx";
+import { jobShareMessage } from "../utils/wa-share.js";
+import { SAVED_TYPES } from "../services/saved.service.js";
 
 const STYLES = `
   .mmp-jobs { font-family: inherit; color: #1a3b5d; }
@@ -11,6 +15,8 @@ const STYLES = `
   .mmp-jobs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; }
   .mmp-job-card { background: #fff; border: 1px solid #B8D8D8; border-radius: 12px; padding: 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
   .mmp-job-card:hover { transform: translateY(-3px); border-color: #0A8791; }
+  .mmp-job-card__topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .mmp-job-card__topbar > * { display: inline-flex; align-items: center; }
   .mmp-job-card h3 { margin: 0 0 8px; color: #1a3b5d; font-size: 1.25rem; }
   .mmp-job-meta { color: #666; font-size: 0.9rem; margin: 8px 0; }
   .mmp-job-desc { margin: 12px 0; color: #444; line-height: 1.5; }
@@ -62,6 +68,12 @@ function JobsView() {
     }
     jobs.forEach((job) => {
       const card = el("article", "mmp-job-card");
+
+      const topbar = el("div", "mmp-job-card__topbar");
+      topbar.appendChild(BookmarkButton({ type: SAVED_TYPES.JOB, item: job, compact: true }));
+      topbar.appendChild(ShareButton({ message: jobShareMessage(job), label: "Share" }));
+      card.appendChild(topbar);
+
       card.appendChild(el("h3", null, job.title));
       card.appendChild(
         el(

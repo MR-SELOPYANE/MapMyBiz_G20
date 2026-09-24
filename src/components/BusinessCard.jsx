@@ -1,9 +1,14 @@
 /**
  * @file BusinessCard component.
  * @description Displays a business with name, category, description,
- * Youth-Owned badge, WhatsApp button, Donate button, and a phone link.
+ * Youth-Owned badge, WhatsApp button, Donate button, phone link, bookmark
+ * toggle, and WhatsApp share button.
  * Built with vanilla DOM createElement — no framework dependencies.
  */
+
+import { BookmarkButton } from "./BookmarkButton.jsx";
+import { businessShareMessage } from "../utils/wa-share.js";
+import { SAVED_TYPES } from "../services/saved.service.js";
 
 /**
  * Escapes HTML special characters in a string to prevent XSS.
@@ -130,11 +135,11 @@ const BUSINESS_CARD_STYLES = `
     background: #09676c;
     transform: translateY(-1px);
   }
-  .mmp-business-card__actions .mmp-btn--donate {
-    background: #e11d48;
+  .mmp-business-card__actions .mmp-btn--share {
+    background: #25D366;
   }
-  .mmp-business-card__actions .mmp-btn--donate:hover {
-    background: #c2410c;
+  .mmp-business-card__actions .mmp-btn--share:hover {
+    background: #128c7e;
   }
   .mmp-business-card__phone-link {
     display: inline-flex;
@@ -311,9 +316,17 @@ export function BusinessCard(business = {}) {
     card.appendChild(locEl);
   }
 
-  // --- Actions: phone link, WhatsApp, Donate, Email ---
+  // --- Actions: phone link, WhatsApp, Donate, Email, bookmark, share ---
   const actions = document.createElement("div");
   actions.className = "mmp-business-card__actions";
+
+  const bookmarkBtn = BookmarkButton({
+    type: SAVED_TYPES.BUSINESS,
+    item: business,
+    label: "Save this business for later",
+    compact: true,
+  });
+  actions.appendChild(bookmarkBtn);
 
   if (phoneNumber) {
     const phoneLink = document.createElement("a");
@@ -338,6 +351,19 @@ export function BusinessCard(business = {}) {
     donateBtn.onclick = () => handleDonate(whatsappDigits, businessNameValue);
     actions.appendChild(donateBtn);
   }
+
+  const shareBtn = document.createElement("button");
+  shareBtn.type = "button";
+  shareBtn.className = "mmp-btn mmp-btn--share";
+  shareBtn.innerHTML = "📤 Share";
+  shareBtn.title = "Share on WhatsApp";
+  shareBtn.onclick = () => {
+    const params = new URLSearchParams();
+    params.set("text", businessShareMessage(business));
+    const query = params.toString();
+    window.open(`https://wa.me/?${query}`, "_blank", "noopener,noreferror");
+  };
+  actions.appendChild(shareBtn);
 
   if (email) {
     const emailLink = document.createElement("a");
