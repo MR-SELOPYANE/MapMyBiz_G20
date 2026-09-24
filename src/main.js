@@ -73,6 +73,15 @@ async function clearStaleServiceWorkers() {
   }
 }
 
+async function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  try {
+    await navigator.serviceWorker.register("/sw.js");
+  } catch (err) {
+    console.warn("Service worker registration failed:", err);
+  }
+}
+
 function buildShell(appRoot) {
   appRoot.innerHTML = "";
   appRoot.appendChild(Navbar());
@@ -161,12 +170,13 @@ export async function initApp() {
     console.error("Unhandled rejection:", event.reason);
   });
 
-  await checkSession();
-  initAuthListener();
-
   const appRoot = document.getElementById("app-root") || document.body;
   buildShell(appRoot);
   initRouter(onRouteChange);
+
+  checkSession();
+  initAuthListener();
+  registerServiceWorker();
 
   return { navigate };
 }

@@ -112,8 +112,8 @@ export async function signOut() {
  * @returns {Promise<{ user: Object|null, error: Object|null }>}
  */
 export async function getCurrentUser() {
-  const { data: { user }, error } = await supabase.auth.getUser();
-  return { user, error };
+  const { data, error } = await supabase.auth.getUser();
+  return { user: data?.user ?? null, error };
 }
 
 /**

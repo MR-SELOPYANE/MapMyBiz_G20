@@ -1,8 +1,11 @@
 {
   "name": "Map My Biz",
   "short_name": "MMB",
-  "start_url": "/",
+  "description": "Empowering rural entrepreneurs with mentorship, marketing tools, and practical learning.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#0A8791",
   "icons": [
