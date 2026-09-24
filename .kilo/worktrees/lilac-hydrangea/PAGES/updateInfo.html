@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Personal Info - Map My Biz</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html" class="active">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <div id="google_translate_element"></div>
+    </div>
+    <!-- User Profile Dropdown -->
+    <div class="user-profile" id="userProfile">
+      <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="profile-container">
+      <div class="form-group">
+        <label for="profileImage">Profile Picture</label>
+        <input type="file" id="profileImage" accept="image/*" />
+        <div id="imagePreview" style="margin-top: 10px;">
+          <!-- Preview will appear here -->
+        </div>
+      </div>
+      <form id="profileForm" class="profile-form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="John Doe" />
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" id="phoneNumber" placeholder="+27 123 456 789" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="john@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="Johannesburg" />
+        </div>
+
+        <div class="form-group">
+          <label for="saId">User ID Number</label>
+          <input type="text" id="saId" placeholder="Valid SA ID Number" />
+        </div>
+
+        <div class="form-buttons">
+          <button type="button" id="saveBtn" class="btn-primary">SAVE CHANGES</button>
+          <button type="button" id="deleteBtn" class="btn-primary" style="background-color: #d32f2f; color: white;">
+            Delete Profile
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Map My Biz</h4>
+        <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>  
+        <a id="openTerms">Terms & Conditions</a><br>
+        <a id="openPrivacy">Privacy Policy</a><br>
+        <a id="openPopia">POPIA Compliance</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@mapmybiz.co.za</p>
+        <p>Phone: +27 11 123 4567</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; 2025 Map My Biz. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Google Translate -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'af,zu,xh,st,tn,ss,ve,ts,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+
+<<<<<<< HEAD
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && savedLang !== 'en') {
+        setTimeout(() => {
+          const select = document.querySelector('.goog-te-combo');
+          if (select) {
+            select.value = savedLang;
+            select.dispatchEvent(new Event('change'));
+=======
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="john@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="Johannesburg" />
+      </div>
+
+      <div class="form-group">
+        <label for="IDNumber">User ID Number</label>
+        <input type="number" id="IDNumber" placeholder="Valid SA ID Number" />
+      </div>
+
+      <div class="form-buttons">
+        <button type="button" id="saveBtn" class="btn-primary">Save Changes</button>
+        <button type="button" id="deleteBtn" class="btn-primary" style="background-color: #d32f2f; color: white;">
+          Delete Profile
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+        <footer>
+          <div class="footer-container">
+            <div class="footer-section">
+              <h4>About Map My Biz</h4>
+              <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+            </div>
+            <div class="footer-section">
+              <h4>Legal</h4>  
+                <a id="openTerms">Terms & Conditions</a>
+                <br>
+                <a id="openPrivacy">Privacy Policy</a>
+                <br>
+                <a id="openPopia">POPIA Compliance</a>
+            </div>
+            <div class="footer-section">
+              <h4>Contact</h4>
+              <p>Email: support@mapmybiz.co.za</p>
+              <p>Phone: +27 11 123 4567</p>
+            </div>
+          </div>
+          <div class="bottom-bar">
+            &copy; 2025 Map My Biz. All rights reserved.
+          </div>
+        </footer>
+        <script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              includedLanguages: 'af,zu,xh,st,tn,ss,ve,ts,en',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false
+            }, 'google_translate_element');
+      
+            // Restore saved language
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang && savedLang !== 'en') {
+              setTimeout(() => {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                  select.value = savedLang;
+                  select.dispatchEvent(new Event('change'));
+                }
+              }, 1000);
+            }
+      
+            // Save on change
+            document.addEventListener('change', function(e) {
+              if (e.target.classList.contains('goog-te-combo')) {
+                localStorage.setItem('preferredLanguage', e.target.value);
+              }
+            });
+>>>>>>> 47eb33fa1edf5fab1b717aeea8d022a36462c9e5
+          }
+        }, 1000);
+      }
+
+      document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('goog-te-combo')) {
+          localStorage.setItem('preferredLanguage', e.target.value);
+        }
+      });
+    }
+
+      document.addEventListener("DOMContentLoaded", async () => {
+  // Get current user
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    alert("Please log in to edit your profile.");
+    window.location.href = "../index.html";
+    return;
+  }
+
+  // Load existing profile data
+  const { data: profile, error: dbError } = await supabase
+    .from("user_profile")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  if (dbError) {
+    console.warn("No profile found or error:", dbError);
+  } else {
+    // Populate form
+    const fullNameInput = document.getElementById("fullName");
+    const saIdInput = document.getElementById("saId");
+    const locationInput = document.getElementById("location");
+
+    if (fullNameInput) fullNameInput.value = profile.full_name || "";
+    if (saIdInput) saIdInput.value = profile.sa_id || "";
+    if (locationInput) locationInput.value = profile.location || "";
+
+    // Show current profile image if exists
+    const imagePreview = document.getElementById("imagePreview");
+    if (profile.avatar_url && imagePreview) {
+      imagePreview.innerHTML = `<img src="${profile.avatar_url}" alt="Current Profile" style="max-width: 100%; height: auto; border-radius: 8px;">`;
+    }
+  }
+
+  // Image Preview on Select
+  const profileImageInput = document.getElementById("profileImage");
+  if (profileImageInput) {
+    profileImageInput.addEventListener("change", function(e) {
+      const file = e.target.files[0];
+      const preview = document.getElementById("imagePreview");
+
+      if (!file || !preview) {
+        if (preview) preview.innerHTML = "";
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        preview.innerHTML = `<img src="${event.target.result}" alt="Profile Preview" style="max-width: 100%; height: auto; border-radius: 8px;">`;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Save Profile Button
+  const saveBtn = document.getElementById("saveBtn");
+  if (saveBtn) {
+    saveBtn.addEventListener("click", async () => {
+      const fullNameInput = document.getElementById("fullName");
+      const saIdInput = document.getElementById("saId");
+      const locationInput = document.getElementById("location");
+
+      const name = fullNameInput?.value.trim();
+      const saId = saIdInput?.value.trim();
+      const location = locationInput?.value.trim();
+
+      if (!name || !saId) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      if (!/^\d{13}$/.test(saId)) {
+        alert("South African ID must be exactly 13 digits.");
+        return;
+      }
+
+      try {
+        let avatarUrl = profile?.avatar_url; // Keep existing if no new image
+
+        // ✅ Upload new image if selected
+        const fileInput = document.getElementById("profileImage");
+        const file = fileInput?.files[0];
+
+        if (file) {
+          // Generate unique file name
+          const fileName = `${user.id}/${Date.now()}_${file.name}`;
+          
+          // Upload to Supabase Storage
+          const { error: uploadError } = await supabase.storage
+            .from('avatars') // ✅ Make sure this bucket exists in Supabase
+            .upload(fileName, file, {
+              cacheControl: '3600',
+              upsert: false
+            });
+
+          if (uploadError) throw uploadError;
+
+          // Get public URL
+          const {  publicUrl } = supabase.storage
+            .from('avatars')
+            .getPublicUrl(fileName);
+
+          avatarUrl = publicUrl;
+        }
+
+        // ✅ Update Auth User (metadata only)
+        const { error: authError } = await supabase.auth.updateUser({
+          data: {
+            full_name: name,
+            sa_id: saId
+          }
+        });
+
+        if (authError) throw new Error("Auth update failed: " + authError.message);
+
+        // ✅ Update user_profile table
+        const { error: dbError } = await supabase
+          .from("user_profile")
+          .update({
+            full_name: name,
+            sa_id: saId,
+            location: location,
+            avatar_url: avatarUrl, // ✅ Save image URL
+            updated_at: new Date().toISOString(),
+          })
+          .eq("id", user.id);
+
+        if (dbError) throw new Error("Profile update failed: " + dbError.message);
+
+        alert("✅ Your information has been updated!");
+        window.location.href = "../PAGES/dashboard.html";
+      } catch (err) {
+        console.error("Update error:", err);
+        alert("Error: " + err.message);
+      }
+    });
+  }
+
+  // Delete Profile Button
+  const deleteBtn = document.getElementById("deleteBtn");
+  if (deleteBtn) {
+    deleteBtn.addEventListener("click", async () => {
+      if (!confirm("⚠️ Are you sure? This will PERMANENTLY delete your account and all data.")) {
+        return;
+      }
+
+      try {
+        // ✅ Delete profile image from storage if exists
+        const {  profile } = await supabase
+          .from("user_profile")
+          .select("avatar_url")
+          .eq("id", user.id)
+          .single();
+
+        if (profile?.avatar_url) {
+          // Extract path from URL
+          const path = profile.avatar_url.split('/').slice(-2).join('/');
+          await supabase.storage.from('avatars').remove([path]);
+        }
+
+        // ✅ Delete from user_profile
+        const { error: deleteProfileError } = await supabase
+          .from("user_profile")
+          .delete()
+          .eq("id", user.id);
+
+        if (deleteProfileError) throw deleteProfileError;
+
+        // ✅ Sign out
+        const { error: signOutError } = await supabase.auth.signOut();
+        if (signOutError) throw signOutError;
+
+        alert("✅ Your profile has been deleted. You have been logged out.");
+        window.location.href = "../index.html";
+      } catch (err) {
+        console.error("Delete error:", err);
+        alert("Error: " + err.message);
+      }
+    });
+  }
+});
+
+
+
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- ✅ LOAD PROFILE JS AS MODULE -->
+  <script type="module" src="../JS/update-profile.js"></script>
+
+</body>
+</html>

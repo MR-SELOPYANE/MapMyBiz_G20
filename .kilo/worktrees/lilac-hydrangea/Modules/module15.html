@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 15: Basics of Marketing | Map My Biz</title>
+
+  <!-- Correct paths to CSS and JS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+    .marketing-mix {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .mix-item {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #4a90e2;
+    }
+    .tip {
+      background-color: #e8f5e9;
+      padding: 12px;
+      border-radius: 6px;
+      font-style: italic;
+      color: #2e7d32;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 15: Basics of Marketing</h1>
+    <p>Learn how to attract customers, stand out, and grow your business — no matter how small you are</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>In this module, you will understand what marketing really means and how it goes beyond just advertising. You’ll learn how to use the 4 P’s — Product, Price, Place, and Promotion — to build a strong foundation for your business. You’ll discover how to identify your target customer so your efforts focus on the right people. You’ll also learn how to create a unique selling point that makes your business stand out. Finally, you’ll explore simple, low-cost ways to promote your business using tools you already have, like WhatsApp, word-of-mouth, and social media.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📢 1. What Is Marketing?</h3>
+    <p><strong>Marketing</strong> is everything you do to help customers know, like, and trust your business. It’s not just about ads or flyers — it starts the moment someone sees your sign, hears your name, or tastes your food.</p>
+    <p>Your product quality, pricing, packaging, branding, how you speak to customers, and where you sell — all of these are part of marketing. Every interaction shapes how people see your business.</p>
+    <div class="tip">
+      💡 Marketing starts the moment someone sees your sign, hears your name, or tastes your food.
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📦 2. The 4 P’s of Marketing (Simple & Practical)</h3>
+    <p>Use this simple framework to plan how your business connects with customers.</p>
+    <div class="marketing-mix">
+      <div class="mix-item">
+        <strong>1. Product</strong><br>
+        What are you selling? How is it different? Why should people choose it over other options? Focus on quality and how it solves a problem for your customer.
+      </div>
+      <div class="mix-item">
+        <strong>2. Price</strong><br>
+        Is your price fair and affordable? Does it reflect the quality of your product? Consider offering smaller sizes or bundles to make it easier for customers to try or buy more.
+      </div>
+      <div class="mix-item">
+        <strong>3. Place</strong><br>
+        Where do your customers buy from you? It could be your street stall, WhatsApp, home delivery, or a local shop. Choose places where your customers already spend time.
+      </div>
+      <div class="mix-item">
+        <strong>4. Promotion</strong><br>
+        How do people find out about you? Through word-of-mouth, WhatsApp messages, posters, Google Maps, or social media? Even simple, consistent sharing can make a big difference.
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>👥 3. Know Your Customer</h3>
+    <p>You can’t market to “everyone” — trying to do so makes your message weak. Instead, be specific about who your ideal customer is.</p>
+    <p>Ask yourself: Who buys from me now? What do they care about — price, speed, health, convenience? Where do they spend their time, both in person and online? The clearer you are, the better you can reach and serve them.</p>
+    <p>For example, instead of saying “I sell juice,” a stronger and more focused statement is: “I sell healthy fruit juice to gym-goers and busy moms who want natural, no-sugar drinks.” This helps you choose the right place to sell and the right message to share.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🌟 4. Create a Unique Selling Point (USP)</h3>
+    <p>Your <strong>USP</strong> is the reason customers should choose you instead of someone else. It highlights what makes your business special.</p>
+    <p>This could be that your bread is “freshly baked every morning,” your drinks have “no sugar added,” your service is “ready in 10 minutes,” you’re the “cheapest in the area,” or you offer “free home delivery.”</p>
+    <p>To make it clear, try writing your USP in one sentence: “We are the only [type of business] that [what makes you special].” For example: “We are the only vetkoek seller in Braamfontein that uses whole wheat flour and delivers within 15 minutes.”</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📣 5. Low-Cost Ways to Promote Your Business</h3>
+    <p>You don’t need a big budget to market your business — just creativity, consistency, and authenticity.</p>
+    <p>Encourage word-of-mouth by asking happy customers to tell two friends. Use WhatsApp to share photos of your products, announce daily specials, or send delivery updates. Post once a week on Facebook or Instagram — even a simple photo with a message helps you stay visible. Put up a clean, clear sign with your business name, what you sell, and your phone number. Get listed on Google Maps so people can easily find you when searching nearby. And offer free samples — letting people try your product is one of the most powerful ways to win new customers.</p>
+    <div class="tip">
+      “The best marketing doesn’t feel like marketing. It feels like helping.”
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>✅ 6. Test, Learn & Improve</h3>
+    <p>Marketing is not about getting it perfect the first time — it’s about trying, learning, and improving. What works for one business might not work for another, so test small ideas and see what brings results.</p>
+    <p>Try selling at two different prices and see which one brings more sales. Post a message on WhatsApp on Monday and another on Friday — which day gets more replies? Ask your customers, “How did you hear about us?” to learn what’s working.</p>
+    <p>Remember: even small changes — like updating your photo or changing your opening time — can lead to big results over time. Keep learning, keep adjusting, and keep showing up.</p>
+  </div>
+
+  <!-- Final Completion Badge -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! You've completed all 15 modules!<br>
+    You're now ready to grow your business with confidence.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 15";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

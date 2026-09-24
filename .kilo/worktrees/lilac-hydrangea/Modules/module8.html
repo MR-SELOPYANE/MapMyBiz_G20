@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 8: Entrepreneurial Mindset | Map My Biz</title>
+
+  <!-- Correct paths to CSS and JS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+    .quote {
+      font-style: italic;
+      color: #2c3e50;
+      text-align: center;
+      padding: 15px;
+      margin: 20px 0;
+      background-color: #f0f7ff;
+      border-radius: 8px;
+      border-left: 4px solid #4a90e2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 8: Entrepreneurial Mindset</h1>
+    <p>Develop the confidence, resilience, and vision to build a successful business</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>This module is about more than skills or strategies — it’s about transforming how you see yourself and your potential. You’ll learn what it truly means to think like an entrepreneur: not just someone who sells, but someone who solves, adapts, and persists.</p>
+    <p>We’ll help you build unshakable self-belief — not because you’re perfect, but because you’re willing to start, to learn, and to grow. You’ll discover how to reframe failure not as a stop sign, but as feedback — a necessary step on the path to success.</p>
+    <p>You’ll learn practical ways to stay motivated when energy fades, by anchoring yourself to your deeper purpose and celebrating small wins. You’ll train your mind to spot opportunities everywhere — in problems, in waste, in everyday needs — and turn them into income.</p>
+    <p>And finally, you’ll embrace the mindset of daily growth — investing in yourself, reflecting on your journey, and refusing to quit. Because the most powerful tool in your business isn’t your product or your phone — it’s you.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🧠 1. What Is an Entrepreneurial Mindset?</h3>
+    <p>An entrepreneurial mindset isn’t about having a shop or a website — it’s about how you respond to the world around you. It’s the habit of seeing a problem and immediately asking, “How can I solve this?” instead of “Who will fix this for me?”</p>
+    
+    <p>When you hear someone say, “I don’t have money,” the entrepreneurial mind responds, “How can I start small and grow from there?” When others say, “No one will buy from me,” you ask, “Who needs what I offer, and how can I reach them?”</p>
+    
+    <p>This way of thinking doesn’t require special talent or luck. It’s learned — practiced — and strengthened over time. Every time you choose curiosity over fear, action over waiting, and solutions over complaints, you’re building your entrepreneurial muscle.</p>
+    
+    <p>And the best part? You can start today — right where you are.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💪 2. Believe in Yourself</h3>
+    <p>The biggest barrier to your success isn’t competition, funding, or location — it’s self-doubt. That quiet voice whispering, “You’re not ready,” “You don’t know enough,” or “What if you fail?” — that’s the enemy. And it’s lying.</p>
+    
+    <p>You don’t need to be perfect to begin. You just need to start — and learn as you go. You don’t need years of experience. Some of the most successful businesses were started by people who learned by doing — trial, error, adjustment, repeat.</p>
+    
+    <p>And you don’t need everyone’s approval. One customer who says “yes,” one person who believes in you — that’s all the validation you need to take the first step. The rest will come.</p>
+    
+    <div class="quote">
+      “The only person who can tell you 'you can't' is <strong>you</strong>.<br>
+      And you don’t get to say that anymore.”
+    </div>
+    
+    <p><strong>Tip:</strong> Take a moment right now to write down three things you’re good at — whether it’s baking, listening, organizing, or encouraging others. Keep that list where you can see it every day. Add to it each week. Your confidence grows when you remind yourself of your strengths — not your gaps.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🔥 3. Embrace Failure as Feedback</h3>
+    <p>Every entrepreneur — every single one — has failed. Burnt cookies. Missed deliveries. Forgotten appointments. Products no one bought. These aren’t signs you should quit — they’re proof you’re trying. And trying is how you win.</p>
+    
+    <p>Failure is not the opposite of success — it’s woven into it. Every “no” teaches you how to ask better next time. Every mistake shows you what to fix. Every setback reveals what truly matters — and who you really are when things get hard.</p>
+    
+    <p><strong>Example:</strong> Your first batch of cookies comes out burnt. Instead of throwing in the towel, you note the oven temperature, adjust the timer, and try again. The next batch? Perfect. And they sell out in an hour. That’s not luck — that’s learning.</p>
+    
+    <p>So when something doesn’t go as planned, don’t ask, “Why did I fail?” Ask, “What did I learn?” That simple shift turns disappointment into direction — and frustration into fuel.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🚀 4. Stay Motivated & Focused</h3>
+    <p>Let’s be honest: motivation fades. Some days, you’ll wake up tired, discouraged, or overwhelmed. That’s normal. What separates successful entrepreneurs isn’t constant excitement — it’s discipline, purpose, and persistence.</p>
+    
+    <p>Start by setting <strong>small, specific goals</strong>. “Sell 5 products this week” is clearer — and more achievable — than “Be rich.” Small goals build momentum. Momentum builds confidence. Confidence builds results.</p>
+    
+    <p><strong>Track your progress</strong> — even the tiny wins. Did you send one WhatsApp promo? That’s a win. Did you reply to a customer quickly? That’s a win. Write them down. Celebrate them. Progress, not perfection, is the goal.</p>
+    
+    <p><strong>Remember your “why.”</strong> Why did you start? For your children’s future? For freedom? For pride in building something of your own? Write it down. Put it on your wall. When motivation dips, your “why” will pull you forward.</p>
+    
+    <p>And finally — <strong>choose your circle wisely</strong>. Surround yourself with people who believe in you, challenge you, and cheer you on. Limit time with those who drain your energy or dismiss your dreams. Your mindset is shaped by the voices you listen to — so choose uplifting ones.</p>
+    
+    <p><strong>Tip:</strong> When you feel like giving up, don’t look ahead — look back. See how far you’ve already come. The courage it took to start. The lessons you’ve learned. The customers you’ve served. You’re stronger than you think — and you’re not alone.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💡 5. Think Like an Opportunity Spotter</h3>
+    <p>Entrepreneurs don’t wait for opportunities to knock — they create them. They walk through their neighborhoods, markets, and communities with open eyes and curious minds, asking: “What’s missing? What’s broken? What do people need?”</p>
+    
+    <p>See a long line at the only barber in town? That’s not just a wait — it’s a market gap. Start offering quicker, cheaper, or more convenient haircuts. Notice people throwing away old clothes? That’s not just waste — it’s raw material. Turn them into tote bags, quilts, or cushion covers.</p>
+    
+    <p>Recognize a skill you already have — baking, sewing, fixing phones, teaching kids to read? That’s not just a hobby — it’s a revenue stream. Start small. Test it. Refine it. Scale it.</p>
+    
+    <p><strong>Train your mind daily:</strong> As you walk, ride, or sit, ask yourself: “What problem could I solve here? What need could I meet? How could I add value?” The answers are everywhere — you just have to look for them. And when you start seeing opportunities instead of obstacles, your business will never run out of ideas.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🌱 6. Grow Every Day</h3>
+    <p>Your business will only grow as much as you do. The most powerful investment you can make isn’t in equipment or ads — it’s in yourself. Your knowledge, your resilience, your creativity — these are your true competitive advantages.</p>
+    
+    <p>Commit to <strong>learning something new every day</strong> — even if it’s just for 10 minutes. Watch a short video on pricing, read a story about another entrepreneur, or ask a fellow business owner how they solved a problem. Small inputs, over time, create massive change.</p>
+    
+    <p><strong>Reflect every evening.</strong> Ask yourself: “What went well today? What would I do differently tomorrow?” Reflection turns experience into wisdom — and wisdom into better decisions.</p>
+    
+    <p><strong>Stay flexible.</strong> If something isn’t working — your pricing, your product, your hours — don’t cling to it out of pride. Adapt. Pivot. Experiment. The market doesn’t care about your plan — it cares about your value. Be willing to change to deliver it.</p>
+    
+    <p>And above all — <strong>be patient</strong>. Real success doesn’t happen overnight. It’s built day by day, customer by customer, lesson by lesson. Trust the process. Keep showing up. Your breakthrough might be just one more step away.</p>
+    
+    <div class="quote">
+      “Success doesn’t come from having the best idea.<br>
+      It comes from the person who <strong>doesn’t give up</strong>.”
+    </div>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 8 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 8";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+    });
+  </script>
+<script type="module" src="../JS/script.js"></script>
+</body>
+</html>

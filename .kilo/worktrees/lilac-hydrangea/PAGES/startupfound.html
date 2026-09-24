@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Biz – Support Local Businesses</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #f9f9fc;
+    }
+
+    .hero {
+    background: linear-gradient(135deg, #0A8791 0%, #2ec4b6 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    /* Donation Cards */
+    .donation-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card-donation {
+      background: #e8f5f5;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      padding: 25px;
+      width: 100%;
+      max-width: 320px;
+      transition: transform 0.3s ease, border 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .card-donation:hover {
+      transform: translateY(-8px);
+      border-color: #00897b;
+    }
+
+    .card-donation h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+      color: #00897b;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .card-donation .amount {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #e91e63;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .card-donation p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .btn-donate {
+      background-color: #ffb300;
+      color: white;
+      padding: 12px 0;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+
+    .btn-donation:hover {
+      background-color: #ffaa00;
+    }
+
+    /* Custom Donation */
+    .custom-donation {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #e8f5f5;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .custom-donation label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #00897b;
+    }
+
+    .custom-donation input, .custom-donation select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #00897b;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .custom-donation button {
+      margin-top: 15px;
+      background-color: #00897b;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .custom-donation button:hover {
+      background-color: #00796b;
+    }
+
+    /* Impact Section */
+    .impact-section {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #f1f8e9;
+    }
+
+    .impact-section h2 {
+      font-size: 2rem;
+      color: #33691e;
+      margin-bottom: 15px;
+    }
+
+    .impact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card-impact {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .card-impact .icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card-impact h3 {
+      font-size: 1.2rem;
+      color: #2c3e50;
+    }
+
+    /* Footer CTA */
+    .cta-footer {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    .cta-footer h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-footer p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    /* Modal Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #333;
+}
+
+/* Loader Animation */
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #00897b;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="../Assets/Lg.png" alt="Map My Biz Logo" />
+      </div>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../PAGES/managebusines.html">Businesses</a>
+        <a href="../PAGES/login.html" class="cta-button">Log In</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>🌱 Support a Local Business</h1>
+    <p>Your small contribution helps rural entrepreneurs grow, feed families, and build stronger communities.</p>
+  </section>
+
+  <!-- Donation Cards -->
+  <div class="donation-cards">
+    
+    <!-- R50 Card -->
+    <div class="card-donation">
+      <h3>Plant a Seed</h3>
+      <div class="amount">R50</div>
+      <p>Help a vendor buy ingredients for a day. A meal sold today means hope for tomorrow.</p>
+      <a href="#" class="btn-donate" onclick="openDonationModal('R50')">Donate R50 Now</a>
+    </div>
+
+    <!-- R100 Card -->
+    <div class="card-donation">
+      <h3>Strengthen a Craft</h3>
+      <div class="amount">R100</div>
+      <p>Buy beads, thread, or tools for an artisan. Turn creativity into income.</p>
+      <!-- R100 -->
+<a href="#" class="btn-donate" onclick="openDonationModal('R100')">Donate R100 Now</a>
+
+    </div>
+
+    <!-- R250 Card -->
+    <div class="card-donation">
+      <h3>Boost a Business</h3>
+      <div class="amount">R250</div>
+      <p>Help a business repair equipment, print flyers, or stock up for the season.</p>
+      <a href="#" class="btn-donate" onclick="openDonationModal('R250')">Donate R250 Now</a>
+    </div>
+
+  </div>
+
+  <!-- Custom Donation -->
+  <div class="custom-donation">
+    <h3 style="text-align:center; color:#00897b;">Or Enter Your Own Amount</h3>
+    <form id="customDonationForm">
+      <label for="amount">Donation Amount (ZAR)</label>
+      <input type="number" id="amount" min="10" placeholder="Enter amount" required />
+
+      <label for="business">Support a Specific Business (Optional)</label>
+      <select id="business">
+        <option value="">Any Local Business</option>
+        <option value="thandi">Thandi's Kitchen</option>
+        <option value="zanele">Zanele Beads</option>
+        <option value="sipho">Sipho's Repair</option>
+        <option value="nkosi">Nkosi Clothing</option>
+      </select>
+
+      <label for="name">Your Name (Optional)</label>
+      <input type="text" id="name" placeholder="Enter your name" />
+
+      <label for="email">Your Email (Optional)</label>
+      <input type="email" id="email" placeholder="we’ll send a thank you" />
+
+      <button type="submit">Proceed to Donate</button>
+    </form>
+  </div>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <h2>Your Impact</h2>
+    <p>Every donation, no matter how small, creates a ripple effect in the community.</p>
+    <div class="impact-cards">
+      <div class="card-impact">
+        <div class="icon">📈</div>
+        <h3>Grow Businesses</h3>
+      </div>
+      <div class="card-impact">
+        <div class="icon">👩‍🍳</div>
+        <h3>Feed Families</h3>
+      </div>
+      <div class="card-impact">
+        <div class="icon">🛠️</div>
+        <h3>Empower Skills</h3>
+      </div>
+      <div class="card-impact">
+        <div class="icon">🌍</div>
+        <h3>Strengthen Communities</h3>
+      </div>
+    </div>
+  </section>
+<!-- Donation Modal -->
+<div id="donationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Confirm Your Donation</h2>
+      <p>You're about to donate <strong id="amountDisplay">R50</strong> to support a local business.</p>
+      <p><strong>Thank you for making a difference!</strong></p>
+      <button id="proceedToDonate" class="btn-primary">Proceed to Payment</button>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal (Loading) -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeConfirm">&times;</span>
+      <h2>Processing Your Donation...</h2>
+      <div class="loader"></div>
+      <p style="margin-top: 15px; color: #555;">Redirecting to secure payment gateway</p>
+    </div>
+  </div>
+  <!-- Call to Action Footer -->
+  <section class="cta-footer">
+    <h2>Thank You for Believing in Local</h2>
+    <p>Your support helps dreams become reality — one business at a time.</p>
+    <a href="../PAGES/managebusines.html" class="btn-primary">See Who You’re Helping</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Map My Biz. All rights reserved.</p>
+    <p>All donations go directly to verified rural entrepreneurs.</p>
+    <p>Contact: <a href="mailto:donate@mapmybiz.org">donate@mapmybiz.org</a></p>
+  </footer>
+<!-- Replace the old script block -->
+<!-- Combined Legal Modal -->
+<div id="legalModal" class="modal">
+  <div class="modal-content">
+    <span class="close" aria-label="Close">&times;</span>
+    <div class="modal-header">Legal Information</div>
+
+    <!-- Tabs -->
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+      <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+      <button class="tab-btn" data-tab="popia">POPIA Compliance</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <!-- Terms -->
+      <div id="tab-terms" class="tab-content">
+        <h3>1. Introduction</h3>
+        <p>Welcome to Map My Biz. By accessing or using our website, learning platform, or services, you agree to comply with these Terms and Conditions. If you do not agree, please do not use our services.</p>
+        <h3>2. Purpose of Map My Biz</h3>
+        <ul>
+          <li>Provides accredited learning modules to aspiring entrepreneurs through kiosks.</li>
+          <li>Showcases certified businesses on a smart map for tourists.</li>
+          <li>Enables tourists to discover, support, and donate to rural businesses.</li>
+        </ul>
+        <h3>3. Use of Services</h3>
+        <ul>
+          <li>Entrepreneurs must register truthfully and complete modules to be listed.</li>
+          <li>Businesses listed on the smart map are responsible for the accuracy of their information.</li>
+          <li>Tourists use the website at their own discretion when engaging with businesses or making donations.</li>
+        </ul>
+        <h3>4. Donations and Payments</h3>
+        <ul>
+          <li>Donations made through Map My Biz go directly to the chosen business.</li>
+          <li>Map My Biz does not guarantee the use of donations once received by businesses.</li>
+          <li>Map My Biz is not liable for disputes between donors and entrepreneurs.</li>
+        </ul>
+        <h3>5. Intellectual Property</h3>
+        <p>All content on the Map My Biz platform — including text, design, software, and logos — is owned by or licensed to Map My Biz. Users may not copy, modify, or distribute materials without permission.</p>
+        <h3>6. Limitation of Liability</h3>
+        <ul>
+          <li>Map My Biz provides services “as is.”</li>
+          <li>We are not liable for business performance, tourist experiences, or third-party interactions.</li>
+          <li>We are not responsible for technical issues beyond our control.</li>
+        </ul>
+        <h3>7. Changes to Terms</h3>
+        <p>We may update these Terms at any time. Continued use of the platform means acceptance of the revised Terms.</p>
+      </div>
+
+      <!-- Privacy -->
+      <div id="tab-privacy" class="tab-content" style="display:none;">
+        <h3>1. Introduction</h3>
+        <p>Map My Biz respects your privacy and is committed to protecting your personal information.</p>
+        <h3>2. Information We Collect</h3>
+        <ul>
+          <li><strong>Entrepreneurs:</strong> Name, contact details, business information, learning progress.</li>
+          <li><strong>Tourists/Users:</strong> Basic browsing data, voluntary donations, and booking interactions.</li>
+          <li><strong>Kiosk Data:</strong> Learning results stored locally, then securely backed up.</li>
+        </ul>
+        <h3>3. How We Use Your Information</h3>
+        <ul>
+          <li>To deliver learning modules and track progress.</li>
+          <li>To verify businesses before listing them on the smart map.</li>
+          <li>To process donations and display business information to tourists.</li>
+          <li>To improve our platform and ensure accessibility.</li>
+        </ul>
+        <h3>4. Sharing of Information</h3>
+        <ul>
+          <li>We do not sell or trade personal information.</li>
+          <li>Business information (e.g., location, description, images) will be publicly visible on the smart map.</li>
+          <li>Donation transactions are processed securely through third-party providers.</li>
+        </ul>
+        <h3>5. Data Security</h3>
+        <ul>
+          <li>Data collected at kiosks is encrypted and backed up regularly.</li>
+          <li>We take reasonable steps to protect personal data, but no system is completely secure.</li>
+        </ul>
+        <h3>6. User Rights</h3>
+        <ul>
+          <li>Access and correct your personal data.</li>
+          <li>Request removal of your information from our platform.</li>
+          <li>Opt out of marketing communication.</li>
+        </ul>
+        <h3>7. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. Updates will be posted on our website.</p>
+      </div>
+
+      <!-- POPIA -->
+      <div id="tab-popia" class="tab-content" style="display:none;">
+        <h3>POPIA Compliance (South Africa)</h3>
+        <p>The Protection of Personal Information Act (POPIA) gives you rights over your personal data.</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request what data we hold.</li>
+          <li><strong>Right to Correction:</strong> Update inaccurate information.</li>
+          <li><strong>Right to Deletion:</strong> Ask us to delete your data.</li>
+          <li><strong>Right to Object:</strong> Opt out of direct marketing.</li>
+        </ul>
+        <p>Contact us at support@mapmybiz.co.za to exercise these rights.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer" style="text-align:center; margin-top:12px;">
+      <label style="display:block; margin-bottom:10px; font-size:.95rem; color:#555;">
+        <input type="checkbox" id="agreeCheckbox" />
+        I have read and agree to the <strong>Terms & Conditions</strong>, <strong>Privacy Policy</strong>, and <strong>POPIA Compliance</strong>.
+      </label>
+      <button id="acceptLegalBtn" class="btn-primary" disabled>Accept & Continue</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    // Function to open the donation modal
+    function openDonationModal(amount) {
+      const modal = document.getElementById("donationModal");
+      const amountDisplay = document.getElementById("amountDisplay");
+      amountDisplay.textContent = amount;
+      modal.style.display = "block";
+    }
+  
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById("donationModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  
+    // Handle form submission
+    document.getElementById("customDonationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const amount = document.getElementById("amount").value;
+      openDonationModal(`R${amount}`);
+    });
+  
+    // Proceed to "payment"
+    document.getElementById("proceedToDonate").addEventListener("click", function() {
+      const amount = document.getElementById("amountDisplay").textContent;
+      const business = document.getElementById("business").value || "Any Local Business";
+  
+      // Show confirmation modal
+      const confirmModal = document.getElementById("confirmModal");
+      confirmModal.style.display = "block";
+  
+      // Simulate redirect after 3 seconds
+      setTimeout(() => {
+        confirmModal.style.display = "none";
+        alert(`Thank you! You've donated ${amount} to ${business}.`);
+        // In real app: redirect to PayFast/SnapScan
+        window.location.href = "../PAGES/payment.html";
+      }, 3000);
+    });
+  
+    // Close confirmation modal
+    document.getElementById("closeConfirm").onclick = function() {
+      document.getElementById("confirmModal").style.display = "none";
+    };
+  
+    // Close modal on escape key
+    window.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        document.getElementById("donationModal").style.display = "none";
+        document.getElementById("confirmModal").style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

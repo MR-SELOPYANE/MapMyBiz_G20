@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Biz – Visitor Mode</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9fc;
+    }
+
+    /* Header */
+    header {
+      background-color: #0A8791;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo-container img {
+      height: 60px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #e8f5f5;
+    }
+
+    .cta-button {
+      background-color: #ffb300;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #ffaa00;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('../Images/Lesedi-entrance.jpg'), url('../Images/7dde72d8.avif');
+      background-position: left center, right center;
+      background-size: 25% auto, 25% auto;
+      background-repeat: no-repeat;
+      background-color: #0A8791;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      margin-top: 70px;
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.3));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Cards Container */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .card-visitor {
+      background: #e8f5f5;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      border: 1px solid #b2dfdb;
+    }
+
+    .card-visitor:hover {
+      transform: translateY(-8px);
+    }
+
+    .card-visitor img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-visitor .content {
+      padding: 15px;
+    }
+
+    .card-visitor h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .card-visitor p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .btn-orange {
+      background-color: #ffb300;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .btn-orange:hover {
+      background-color: #ffaa00;
+    }
+
+    /* Donate Card */
+    .donate-card {
+      background: #fff;
+      border: 2px solid #ffb300;
+      border-radius: 12px;
+      padding: 15px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .donate-card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      color: #00897b;
+      margin-bottom: 10px;
+    }
+
+    .donate-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .donate-card p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    /* Explore Section */
+    .explore-section {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #f1f8e9;
+    }
+
+    .explore-section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 2rem;
+      color: #33691e;
+      margin-bottom: 15px;
+    }
+
+    .explore-section p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .map-preview {
+      max-width: 90%;
+      height: 300px;
+      border: 2px solid #00897b;
+      border-radius: 12px;
+      background: url('../Assets/main.jpg') center/cover no-repeat;
+      margin: 20px auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-preview::after {
+      content: "📍 Interactive Map Coming Soon!";
+      background: rgba(0, 137, 123, 0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .cta-footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cta-footer h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-footer p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .btn-primary {
+      background-color: #00897b;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #00695c;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1a252f;
+      color: #bbb;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    footer a {
+      color: #4a90e2;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 20px;
+        height: 180px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card-visitor,
+      .donate-card {
+        width: 90%;
+        max-width: 300px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="../Assets/Lg.png" alt="Map My Biz Logo" />
+      </div>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../PAGES/map.html">Smart Map</a>
+        <a href="../PAGES/managebusines.html">Available Business</a>
+        <a href="../PAGES/login.html" class="cta-button">Log In</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome, Traveler!</h1>
+      <p>Discover authentic rural experiences — meet local entrepreneurs, taste traditional food, and support real communities.</p>
+    </div>
+  </section>
+
+  <!-- Visitor Experience Cards -->
+  <div class="cards-container">
+    
+    <!-- Food Experience -->
+    <div class="card-visitor">
+      <img src="../Images/sa-foods.jpg" alt="Local Eats" />
+      <div class="content">
+        <h3>Local Eats</h3>
+        <p>Enjoy home-cooked meals, traditional bread, and farm-fresh ingredients. Meet the women behind the pots and hear their stories.</p>
+        <a href="../PAGES/map.html?category=Food" class="btn-orange">Find Food Spots</a>
+      </div>
+    </div>
+
+    <!-- Craft Experience -->
+    <div class="card-visitor">
+      <img src="../Images/Handcrafts.jpg" alt="Handmade Crafts" />
+      <div class="content">
+        <h3>Handmade Crafts</h3>
+        <p>Buy directly from artisans — woven baskets, beadwork, pottery, and more. Every purchase supports a family.</p>
+        <a href="../PAGES/map.html?category=Crafts" class="btn-orange">See Artisans</a>
+      </div>
+    </div>
+
+    <!-- Nature & Trails -->
+    <div class="card-visitor">
+      <img src="../Images/Village-Tourism.jpg" alt="Nature Trails" />
+      <div class="content">
+        <h3>Nature Trails</h3>
+        <p>Walk with local guides through forests, rivers, and heritage sites. Learn about plants, history, and ancestral knowledge.</p>
+        <a href="../PAGES/map.html?category=Nature" class="btn-orange">Explore Trails</a>
+      </div>
+    </div>
+
+    <!-- Cultural Events -->
+    <div class="card-visitor">
+      <img src="../Images/Cultural-Festivals-and-Events-Celebrating-Diversity-in-African-Travel.png" alt="Festivals & Music" />
+      <div class="content">
+        <h3>Festivals & Music</h3>
+        <p>Join seasonal celebrations, dance with locals, and feel the rhythm of the community.</p>
+        <a href="../PAGES/map.html?category=All" class="btn-orange">View Events</a>
+      </div>
+    </div>
+
+    <!-- Donate Card -->
+    <div class="donate-card">
+      <img src="../Images/8347897816-ddbb721dab.jpg" alt="Donate to Local Business" />
+      <h3>Donate to Local Business</h3>
+      <p>Support entrepreneurs who are building sustainable futures for their families and communities.</p>
+      <a href="../PAGES/startupfound.html" class="btn-orange">Donate Now</a>
+    </div>
+  </div>
+
+  <!-- Explore Section -->
+  <section class="explore-section">
+    <h2>Explore the Map of South Africa in Style</h2>
+    <p>Zoom in to see real businesses and experiences near you. Tap to learn more, call, or get directions.</p>
+    <div class="map-preview"></div>
+    <a href="../PAGES/map.html" class="btn-orange">Open Full Map</a>
+  </section>
+
+  <!-- Call to Action Footer -->
+  <section class="cta-footer">
+    <h2>Want to Support a Local Business?</h2>
+    <p>Every visit, every purchase, and every shared story helps rural entrepreneurs grow.</p>
+    <a href="../PAGES/startupfound.html" class="btn-primary">Donate to Local Business</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Map My Biz</h4>
+        <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+          <a id="openTerms">Terms & Conditions</a>
+          <br>
+          <a id="openPrivacy">Privacy Policy</a>
+          <br>
+          <a id="openPopia">POPIA Compliance</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@mapmybiz.co.za</p>
+        <p>Phone: +27 11 123 4567</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; 2025 Map My Biz. All rights reserved.
+    </div>
+  </footer>
+  <!-- Combined Legal Modal -->
+<div id="legalModal" class="modal">
+  <div class="modal-content">
+    <span class="close" aria-label="Close">&times;</span>
+    <div class="modal-header">Legal Information</div>
+
+    <!-- Tabs -->
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+      <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+      <button class="tab-btn" data-tab="popia">POPIA Compliance</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <!-- Terms -->
+      <div id="tab-terms" class="tab-content">
+        <h3>1. Introduction</h3>
+        <p>Welcome to Map My Biz. By accessing or using our website, learning platform, or services, you agree to comply with these Terms and Conditions. If you do not agree, please do not use our services.</p>
+        <h3>2. Purpose of Map My Biz</h3>
+        <ul>
+          <li>Provides accredited learning modules to aspiring entrepreneurs through kiosks.</li>
+          <li>Showcases certified businesses on a smart map for tourists.</li>
+          <li>Enables tourists to discover, support, and donate to rural businesses.</li>
+        </ul>
+        <h3>3. Use of Services</h3>
+        <ul>
+          <li>Entrepreneurs must register truthfully and complete modules to be listed.</li>
+          <li>Businesses listed on the smart map are responsible for the accuracy of their information.</li>
+          <li>Tourists use the website at their own discretion when engaging with businesses or making donations.</li>
+        </ul>
+        <h3>4. Donations and Payments</h3>
+        <ul>
+          <li>Donations made through Map My Biz go directly to the chosen business.</li>
+          <li>Map My Biz does not guarantee the use of donations once received by businesses.</li>
+          <li>Map My Biz is not liable for disputes between donors and entrepreneurs.</li>
+        </ul>
+        <h3>5. Intellectual Property</h3>
+        <p>All content on the Map My Biz platform — including text, design, software, and logos — is owned by or licensed to Map My Biz. Users may not copy, modify, or distribute materials without permission.</p>
+        <h3>6. Limitation of Liability</h3>
+        <ul>
+          <li>Map My Biz provides services “as is.”</li>
+          <li>We are not liable for business performance, tourist experiences, or third-party interactions.</li>
+          <li>We are not responsible for technical issues beyond our control.</li>
+        </ul>
+        <h3>7. Changes to Terms</h3>
+        <p>We may update these Terms at any time. Continued use of the platform means acceptance of the revised Terms.</p>
+      </div>
+
+      <!-- Privacy -->
+      <div id="tab-privacy" class="tab-content" style="display:none;">
+        <h3>1. Introduction</h3>
+        <p>Map My Biz respects your privacy and is committed to protecting your personal information.</p>
+        <h3>2. Information We Collect</h3>
+        <ul>
+          <li><strong>Entrepreneurs:</strong> Name, contact details, business information, learning progress.</li>
+          <li><strong>Tourists/Users:</strong> Basic browsing data, voluntary donations, and booking interactions.</li>
+          <li><strong>Kiosk Data:</strong> Learning results stored locally, then securely backed up.</li>
+        </ul>
+        <h3>3. How We Use Your Information</h3>
+        <ul>
+          <li>To deliver learning modules and track progress.</li>
+          <li>To verify businesses before listing them on the smart map.</li>
+          <li>To process donations and display business information to tourists.</li>
+          <li>To improve our platform and ensure accessibility.</li>
+        </ul>
+        <h3>4. Sharing of Information</h3>
+        <ul>
+          <li>We do not sell or trade personal information.</li>
+          <li>Business information (e.g., location, description, images) will be publicly visible on the smart map.</li>
+          <li>Donation transactions are processed securely through third-party providers.</li>
+        </ul>
+        <h3>5. Data Security</h3>
+        <ul>
+          <li>Data collected at kiosks is encrypted and backed up regularly.</li>
+          <li>We take reasonable steps to protect personal data, but no system is completely secure.</li>
+        </ul>
+        <h3>6. User Rights</h3>
+        <ul>
+          <li>Access and correct your personal data.</li>
+          <li>Request removal of your information from our platform.</li>
+          <li>Opt out of marketing communication.</li>
+        </ul>
+        <h3>7. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. Updates will be posted on our website.</p>
+      </div>
+
+      <!-- POPIA -->
+      <div id="tab-popia" class="tab-content" style="display:none;">
+        <h3>POPIA Compliance (South Africa)</h3>
+        <p>The Protection of Personal Information Act (POPIA) gives you rights over your personal data.</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request what data we hold.</li>
+          <li><strong>Right to Correction:</strong> Update inaccurate information.</li>
+          <li><strong>Right to Deletion:</strong> Ask us to delete your data.</li>
+          <li><strong>Right to Object:</strong> Opt out of direct marketing.</li>
+        </ul>
+        <p>Contact us at support@mapmybiz.co.za to exercise these rights.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer" style="text-align:center; margin-top:12px;">
+      <label style="display:block; margin-bottom:10px; font-size:.95rem; color:#555;">
+        <input type="checkbox" id="agreeCheckbox" />
+        I have read and agree to the <strong>Terms & Conditions</strong>, <strong>Privacy Policy</strong>, and <strong>POPIA Compliance</strong>.
+      </label>
+      <button id="acceptLegalBtn" class="btn-primary" disabled>Accept & Continue</button>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

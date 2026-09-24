@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 5: Fundamentals of Customer Service | Map My Biz</title>
+
+  <!-- Correct paths from /Modules folder -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 5: Fundamentals of Customer Service</h1>
+    <p>Learn how to deliver excellent service that keeps customers coming back</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>This module will help you understand that customer service isn’t just a department — it’s the heart of your small business. You’ll learn what great service truly means, whether you’re selling from a stall, a shop, or online.</p>
+    <p>We’ll walk you through the core principles that turn casual buyers into loyal fans — principles like listening, reliability, and going the extra mile. You’ll also learn how to handle complaints with grace and turn negative experiences into opportunities to build trust.</p>
+    <p>You’ll discover simple, powerful ways to build lasting customer loyalty — not through expensive programs, but through personal touches and consistent care. And finally, we’ll share everyday habits and mindset shifts that will help you — and anyone who works with you — deliver outstanding service, day after day.</p>
+    <p>Remember: In a world of big brands and impersonal transactions, your personal touch is your superpower.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>😊 1. What Is Customer Service?</h3>
+    <p><strong>Customer service</strong> is every interaction you have with a customer — before, during, and after they buy from you. It’s not just about solving problems; it’s about making people feel seen, valued, and respected.</p>
+    
+    <p>Before the sale, it’s answering questions patiently, explaining how your product works, or helping someone choose the right option. During the sale, it’s being polite, efficient, and accurate — whether you’re handing over goods or processing a digital payment. After the sale, it’s following up, honoring returns, fixing mistakes, or simply thanking them for their business.</p>
+    
+    <p><strong>Why it matters:</strong> One truly great experience can turn a first-time buyer into a lifelong supporter — and they’ll tell their friends, family, and neighbors. In small business, word-of-mouth is everything. Your service is your reputation — and your reputation is your most valuable asset.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🌟 2. The 5 Principles of Great Customer Service</h3>
+    <p>Delivering exceptional service doesn’t require fancy training — just commitment to a few timeless principles.</p>
+    
+    <p><strong>Be friendly and welcoming.</strong> A genuine smile, warm greeting, and eye contact set the tone. People don’t just buy products — they buy experiences and feelings. Make them feel at home.</p>
+    
+    <p><strong>Listen carefully.</strong> Let your customer finish speaking without interruption. Nod, ask thoughtful questions, and repeat back what you heard to show you understand. Often, people just want to feel heard.</p>
+    
+    <p><strong>Be prompt and reliable.</strong> Respond to messages quickly. Deliver on time. Keep your promises — even the small ones. Consistency builds trust, and trust builds loyalty.</p>
+    
+    <p><strong>Solve problems, don’t argue.</strong> When something goes wrong, focus on fixing it — not proving who’s right. Apologize sincerely, take ownership, and offer a solution. The goal isn’t to win an argument — it’s to win a loyal customer.</p>
+    
+    <p><strong>Go the extra mile.</strong> Small gestures make big impressions. A handwritten thank-you note, a free sample with their next order, remembering their child’s name — these moments create emotional connections that price and product alone can’t match.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📞 3. Handling Customer Complaints</h3>
+    <p>Every business — no matter how good — will face complaints. But complaints aren’t failures; they’re opportunities. How you respond defines your brand and can even strengthen your relationship with the customer.</p>
+    
+    <p>Use the <strong>LAER Method</strong> to turn frustration into loyalty:</p>
+    
+    <p><strong>Listen.</strong> Give the customer your full attention. Don’t interrupt, defend, or explain — just let them share their experience. Often, being heard is half the solution.</p>
+    
+    <p><strong>Apologize.</strong> Say “I’m sorry you had this experience.” You’re not admitting fault — you’re acknowledging their feelings. This simple phrase can instantly lower tension.</p>
+    
+    <p><strong>Empathize.</strong> Show you understand how they feel. Say things like, “That sounds really frustrating,” or “I’d feel the same way in your shoes.” Empathy builds bridges.</p>
+    
+    <p><strong>Resolve.</strong> Offer a fair solution — whether it’s a refund, replacement, discount, or simply fixing the issue. Ask, “What would make this right for you?” — and if it’s reasonable, do it.</p>
+    
+    <p><strong>Example:</strong><br>
+    Customer says: “My order arrived late and damaged.”<br>
+    You respond: “I’m so sorry about that — I understand how disappointing that must be. Let me send out a replacement today, and I’ll include a small gift to thank you for your patience.”</p>
+    
+    <p>This approach doesn’t just fix the problem — it creates a story the customer will tell others.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>❤️ 4. Building Customer Loyalty</h3>
+    <p>Loyal customers are your business’s backbone. They buy more, pay less attention to competitors, forgive small mistakes, and — best of all — refer new customers without you even asking.</p>
+    
+    <p>Start by <strong>knowing your customers</strong>. Remember their names, what they usually buy, or small details they’ve shared — like “I’m buying this for my daughter’s birthday.” Personal recognition makes people feel special.</p>
+    
+    <p><strong>Thank them — sincerely and often.</strong> Say it in person, write it on their receipt, send a quick WhatsApp message, or include a note in their package. Gratitude is free — but priceless.</p>
+    
+    <p><strong>Reward returning customers</strong> with simple loyalty gestures. A “Buy 5, Get 1 Free” card, a R10 discount on their next visit, or early access to new products shows you value their continued support.</p>
+    
+    <p><strong>Ask for feedback</strong> regularly. A simple “How was your experience today?” or “Is there anything we could do better?” tells customers their opinion matters — and gives you priceless insights to improve.</p>
+    
+    <p><strong>Tip:</strong> A short WhatsApp message like “Hope you’re enjoying your purchase! Let us know if you need anything :)” can strengthen relationships more than any ad campaign.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🚀 5. Everyday Customer Service Tips</h3>
+    <p>Great service isn’t built in grand gestures — it’s built in daily habits and small choices.</p>
+    
+    <p>Keep your space — whether it’s a stall, shop, or delivery packaging — clean, tidy, and organized. It shows respect for your customers and pride in your business.</p>
+    
+    <p>Dress neatly and professionally. You are the face of your brand — your appearance communicates care, credibility, and quality before you even speak.</p>
+    
+    <p>Stay calm, even when things get busy or stressful. Customers mirror your energy — if you’re rushed or frustrated, they’ll feel it. Take a breath, smile, and respond with patience.</p>
+    
+    <p>If you have helpers or staff, train them to follow the same standards. Consistency matters — your customer shouldn’t get amazing service from you and a cold shoulder from your assistant.</p>
+    
+    <p>Finally, make it a habit to <strong>review your service weekly</strong>. Ask yourself: “What went well this week? What could have been better? What did customers compliment or complain about?” Continuous improvement is the hallmark of truly customer-centered businesses.</p>
+    
+    <p><strong>Remember:</strong> Excellence in customer service doesn’t mean being perfect. It means caring more, listening better, and showing up consistently — even in small ways. That’s what makes customers feel valued… and keeps them coming back.</p>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 5 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 5";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+<script type="module" src="../JS/script.js"></script>
+</body>
+</html>

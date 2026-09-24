@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 11: Business Analytics & Decision Making | Map My Biz</title>
+
+  <!-- Correct paths to CSS and JS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+  <script type="module" src="../JS/script.js"></script>
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+    .data-example {
+      background-color: #f0f7ff;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      margin: 15px 0;
+    }
+    .tip {
+      background-color: #e8f5e9;
+      padding: 12px;
+      border-radius: 6px;
+      font-style: italic;
+      color: #2e7d32;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 11: Business Analytics & Decision Making</h1>
+    <p>Learn how to use your business data to make smart, confident decisions</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>In this module, you will understand what business analytics means for small business owners and how it can help you grow. You’ll learn how to collect useful data from your sales, customers, and costs in a simple and practical way. You’ll discover how to turn numbers into real insights — like which products are selling well and which aren’t. You’ll also learn how to use this information to improve your pricing, manage inventory, and plan better marketing. Most importantly, you’ll be able to make decisions based on facts instead of guesses, giving you more control over your business success.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📊 1. What Is Business Analytics?</h3>
+    <p><strong>Business analytics</strong> means using real information from your business to make better choices. You don’t need expensive tools or complicated software — just a few simple records you can keep on paper or in a notebook.</p>
+    <p>Ask yourself basic but powerful questions: How many products did you sell this week? Which item brought in the most profit? What are customers saying about your service? The answers help you see what’s really happening in your business.</p>
+    <p>For example, imagine you sell five different products. Analytics might show that muffins make up 60% of your total profit. That tells you clearly: you should focus more on baking and selling muffins.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📈 2. Track the Right Data (Simple & Practical)</h3>
+    <p>You don’t need to track everything — just the key details that help you grow. Focus on collecting a few important pieces of information each week.</p>
+    <p>Start by recording your sales by product — how many of each item you sold. Then track your total revenue, which is the total money you earned. Next, write down your costs, including stock, transport, and packaging. From this, you can calculate your profit by subtracting your costs from your revenue. Finally, note any customer feedback — what people liked or what they complained about.</p>
+    <div class="tip">
+      💡 Start small: Just write down three things every Friday — your top-selling item, your biggest cost, and one comment from a customer. Over time, this builds a powerful picture of your business.
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🔍 3. Ask the Right Questions</h3>
+    <p>Data only becomes useful when you ask the right questions. Numbers on their own don’t help — but when you use them to find answers, they become powerful tools.</p>
+    <p>Ask: What product is selling the best? If one item is popular, consider making more of it. What isn’t selling? If something sits on the shelf, stop spending money on it. When are you busiest? Use this to plan your schedule or run special promotions. Which customers keep coming back? Try to find more people like them. Are your costs going up? Look for cheaper suppliers or ways to reduce waste.</p>
+    <p>The golden rule is simple: don’t guess. Always check the numbers before making a decision.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📉 4. Use Simple Reports to See Trends</h3>
+    <p>You don’t need fancy graphs or dashboards — a simple table is enough to spot trends. For example, a weekly sales tracker can show you how your business is changing over time.</p>
+    <p><strong>Weekly Sales Tracker:</strong></p>
+    <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+      <tr style="background-color: #f0f8ff;">
+        <th>Week</th>
+        <th>Muffins Sold</th>
+        <th>Vetkoek Sold</th>
+        <th>Total Profit</th>
+      </tr>
+      <tr>
+        <td>Week 1</td>
+        <td>30</td>
+        <td>50</td>
+        <td>R850</td>
+      </tr>
+      <tr>
+        <td>Week 2</td>
+        <td>45</td>
+        <td>40</td>
+        <td>R920</td>
+      </tr>
+      <tr>
+        <td>Week 3</td>
+        <td>60</td>
+        <td>35</td>
+        <td>R1,100</td>
+      </tr>
+    </table>
+    <p>This table shows that muffin sales are rising while vetkoek sales are dropping. The insight? Muffins are becoming more popular. You could try a “Buy 2, Get 1 Free” offer to grow that trend even faster.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>✅ 5. Make Better Decisions with Data</h3>
+    <p>Data helps you solve real business problems with confidence. Let’s look at two examples.</p>
+    <p>If you feel busy but aren’t making much money, check your numbers. You might find that vetkoek sells a lot but only makes R2 profit per piece, while muffins sell less but earn R8 each. The smart decision? Focus on selling more muffins and consider slightly increasing the price of vetkoek.</p>
+    <p>If you don’t know who your customers are, collect small observations over time. You might discover that 80% of your muffin buyers are office workers who stop by between 7 and 9 AM. With this knowledge, you can arrive earlier on weekdays and bring more muffins to meet the demand.</p>
+    <p>Every decision backed by data is a step toward a stronger, smarter business.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🔄 6. Review & Improve Weekly</h3>
+    <p>Set up a simple weekly routine to keep learning and improving. Every Friday, take 15 minutes to review your sales and expenses. Ask yourself: What worked well this week? What didn’t go as planned?</p>
+    <p>Based on what you learn, make one small change for next week. Maybe stock more of your top seller, adjust your prices, or change your location. Then repeat the process.</p>
+    <div class="tip">
+      “Success isn’t about being perfect. It’s about learning one thing each week and getting a little better.”
+    </div>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 11 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 11";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 14: Strategic Management | Map My Biz</title>
+
+  <!-- Correct paths to CSS and JS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+    .quote {
+      font-style: italic;
+      color: #2c3e50;
+      text-align: center;
+      padding: 15px;
+      margin: 20px 0;
+      background-color: #f0f7ff;
+      border-radius: 8px;
+      border-left: 4px solid #4a90e2;
+    }
+    .example {
+      background-color: #e8f5f9;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 14: Strategic Management</h1>
+    <p>Learn how to lead your business with purpose, vision, and long-term thinking</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>In this module, you will understand what strategic management means for small business owners and how it can help you grow with direction. You’ll learn how to set a clear vision and define long-term goals that go beyond just making money. You’ll discover how to make decisions that align with your business purpose, rather than reacting to daily pressures. You’ll also learn how to adapt to changes in the market or economy, and how to build a business that can run well even when you’re not doing every single task yourself. These skills will help you lead your business with confidence and intention.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🧭 1. What Is Strategic Management?</h3>
+    <p><strong>Strategic management</strong> means running your business with a clear plan, rather than just reacting to daily problems. It’s about stepping back and asking big questions like: “Where do I want my business to be in one year? In three years? In five years?”</p>
+    <p>This kind of thinking isn’t only for big companies — even small businesses can and should think strategically. It’s not about how busy you are, but about the direction you’re heading. Strategic management turns daily activity into meaningful progress.</p>
+    <div class="quote">
+      “A goal without a plan is just a wish.”<br>
+      – Antoine de Saint-Exupéry
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 2. Define Your Business Vision & Goals</h3>
+    <p>Your <strong>vision</strong> is your dream for the future of your business. It should be clear, inspiring, and specific. For example, “To be the most trusted bakery in Soweto, known for fresh, healthy bread” gives you a strong sense of purpose. A vague goal like “I want to make money” doesn’t guide your decisions or inspire others.</p>
+    <p>Once you have a vision, break it down into long-term goals that make it real. These could include growing to three outlets in five years, training five young bakers from your community, or launching a branded line of bread in local stores. Each goal becomes a milestone on your journey.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📊 3. Align Decisions with Your Strategy</h3>
+    <p>Every choice you make should help move your business closer to your vision. Before making a decision, pause and ask yourself: Does this help me reach my long-term goal? Is this action leading to real growth, or is it just a short-term fix? Am I doing this because it’s truly important, or simply because it feels urgent?</p>
+    <div class="example">
+      <strong>Situation:</strong> A big supermarket offers to stock your sauce, but at a very low price.<br>
+      <strong>Strategic Question:</strong> “Does this help me build my brand — or just sell cheap?”<br>
+      <strong>Decision:</strong> It might be better to say no now, and plan to accept the offer later when you can produce at scale and protect your brand value.
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🔄 4. Monitor, Review & Adapt</h3>
+    <p>Markets change, customer preferences shift, and new challenges arise. To stay strong, you must be willing to adapt. Set a rhythm for reviewing your progress — for example, every three months, take time to ask: Are we on track? What’s working well? What isn’t going as planned?</p>
+    <p>If sales are lower than expected, consider trying a new product, changing your location, or improving your marketing. Stay alert to trends — for instance, if more people are looking for healthy food, think about how you can adjust your offerings to meet that demand.</p>
+    <p>A simple “Business Check-In” for just 30 minutes every quarter can keep you focused and flexible.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>👥 5. Build a Team That Shares Your Vision</h3>
+    <p>If you want your business to grow beyond what you can do alone, you need help — and that help should share your values and mission. Hire or train people who care about your vision, not just those who need a job.</p>
+    <p>Delegate tasks like packing, delivery, or managing social media so you can focus on bigger priorities. Most importantly, teach your team your standards — how you treat customers, how you pack your products, how you communicate. When they understand your way, your business can run smoothly even when you’re not there.</p>
+    <p>For example, a hair salon owner trains her assistant to greet customers in the same warm, professional way she does. This keeps the customer experience consistent and builds trust in the brand.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🚀 6. Think Beyond Today</h3>
+    <p>Strategic thinking means planning for the future — even when today is full of urgent tasks. Invest in simple systems for taking orders, managing deliveries, and keeping your books. These systems save time and reduce mistakes as you grow.</p>
+    <p>Protect your brand by using a consistent logo, packaging, and service style. A strong brand makes your business memorable and trustworthy. And start thinking about the future: Who could step in if you’re sick? What if you want to open a second location? Planning for succession helps your business survive and thrive beyond your daily involvement.</p>
+    <div class="quote">
+      “Success isn’t about doing more.<br>
+      It’s about choosing what matters — and saying no to the rest.”
+    </div>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 14 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 14";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Your Business - Map My Biz</title>
+  <link rel="stylesheet" href="../CSS/lg.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/internalMap.html" class="active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Add business on the Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+     <!-- User Profile Dropdown -->
+     <div class="user-profile" id="userProfile">
+      <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <div class="logo-container">
+        <img src="../Assets/Lg.png" alt="CIPC Logo ">
+      </div>
+    <h1>Add Your Business — CIPC Compliant</h1>
+    <p class="subtitle">Register Your Business with CIPC . All information must be accurate and lawful.</p>
+
+    <form id="businessForm">
+      <!-- Business Info -->
+      <div class="form-group">
+        <label for="name"> Enterprice Name </label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <!-- Add these inside your form, after the "Enterprice Name" field -->
+<div class="form-group">
+  <label for="cipcNumber">CIPC Registration Number *</label>
+  <input type="text" id="cipcNumber" name="cipcNumber" placeholder="YYYY/NNNNNN/NN" required />
+  <small class="hint">Format: 2024/123456/07 (Year/Unique Number/Type)</small>
+</div>
+
+<div class="form-group">
+  <label for="vatNumber">VAT Number (if applicable)</label>
+  <input type="text" id="vatNumber" name="vatNumber" placeholder="4870123456" />
+  <small class="hint">Optional. Only if registered for VAT.</small>
+</div>
+      <div class="form-group">
+        <label for="category">Category *</label>
+        <select id="category" name="category" required>
+          <option value="">-- Select Category --</option>
+          <option value="Consulting">Consulting</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Retail Shop">Retail Shop</option>
+          <option value="Salon & Beauty">Salon & Beauty</option>
+          <option value="Tech Services">Tech Services</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Physical Address *</label>
+        <textarea id="location" name="location" rows="3" required></textarea>
+        <small class="hint">Full street address, town, province, postal code.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Enterprice Phone Number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="+27 61 855 7707" required />
+        <small class="hint">Include country code (+27).</small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Enterprice Email *</label>
+        <input type="email" id="email" name="email" placeholder="business@example.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Enterprice Description</label>
+        <textarea id="description" name="description" rows="4" maxlength="500"></textarea>
+        <small class="hint">Max 500 characters. Describe what you offer.</small>
+      </div>
+
+      <!-- Legal Compliance Section -->
+      <div class="legal-section">
+        <h3>Legal Compliance & Consent</h3>
+        <label class="checkbox-label">
+          <input type="checkbox" id="agreeCipc" required />
+          I confirm this business is registered with the <strong>Companies and Intellectual Property Commission (CIPC)</strong> and all information provided is accurate under the <strong>Companies Act (No. 71 of 2008)</strong>.
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="agreePopia" required />
+          I consent to the processing of my business and personal information in accordance with the <strong>Protection of Personal Information Act (POPIA, Act 4 of 2013)</strong>.
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="agreeCpa" required />
+          I agree to comply with the <strong>Consumer Protection Act (No. 68 of 2008)</strong> regarding fair marketing, returns, and customer rights.
+        </label>
+      </div>
+
+      <button id="submit" type="submit" class="btn-primary">Add Business</button>
+    </form>
+
+    <div id="message" class="message"></div>
+  </div>
+
+  <!-- Legal Disclosure Banner -->
+  <section class="legal-disclosure">
+    <div class="container">
+      <p>
+        <strong>Legal Notice:</strong> Falsely claiming CIPC registration is a criminal offense under South African law. Map My Biz verifies business legitimacy and reports fraudulent submissions to CIPC.
+        <br>
+        For CIPC support, visit <a href="https://www.cipc.co.za" target="_blank">www.cipc.co.za</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Map My Biz</h4>
+        <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a id="openTerms">Terms & Conditions</a><br>
+        <a id="openPrivacy">Privacy Policy</a><br>
+        <a id="openPopia">POPIA Compliance</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@mapmybiz.co.za</p>
+        <p>Phone: +27 11 123 4567</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; 2025 Map My Biz. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Combined Legal Modal (unchanged) -->
+  <div id="legalModal" class="modal">
+    <!-- ... your existing modal content ... -->
+  </div>
+
+  <!-- Add these styles if not in your CSS -->
+  <style>
+    .subtitle {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .hint {
+      display: block;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+    .legal-section {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .legal-section h3 {
+      margin-top: 0;
+      color: #d32f2f;
+    }
+    .checkbox-label {
+      display: block;
+      margin: 0.75rem 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .legal-disclosure {
+      background: #fff8e1;
+      padding: 1rem;
+      border-top: 2px solid #ffc107;
+      margin: 2rem 0 0;
+      font-size: 0.9rem;
+      color: #5d4037;
+    }
+    .legal-disclosure a {
+      color: #d32f2f;
+      text-decoration: underline;
+    }
+  </style>
+
+  <script type="module">
+    import supabase from "../supabaseClient.js";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("businessForm");
+
+      form?.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        // Get values
+        const name = document.getElementById("name")?.value.trim();
+        const cipcNumber = document.getElementById("cipcNumber")?.value.trim();
+        const vatNumber = document.getElementById("vatNumber")?.value.trim();
+        const category = document.getElementById("category")?.value;
+        const location = document.getElementById("location")?.value.trim();
+        const phone = document.getElementById("phone")?.value.trim();
+        const email = document.getElementById("email")?.value.trim();
+        const description = document.getElementById("description")?.value.trim();
+
+        // Validate CIPC format: YYYY/NNNNNN/NN
+      
+        // Validate checkboxes
+        const agreeCipc = document.getElementById("agreeCipc")?.checked;
+        const agreePopia = document.getElementById("agreePopia")?.checked;
+        const agreeCpa = document.getElementById("agreeCpa")?.checked;
+
+        if (!agreeCipc || !agreePopia || !agreeCpa) {
+          alert("❌ You must agree to all legal terms to proceed.");
+          return;
+        }
+
+        // Get authenticated user
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
+          alert("❌ You must be logged in to add a business.");
+          return;
+        }
+
+        // Prepare business object
+        const businessData = {
+          user_id: user.id,
+          business_name: name,
+          cipc_number: cipcNumber,
+          vat_number: vatNumber || null,
+          category: category,
+          location: location,
+          phone: phone,
+          email: email,
+          description: description,
+          status: "pending", // Will be "verified" after admin/CIPC check
+          created_at: new Date().toISOString()
+        };
+
+        try {
+          const { data, error } = await supabase
+            .from('businesses') // ← Make sure this table exists!
+            .insert([businessData])
+            .select();
+
+          if (error) throw error;
+
+          document.getElementById("message").innerHTML = `
+            <div style="background:#e8f5e9; color:#2e7d32; padding:1rem; border-radius:6px; margin-top:1rem;">
+              ✅ Business submitted successfully! Our team will verify your CIPC registration within 24–48 hours.
+            </div>
+          `;
+          form.reset();
+
+          // Optional: redirect after 3 seconds
+          setTimeout(() => {
+            window.location.href = "../PAGES/business.html";
+          }, 3000);
+
+        } catch (err) {
+          console.error("Error saving business:", err);
+          alert("❌ Failed to save business: " + (err.message || "Unknown error"));
+        }
+      });
+    });
+  </script>
+
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

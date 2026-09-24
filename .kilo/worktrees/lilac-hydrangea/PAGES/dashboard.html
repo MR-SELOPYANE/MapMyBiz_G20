@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Biz - Dashboard</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+      <a href="../PAGES/tourism.html" class="cta-button">Tourism</a>
+    </div>
+    <!-- Google Translate Dropdown (Replaces your <select>) -->
+    <div class="language-selector">
+      <div id="google_translate_element"></div>
+    </div>
+    <!-- User Profile Dropdown -->
+    <div class="user-profile" id="userProfile">
+      <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Welcome Back Section -->
+  <div class="banner">
+    <!-- Left image (e.g., hands over flag) -->
+    <img src="../Images/reading-writing-learning.jpg" alt="South African Flag" class="left-image">
+    <div class="circle"></div>
+    <div class="content">
+      <section class="welcome-back">
+        <h2>Welcome Let's start your business education journey</h2>
+      </section>
+  </div>
+    <!-- Right image (e.g., women in traditional attire) -->
+    <img src="../Images/sa1.jpeg" alt="Traditional Women" class="right-image">
+
+    <!-- Content -->
+    
+    </div>
+   
+  
+
+  <!-- Progress Metrics -->
+  <section class="progress-metrics">
+    <div class="metric-card">
+      <h2>Continue Learning</h2>
+      <p>0/15</p>
+      <a href="./module3.html">
+        <div class="profile-image-container">
+          <img src="../Images/book.jpeg" />
+        </div>
+      </a>
+      <section class="continue-learning">
+        <button class="btn-primary" id="nu1m">View All Modules</button>
+      </section>
+    </div>
+    <div class="metric-card">
+      <h3>Badges Earned</h3>
+      <p>0/3</p>
+      <div class="profile-image-container">
+        <img src="../Images/badge.jpeg" />
+      </div>
+      </svg>
+    </div>
+    <div class="metric-card">
+      <h3>Module Progress</h3>
+      <ul>
+        <span class="checkmark">&#10004;</span> Module 1
+        <span class="checkmark">&#10004;</span> Module 2
+        <span class="checkmark">&#9675;</span> Module 3
+        <span class="checkmark">&#9675;</span> Module 4
+        <span class="checkmark">&#9675;</span> Module 5
+        <span class="checkmark">&#9675;</span> Module 6
+        <span class="checkmark">&#9675;</span> Module 7
+        <span class="checkmark">&#9675;</span> Module 8
+        <span class="checkmark">&#9675;</span> Module 9
+        <span class="checkmark">&#9675;</span> Module 10
+        <span class="checkmark">&#9675;</span> Module 11
+        <span class="checkmark">&#9675;</span> Module 12
+        <span class="checkmark">&#9675;</span> Module 13
+        <span class="checkmark">&#9675;</span> Module 14
+        <span class="checkmark">&#9675;</span> Module 15
+      </ul>
+    </div>
+    <div class="metric-card">
+      <div class="module-card vr-training">
+        <div class="profile-image-container">
+          <img src="../Images/Vr.jpeg" />
+        </div>
+        <h3>VR Training Available</h3>
+        <p>Practice business scenarios in virtual reality</p>
+        <button class="btn-VR">Start VR Session</button>
+      </div>
+    </div>
+    <div class="center-wrapper">
+      <div class="BHP">
+        <h3>Your Progress</h3>
+        <p>Overall Progress</p>
+        <div class="progress-container">
+          <div id="progressBar" class="progress" style="width: 0%;"></div>
+        </div>
+        <span id="progressText">0.0%<br>0 of 15 modules completed</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Map My Biz</h4>
+        <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a id="openTerms">Terms & Conditions</a><br>
+        <a id="openPrivacy">Privacy Policy</a><br>
+        <a id="openPopia">POPIA Compliance</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@mapmybiz.co.za</p>
+        <p>Phone: +27 11 123 4567</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; 2025 Map My Biz. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Combined Legal Modal -->
+  <div id="legalModal" class="modal">
+    <div class="modal-content">
+      <span class="close" aria-label="Close">&times;</span>
+      <div class="modal-header">Legal Information</div>
+
+      <!-- Tabs -->
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+        <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+        <button class="tab-btn" data-tab="popia">POPIA Compliance</button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <!-- Terms -->
+        <div id="tab-terms" class="tab-content">
+          <h3>1. Introduction</h3>
+          <p>Welcome to Map My Biz. By accessing or using our website, learning platform, or services, you agree to comply with these Terms and Conditions. If you do not agree, please do not use our services.</p>
+          <h3>2. Purpose of Map My Biz</h3>
+          <ul>
+            <li>Provides accredited learning modules to aspiring entrepreneurs through kiosks.</li>
+            <li>Showcases certified businesses on a smart map for tourists.</li>
+            <li>Enables tourists to discover, support, and donate to rural businesses.</li>
+          </ul>
+          <h3>3. Use of Services</h3>
+          <ul>
+            <li>Entrepreneurs must register truthfully and complete modules to be listed.</li>
+            <li>Businesses listed on the smart map are responsible for the accuracy of their information.</li>
+            <li>Tourists use the website at their own discretion when engaging with businesses or making donations.</li>
+          </ul>
+          <h3>4. Donations and Payments</h3>
+          <ul>
+            <li>Donations made through Map My Biz go directly to the chosen business.</li>
+            <li>Map My Biz does not guarantee the use of donations once received by businesses.</li>
+            <li>Map My Biz is not liable for disputes between donors and entrepreneurs.</li>
+          </ul>
+          <h3>5. Intellectual Property</h3>
+          <p>All content on the Map My Biz platform — including text, design, software, and logos — is owned by or licensed to Map My Biz. Users may not copy, modify, or distribute materials without permission.</p>
+          <h3>6. Limitation of Liability</h3>
+          <ul>
+            <li>Map My Biz provides services “as is.”</li>
+            <li>We are not liable for business performance, tourist experiences, or third-party interactions.</li>
+            <li>We are not responsible for technical issues beyond our control.</li>
+          </ul>
+          <h3>7. Changes to Terms</h3>
+          <p>We may update these Terms at any time. Continued use of the platform means acceptance of the revised Terms.</p>
+        </div>
+
+        <!-- Privacy -->
+        <div id="tab-privacy" class="tab-content" style="display:none;">
+          <h3>1. Introduction</h3>
+          <p>Map My Biz respects your privacy and is committed to protecting your personal information.</p>
+          <h3>2. Information We Collect</h3>
+          <ul>
+            <li><strong>Entrepreneurs:</strong> Name, contact details, business information, learning progress.</li>
+            <li><strong>Tourists/Users:</strong> Basic browsing data, voluntary donations, and booking interactions.</li>
+            <li><strong>Kiosk Data:</strong> Learning results stored locally, then securely backed up.</li>
+          </ul>
+          <h3>3. How We Use Your Information</h3>
+          <ul>
+            <li>To deliver learning modules and track progress.</li>
+            <li>To verify businesses before listing them on the smart map.</li>
+            <li>To process donations and display business information to tourists.</li>
+            <li>To improve our platform and ensure accessibility.</li>
+          </ul>
+          <h3>4. Sharing of Information</h3>
+          <ul>
+            <li>We do not sell or trade personal information.</li>
+            <li>Business information (e.g., location, description, images) will be publicly visible on the smart map.</li>
+            <li>Donation transactions are processed securely through third-party providers.</li>
+          </ul>
+          <h3>5. Data Security</h3>
+          <ul>
+            <li>Data collected at kiosks is encrypted and backed up regularly.</li>
+            <li>We take reasonable steps to protect personal data, but no system is completely secure.</li>
+          </ul>
+          <h3>6. User Rights</h3>
+          <ul>
+            <li>Access and correct your personal data.</li>
+            <li>Request removal of your information from our platform.</li>
+            <li>Opt out of marketing communication.</li>
+          </ul>
+          <h3>7. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy from time to time. Updates will be posted on our website.</p>
+        </div>
+
+        <!-- POPIA -->
+        <div id="tab-popia" class="tab-content" style="display:none;">
+          <h3>POPIA Compliance (South Africa)</h3>
+          <p>The Protection of Personal Information Act (POPIA) gives you rights over your personal data.</p>
+          <ul>
+            <li><strong>Right to Access:</strong> Request what data we hold.</li>
+            <li><strong>Right to Correction:</strong> Update inaccurate information.</li>
+            <li><strong>Right to Deletion:</strong> Ask us to delete your data.</li>
+            <li><strong>Right to Object:</strong> Opt out of direct marketing.</li>
+          </ul>
+          <p>Contact us at support@mapmybiz.co.za to exercise these rights.</p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer" style="text-align:center; margin-top:12px;">
+        <label style="display:block; margin-bottom:10px; font-size:.95rem; color:#555;">
+          <input type="checkbox" id="agreeCheckbox" />
+          I have read and agree to the <strong>Terms & Conditions</strong>, <strong>Privacy Policy</strong>, and <strong>POPIA Compliance</strong>.
+        </label>
+        <button id="acceptLegalBtn" class="btn-primary" disabled>Accept & Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUR JS (Keep as module) -->
+  <script type="module" src="../JS/script.js"></script>
+
+  <!-- ✅ GOOGLE TRANSLATE — MUST BE LAST BEFORE </body> -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'af,zu,xh,st,tn,ss,ve,ts,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+
+      // Restore saved language
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && savedLang !== 'en') {
+        setTimeout(() => {
+          const select = document.querySelector('.goog-te-combo');
+          if (select) {
+            select.value = savedLang;
+            select.dispatchEvent(new Event('change'));
+          }
+        }, 1000);
+      }
+
+      // Save on change
+      document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('goog-te-combo')) {
+          localStorage.setItem('preferredLanguage', e.target.value);
+        }
+      });
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

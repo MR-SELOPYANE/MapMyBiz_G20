@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 3: Leadership & Organizational Behavior | Map My Biz</title>
+
+  <!-- Correct paths from /Modules folder -->
+  <link rel="stylesheet" href="../CSS/style.css">
+ 
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 3: Leadership & Organizational Behavior</h1>
+    <p>Learn how to lead teams effectively and understand human behavior in the workplace</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>This module will help you distinguish between leadership and management — two related but distinct roles that shape how your business operates and grows.</p>
+    <p>You’ll explore different leadership styles, from democratic to transformational, and learn when each approach is most effective depending on your team and situation.</p>
+    <p>We’ll dive into what truly motivates employees — beyond just salary — and how recognition, growth, and purpose drive performance and loyalty.</p>
+    <p>You’ll gain insight into team dynamics and communication patterns, helping you navigate conflicts, encourage collaboration, and build trust within your team.</p>
+    <p>Finally, you’ll learn how to intentionally shape a positive organizational culture — starting with your own actions — that reflects your values and inspires everyone around you.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>👥 1. Leadership vs. Management</h3>
+    <p>It’s easy to confuse leadership with management, but they serve different — and equally important — purposes in your business.</p>
+    
+    <p><strong>Management</strong> focuses on structure: planning tasks, organizing resources, setting schedules, and ensuring things run smoothly and efficiently. A manager ensures the train stays on the tracks.</p>
+    
+    <p><strong>Leadership</strong>, on the other hand, is about people: inspiring them, guiding their growth, influencing their attitudes, and helping them see the bigger vision. A leader decides where the train is going — and why it matters.</p>
+    
+    <p><strong>Example:</strong> A manager creates the weekly staff schedule. A leader takes time to understand each team member’s strengths, motivates them to give their best, and celebrates their wins. The best business owners learn to do both.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🧭 2. Leadership Styles</h3>
+    <p>There’s no single “right” way to lead — the most effective leaders know how to adapt their style to fit the situation and the people they’re guiding.</p>
+    
+    <p><strong>Democratic leadership</strong> invites team input before making decisions. This builds trust, encourages ownership, and often leads to better solutions — especially when your team has valuable experience or insight.</p>
+    
+    <p><strong>Authoritative leadership</strong> works well when clear direction is needed — like during a crisis, a major change, or when launching something new. The leader sets the vision and expects the team to follow, which can speed up decision-making.</p>
+    
+    <p><strong>Transformational leadership</strong> inspires people to grow, innovate, and exceed their own expectations. These leaders communicate a compelling future and empower others to help build it.</p>
+    
+    <p><strong>Servant leadership</strong> flips the traditional model — the leader’s priority is to serve the team’s needs first. By supporting growth, removing obstacles, and showing genuine care, servant leaders build deep loyalty and commitment.</p>
+    
+    <p><strong>Tip:</strong> Don’t lock yourself into one style. Observe your team, listen to their needs, and adjust your approach. Flexibility is the mark of a truly skilled leader.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💡 3. Motivation in the Workplace</h3>
+    <p>Motivated employees don’t just work harder — they stay longer, solve problems creatively, and become ambassadors for your business. Understanding what drives them is key.</p>
+    
+    <p>According to <strong>Herzberg’s Two-Factor Theory</strong>, motivation comes from two types of factors:</p>
+    <p>First, <strong>hygiene factors</strong> — like fair pay, safe working conditions, and job security. These won’t make people love their job, but if they’re missing, dissatisfaction grows quickly.</p>
+    <p>Second, <strong>motivators</strong> — like recognition, meaningful work, personal growth, and a sense of achievement. These are what truly ignite passion and long-term commitment.</p>
+    
+    <p>You don’t need a big budget to motivate your team. Simple actions make a big difference: say “thank you” sincerely and often, recognize good work in front of others, offer small rewards like an early finish or a gift voucher, and create opportunities for people to learn and grow.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🗣️ 4. Communication & Team Dynamics</h3>
+    <p>How your team communicates — and how its members relate to each other — directly impacts productivity, morale, and customer service.</p>
+    
+    <p><strong>Effective communication</strong> is clear, respectful, and two-way. It’s not just about giving instructions — it’s about creating space for questions, feedback, and ideas.</p>
+    
+    <p><strong>Active listening</strong> is just as important as speaking. Pay full attention when someone talks. Ask thoughtful questions. Show empathy. People feel valued when they feel heard.</p>
+    
+    <p><strong>Conflict is natural</strong> — but how you handle it matters. Address tensions early, fairly, and privately. Focus on the issue, not the person. Help your team see conflict as a chance to improve, not a reason to divide.</p>
+    
+    <p>Every team has different <strong>roles and personalities</strong>: some people love organizing details, others spark big ideas, and some quietly support everyone else. Recognize these differences and assign tasks that match strengths — your team will thrive.</p>
+    
+    <p><strong>Tip:</strong> Hold short, regular check-ins — even 10 minutes a week — to build trust, catch problems early, and keep everyone aligned.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🌱 5. Building a Positive Organizational Culture</h3>
+    <p>Your business’s culture isn’t written in a handbook — it’s felt in everyday actions, decisions, and interactions. It’s the “personality” of your workplace, shaped by what you value and how you behave.</p>
+    
+    <p>Start by defining your <strong>core values</strong> — the non-negotiable principles that guide your business. Examples might include honesty, hard work, customer care, or innovation. Write them down. Talk about them. Live them.</p>
+    
+    <p><strong>Lead by example.</strong> If you show up on time, treat people with respect, admit your mistakes, and work hard — your team will mirror that behavior. Culture doesn’t come from posters on the wall. It comes from you.</p>
+    
+    <p><strong>Encourage feedback</strong> at all levels. Let your team know their ideas and concerns matter. Create simple ways for them to speak up — anonymous suggestion boxes, open-door policies, or monthly team chats.</p>
+    
+    <p><strong>Remember:</strong> Culture is contagious. A positive, values-driven environment attracts great people, keeps them engaged, and turns your business into a place where people want to grow — not just work.</p>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 3 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 3";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+<script type="module" src="../JS/script.js"></script>
+</body>
+</html>

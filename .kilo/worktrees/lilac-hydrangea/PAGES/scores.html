@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Biz - Scores</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+ 
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/nv.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Dashboard</a>
+      <a href="../PAGES/course.html" >COURSES</a>
+      <a href="../PAGES/tests.html">TESTS</a>
+      <a href="../PAGES/scores.html" class="active">SCORES</a>
+    </div>
+    <!-- User Profile Dropdown -->
+<div class="user-profile" id="userProfile">
+  <div class="user-icon">👤</div>
+  <span id="userNameDisplay">Loading...</span>
+  <ul class="dropdown" id="dropdownMenu">
+    <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+    <li><a href="#" id="logoutBtn">Logout</a></li>
+  </ul>
+</div>
+  </nav>
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Your Quiz Scores</h1>
+    <p>Track your progress and see your results from completed tests.</p>
+  </header>
+
+  <!-- Scores List -->
+  <main class="scores-container">
+    <section class="score-card">
+      <h2>Starting Your Small Business</h2>
+      <p>Score: <strong>85%</strong></p>
+      <p>Status: <span style="color:green;">Passed</span></p>
+    </section>
+
+    <section class="score-card">
+      <h2>Basic Financial Literacy</h2>
+      <p>Score: <strong>78%</strong></p>
+      <p>Status: <span style="color:orange;">Needs Improvement</span></p>
+    </section>
+
+    <section class="score-card">
+      <h2>Business Accounting Fundamentals</h2>
+      <p>Score: <strong>92%</strong></p>
+      <p>Status: <span style="color:green;">Passed</span></p>
+    </section>
+
+    <section class="score-card">
+      <h2>Marketing Strategies for Small Businesses</h2>
+      <p>Score: <strong>74%</strong></p>
+      <p>Status: <span style="color:orange;">Needs Improvement</span></p>
+    </section>
+
+    <section class="score-card">
+      <h2>Business Planning & Growth</h2>
+      <p>Score: <strong>88%</strong></p>
+      <p>Status: <span style="color:green;">Passed</span></p>
+    </section>
+  </main>
+   <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

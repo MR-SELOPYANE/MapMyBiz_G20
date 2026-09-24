@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Biz - Module 3: Hospitality Operations</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/nv.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./course.html" class="active">COURSES</a>
+      <a href="./tests.html">TESTS</a>
+      <a href="./scores.html">SCORES</a>
+    </div>
+   <!-- User Profile Dropdown -->
+<div class="user-profile" id="userProfile">
+  <div class="user-icon">👤</div>
+  <span id="userNameDisplay">Loading...</span>
+  <ul class="dropdown" id="dropdownMenu">
+    <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+    <li><a href="#" id="logoutBtn">Logout</a></li>
+  </ul>
+</div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="container">
+
+    <!-- Module Header -->
+    <header class="module-header">
+      <a href="./course.html" class="back-btn">&larr; BACK</a>
+      <h2>MODULE 3: HOSPITALITY OPERATIONS</h2>
+      <a href="./module4.html" class="next-btn">NEXT &rarr;</a>
+    </header>
+
+    <!-- Continue Learning Section -->
+    <section class="continue-learning">
+      <h2>CONTINUE LEARNING:</h2>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <p>YOUR PROGRESS</p>
+        <div class="progress-container">
+          <div class="progress"></div>
+        </div>
+        <span>60%</span>
+
+        <!-- Audio Controls -->
+        <div class="audio-controls">
+          <span>AUDIO</span>
+          <button id="playPauseBtn" aria-label="Play">&#9654;</button>
+          <button id="rewindBtn" aria-label="Rewind">&#11164;</button>
+        </div>
+      </div>
+
+      <!-- Module Content -->
+      <section class="module-content">
+        <p>Your <strong class="highlight">value proposition</strong> is the unique benefit you offer customers. Think about what makes your tour, meal, or craft stand out. For example, does it highlight a family recipe, a hidden trail, or a storytelling tradition?</p>
+
+        <ul>
+          <li><strong>Identify what problem you solve:</strong> Are guests looking for authentic experiences? Local flavors? Peace and nature?</li>
+          <li><strong>Describe how you do it differently:</strong> Do you use ancestral methods, sustainable ingredients, or personal storytelling?</li>
+          <li><strong>Show why it matters to your guest:</strong> It’s not just food — it’s heritage. Not just a tour — it’s a memory.</li>
+        </ul>
+
+        <!-- Example Box -->
+        <div class="example-box">
+          <p><strong>EXAMPLE:</strong></p>
+          <p><strong>Gogo's Vetkoek:</strong> Authentic family recipe with locally grown ingredients, cooked fresh on site. Guests love the story behind the recipe — passed down for 3 generations.</p>
+        </div>
+
+        <div class="key-takeaway">
+          💡 <strong>Key Takeaway:</strong> In hospitality, people don’t just buy a service — they buy an experience, a feeling, a story.
+        </div>
+
+        <!-- Visual Tips Grid -->
+        <h3>Operational Tips for Success</h3>
+        <div class="visual-grid">
+          <div class="tip-card">
+            <div class="tip-icon">🍽️</div>
+            <h4>Food Safety First</h4>
+            <p>Always store, prepare, and serve food safely. Cleanliness builds trust.</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">🗣️</div>
+            <h4>Tell Your Story</h4>
+            <p>Share your journey. Guests remember people, not just products.</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">⏱️</div>
+            <h4>Manage Time Well</h4>
+            <p>Punctuality and flow keep guests happy and coming back.</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">🤝</div>
+            <h4>Guest Experience</h4>
+            <p>Smiles, eye contact, and listening go a long way.</p>
+          </div>
+        </div>
+
+        <p>Running a successful hospitality business means blending <strong>operations</strong> with <strong>heart</strong>. Whether you run a B&B, food stall, or guided tour, every detail shapes the guest’s memory.</p>
+      </section>
+
+      <!-- Footer Navigation -->
+      <footer class="module-footer">
+        <a href="../module2.html" class="prev-btn">&larr; PREVIOUS LESSON</a>
+        <a href="../quiz3.html" class="quiz-btn">TAKE QUIZ ON THIS LESSON &rarr;</a>
+      </footer>
+
+      <!-- Quiz Scores -->
+      <div class="quiz-scores">
+        <p>QUIZ SCORES:</p>
+        <p>Module 1 - 80%</p>
+        <p>Module 2 - 60%</p>
+        <p><strong>Nice progress! Keep going — you're doing great! 🎉</strong></p>
+      </div>
+
+    </section>
+  </div>
+  <!-- Replace plain links with JS-triggered ones -->
+<span class="checkmark" onclick="markAndNavigate('Module 3', './module3.html')">○</span> Module 3
+
+  <script>
+    // Mark Module 3 as completed when the page loads
+    document.addEventListener("DOMContentLoaded", function () {
+      markModuleAsCompleted("Module 3");
+    });
+  </script>
+    <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

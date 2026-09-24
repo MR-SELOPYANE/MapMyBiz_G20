@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - Starting Your Small Business</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/nv.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Dashboard</a>
+      <a href="../PAGES/course.html" class="active">COURSES</a>
+      <a href="../PAGES/tests.html">TESTS</a>
+      <a href="../PAGES/scores.html">SCORES</a>
+    </div>
+    <!-- User Profile Dropdown -->
+<div class="user-profile" id="userProfile">
+  <div class="user-icon">👤</div>
+  <span id="userNameDisplay">Loading...</span>
+  <ul class="dropdown" id="dropdownMenu">
+    <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+    <li><a href="#" id="logoutBtn">Logout</a></li>
+  </ul>
+</div>
+  </nav>
+<div class="container quiz-page">
+  <h2>Quiz: Starting Your Small Business</h2>
+  <p>Test your knowledge about launching your own business!</p>
+
+  <form id="quizForm">
+
+    <!-- Question 1: Multiple Choice -->
+    <div class="question">
+      <p><strong>1. What is the first step when starting a small business?</strong></p>
+      <label><input type="radio" name="q1" value="a" /> A. Register your business name</label><br />
+      <label><input type="radio" name="q1" value="b" /> B. Write a business plan</label><br />
+      <label><input type="radio" name="q1" value="c" /> C. Open a bank account</label><br />
+      <label><input type="radio" name="q1" value="d" /> D. Hire employees</label>
+    </div>
+
+    <!-- Question 2: Checkbox -->
+    <div class="question">
+      <p><strong>2. Which of the following are important when preparing your business plan? (Select all that apply)</strong></p>
+      <label><input type="checkbox" name="q2" value="a" /> Market research</label><br />
+      <label><input type="checkbox" name="q2" value="b" /> Customer demographics</label><br />
+      <label><input type="checkbox" name="q2" value="c" /> Product pricing</label><br />
+      <label><input type="checkbox" name="q2" value="d" /> Favorite hobbies</label>
+    </div>
+
+    <!-- Question 3: Multiple Choice -->
+    <div class="question">
+      <p><strong>3. Why is it important to identify your target market?</strong></p>
+      <label><input type="radio" name="q3" value="a" /> A. To design products and marketing that meet their needs</label><br />
+      <label><input type="radio" name="q3" value="b" /> B. To limit your customer base</label><br />
+      <label><input type="radio" name="q3" value="c" /> C. To ignore competitors</label><br />
+      <label><input type="radio" name="q3" value="d" /> D. To avoid taxes</label>
+    </div>
+
+    <!-- Question 4: Text Input -->
+    <div class="question">
+      <p><strong>4. Name one essential document you need to legally operate your business.</strong></p>
+      <input type="text" id="q4" name="q4" placeholder="Your answer here" />
+    </div>
+
+    <button type="button" class="btn-primary" onclick="submitQuiz()">Submit Quiz</button>
+  </form>
+
+  <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+</div>
+
+<script>
+  function submitQuiz() {
+    let score = 0;
+    let total = 4;
+    const resultEl = document.getElementById("result");
+
+    // Q1 correct answer: b
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    if (q1 && q1.value === "b") score++;
+
+    // Q2 correct answers: a, b, c (d is incorrect)
+    const q2Checks = document.querySelectorAll('input[name="q2"]:checked');
+    let q2Values = Array.from(q2Checks).map(c => c.value);
+    const q2Correct = ["a", "b", "c"];
+    // Check if selected answers match exactly the correct ones
+    if (
+      q2Values.length === q2Correct.length &&
+      q2Values.every(val => q2Correct.includes(val))
+    ) score++;
+
+    // Q3 correct answer: a
+    const q3 = document.querySelector('input[name="q3"]:checked');
+    if (q3 && q3.value === "a") score++;
+
+    // Q4 correct answers: business license, permit, registration (accept some variants)
+    const q4 = document.getElementById("q4").value.trim().toLowerCase();
+    const acceptedAnswers = ["business license", "business permit", "business registration", "license", "permit", "registration"];
+    if (acceptedAnswers.some(ans => q4.includes(ans))) score++;
+
+    // Show result
+    resultEl.textContent = `You scored ${score} out of ${total} (${Math.round((score/total)*100)}%)`;
+
+    // Optionally, save score to localStorage for tracking
+    localStorage.setItem("quizModule3Score", Math.round((score / total) * 100));
+
+    // You can redirect to scores page after a delay if you want:
+    // setTimeout(() => window.location.href = "scores.html", 3000);
+  }
+</script>
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

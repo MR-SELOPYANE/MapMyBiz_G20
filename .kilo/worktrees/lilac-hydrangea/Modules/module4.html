@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 4: Small Business Finance | Map My Biz</title>
+
+  <!-- Correct paths from /Modules folder -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 4: Small Business Finance</h1>
+    <p>Learn how to manage money, plan budgets, and keep your business financially healthy</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>This module will help you understand the financial foundation every small business needs to survive and grow. You’ll start by identifying the costs involved in launching and running your business — from one-time startup expenses to recurring monthly bills.</p>
+    <p>You’ll learn how to create a simple, practical budget that tracks your income and expenses — giving you control instead of guesswork. We’ll clarify the crucial difference between profit and cash flow, because many profitable businesses fail simply due to poor cash management.</p>
+    <p>You’ll also discover the most common financial pitfalls small business owners face — like underpricing, mixing personal and business funds, or losing track of spending — and how to avoid them with simple systems.</p>
+    <p>Finally, you’ll be introduced to easy-to-use financial tools and habits — from opening a separate bank account to setting aside money for taxes — that will help you make smarter decisions and build long-term stability.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💰 1. Startup Costs vs. Operating Costs</h3>
+    <p>Before your business earns its first rand, you’ll need to invest in getting it off the ground. It’s essential to distinguish between one-time startup costs and ongoing operating expenses — so you can plan your funding and cash flow accurately.</p>
+    
+    <p><strong>Startup costs</strong> are the one-time investments required to launch your business. These might include purchasing equipment like a sewing machine, tools, or a laptop; paying for licenses and permits to operate legally; buying your initial inventory or raw materials; and investing in signage, branding, or a simple website to attract customers.</p>
+    
+    <p><strong>Operating costs</strong>, on the other hand, are the recurring expenses you’ll pay every week or month to keep your business running. These include rent for your shop or market stall, utilities like electricity, water, and internet, ongoing purchases of stock or materials, transport and delivery costs, and if you hire help, employee wages.</p>
+    
+    <p>Planning for both types of costs upfront prevents surprises — and ensures you start with enough capital to survive your first few months.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📝 2. Creating a Simple Budget</h3>
+    <p>A budget is simply a plan for your money — it tells you how much you expect to earn, how much you need to spend, and what’s left over. Even a basic budget gives you control and helps you avoid running out of cash.</p>
+    
+    <p>Here’s an example of a simple monthly budget for a small business:</p>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+      <tr style="background-color: #f0f8ff;">
+        <th>Income</th>
+        <th>Amount (R)</th>
+      </tr>
+      <tr>
+        <td>Sales Revenue</td>
+        <td>R5,000</td>
+      </tr>
+      <tr style="background-color: #f0f8ff;">
+        <th>Expenses</th>
+        <th>Amount (R)</th>
+      </tr>
+      <tr>
+        <td>Stock</td>
+        <td>R1,500</td>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td>R800</td>
+      </tr>
+      <tr>
+        <td>Transport</td>
+        <td>R600</td>
+      </tr>
+      <tr>
+        <td>Miscellaneous</td>
+        <td>R300</td>
+      </tr>
+      <tr style="font-weight: bold;">
+        <td>Total Expenses</td>
+        <td>R3,200</td>
+      </tr>
+      <tr style="font-weight: bold; background-color: #e8f5e9;">
+        <td>Profit (Income - Expenses)</td>
+        <td>R1,800</td>
+      </tr>
+    </table>
+
+    <p><strong>Tip:</strong> Review and update your budget every month. Compare what you planned with what actually happened — then adjust for next month. This simple habit keeps you in control and helps you spot problems before they become crises.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📉 3. Profit vs. Cash Flow</h3>
+    <p>One of the most dangerous misunderstandings in small business is confusing profit with cash flow. You can be profitable on paper — but still run out of money to pay your bills.</p>
+    
+    <p><strong>Profit</strong> is the money left over after you subtract all your expenses from your income — but it’s calculated over a period of time, like a month or a year. It shows whether your business model is working.</p>
+    
+    <p><strong>Cash flow</strong>, however, is about timing — it’s the actual movement of money in and out of your bank account right now. Even if you’ve made sales, if the money hasn’t landed in your account yet, you can’t use it to pay rent or buy supplies.</p>
+    
+    <p><strong>Example:</strong> You complete a R2,000 job for a customer who pays in 30 days. On your income statement, that’s revenue — and contributes to your profit. But in your bank account today? It’s still zero. If you need to pay R1,500 for supplies tomorrow, you could be in trouble — even though you’re “profitable.”</p>
+    
+    <p><strong>Stay Liquid:</strong> Always keep a small cash reserve — even just R1,000–R2,000 — to cover unexpected gaps. And try to collect payments quickly while paying your own bills strategically.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>⚠️ 4. Common Financial Challenges</h3>
+    <p>Many small businesses stumble not because of bad products or poor service — but because of avoidable financial mistakes.</p>
+    
+    <p>One major pitfall is <strong>underpricing</strong> — setting prices too low to cover your true costs, especially when you forget to include your own time or overheads. This leads to working hard but earning little.</p>
+    
+    <p>Another is <strong>mixing personal and business money</strong>. Using your business account to pay for groceries or school fees — or vice versa — makes it impossible to track performance, plan taxes, or secure funding.</p>
+    
+    <p><strong>Poor record-keeping</strong> is equally dangerous. If you don’t write down every sale and expense, you won’t know where your money is going — or whether you’re actually making a profit.</p>
+    
+    <p>And beware of <strong>overtrading</strong> — taking on more sales than you can afford to fulfill. For example, accepting a big order and buying stock on credit, without having the cash to pay the supplier when the bill comes due.</p>
+    
+    <p><strong>Solution:</strong> Open a separate business bank account from day one. Record every transaction — even if it’s just in a notebook or simple spreadsheet. Know your numbers, and your business will thank you.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📊 5. Financial Tools for Small Businesses</h3>
+    <p>You don’t need to be an accountant or use complex software to manage your business finances well. A few simple tools and habits can make a huge difference.</p>
+    
+    <p>Start by opening a <strong>dedicated business bank account</strong>. This separates your business transactions from personal ones — making everything clearer and more professional.</p>
+    
+    <p>Get in the habit of <strong>setting aside 10–15% of every payment</strong> you receive for taxes. Store this in a separate savings account or envelope — so when SARS filing time comes, you’re not scrambling or paying penalties.</p>
+    
+    <p>Explore <strong>free or low-cost accounting apps</strong> like Wave, Zoho Books, or SambaPOS. These tools help you track income and expenses, generate invoices, and even connect to your bank account to import transactions automatically.</p>
+    
+    <p>Finally, build a <strong>weekly financial check-in</strong> into your routine. Just five minutes: ask yourself — “How much did I earn this week? How much did I spend? Do I have enough cash to cover next week’s bills?” This simple ritual builds financial awareness and confidence.</p>
+    
+    <p><strong>Remember:</strong> Good financial habits aren’t about restriction — they’re about freedom. When you understand and manage your money, you gain the power to grow, invest, and build a business that lasts.</p>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 4 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 4";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

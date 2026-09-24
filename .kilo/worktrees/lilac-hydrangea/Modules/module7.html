@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 7: Digital Marketing for Business | Map My Biz</title>
+
+  <!-- Correct paths to CSS and JS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+    .example-box {
+      background-color: #f0f7ff;
+      border: 1px solid #bee1ff;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 7: Digital Marketing for Business</h1>
+    <p>Learn how to promote your business online — even with no budget or tech skills</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>This module will show you how to use the tools already in your pocket — your smartphone and free apps — to attract more customers, build trust, and grow your business. You’ll understand what digital marketing really means for small businesses: it’s not about ads or algorithms — it’s about showing up where your customers already are.</p>
+    <p>You’ll learn how to turn WhatsApp, Facebook, and Instagram into powerful sales channels — even if you’ve never posted before. We’ll guide you through creating simple, effective messages and posts that feel personal, not pushy. You’ll discover how to convert followers into paying customers with smart, low-pressure tactics like limited offers and social proof.</p>
+    <p>We’ll also show you how to get found on Google Maps — so when someone searches “bakery near me,” your shop pops up. And finally, you’ll learn the most common mistakes to avoid — like spamming or ignoring messages — so you build relationships, not resentment.</p>
+    <p>Digital marketing isn’t magic. It’s consistency, authenticity, and showing up — one message, one post, one customer at a time.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📱 1. What Is Digital Marketing?</h3>
+    <p><strong>Digital marketing</strong> simply means using digital tools — your phone, apps, and the internet — to let people know about your business, attract new customers, and stay connected with existing ones.</p>
+    
+    <p>You don’t need a website, a big budget, or technical skills. All you need is a smartphone, a little time each week, and a willingness to share what you do.</p>
+    
+    <p>Think of it like this: if you send a WhatsApp message saying, “Fresh muffins just out of the oven — R15 each!” — that’s digital marketing. If you post a photo of your latest haircut on Instagram with the caption, “Bookings open today — DM to reserve your slot!” — that’s digital marketing too. Even adding your shop to Google Maps so customers can find your location — that’s part of it.</p>
+    
+    <p><strong>Why it works:</strong> More people in South Africa use phones than ever before — and they’re searching, scrolling, and shopping right from their screens. Meet them where they are, and you’ll reach more customers without spending a cent on ads.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💬 2. Marketing with WhatsApp & SMS</h3>
+    <p>For most small businesses, WhatsApp is the most powerful — and most personal — marketing tool you have. It’s direct, immediate, and trusted.</p>
+    
+    <p>Start by creating a <strong>broadcast list</strong> — a group of customers who’ve agreed to hear from you. Send them quick updates like new stock arrivals, daily specials, or delivery reminders. Keep it helpful, not overwhelming — once or twice a week is plenty.</p>
+    
+    <p><strong>Share photos and short videos</strong> of your products in action. A picture of warm vetkoek fresh from the pan, or a video of you arranging a bouquet, is more persuasive than any description.</p>
+    
+    <p>Use your <strong>WhatsApp Status</strong> like a mini-billboard. Post daily specials, flash sales, or behind-the-scenes moments. Status updates disappear after 24 hours — perfect for creating urgency without cluttering chats.</p>
+    
+    <p>And above all — <strong>reply quickly</strong>. When someone messages you, even just to ask a question, respond as soon as you can. Speed builds trust. If you’re busy, a quick “Thanks for your message — I’ll get back to you in 10 minutes!” goes a long way.</p>
+    
+    <div class="example-box">
+      <strong>Example Message:</strong><br>
+      Hi Nomsa! Just letting you know we have fresh vetkoek today 🫓🔥<br>
+      Only R12 each or 5 for R50.<br>
+      Delivery available in Soweto. Call or WhatsApp 072 XXX XXXX to order!
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📘 3. Using Facebook & Instagram</h3>
+    <p>Social media isn’t just for selfies and memes — it’s a free storefront for your business. Facebook and Instagram help you reach new customers, show off your work, and build a loyal following — even if you only post once or twice a week.</p>
+    
+    <p>Start by setting up a <strong>free Business Page</strong> (not a personal profile). Use your real business name, upload a clear logo or photo, and write a short description that tells people what you do and where you’re located.</p>
+    
+    <p>When you post, focus on showing — not just telling. Share photos of your newest products, videos of you at work (like kneading dough or styling hair), or happy customers holding their purchase. People connect with stories and faces — not sales pitches.</p>
+    
+    <p>Use simple <strong>hashtags</strong> to help new people find you — like #SowetoBaker, #JHBStreetFood, or #SmallBusinessSA. Don’t overdo it — 3 to 5 relevant tags are enough.</p>
+    
+    <p>And don’t just post — <strong>engage</strong>. When someone comments or sends a message, reply with a thank you or a smiley. Even a heart emoji shows you’re paying attention. Engagement builds community — and community builds sales.</p>
+    
+    <p><strong>Tip:</strong> You don’t need fancy equipment. Film short, honest videos with your phone — natural light, real moments. People love authenticity more than perfection.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📍 4. Get Found on Google Maps</h3>
+    <p>Many customers don’t search Facebook or Instagram first — they open Google Maps and type “barber near me” or “bakery in Cape Town.” If your business doesn’t show up, you’re invisible to them. Let’s fix that.</p>
+    
+    <p>Open <strong>Google Maps</strong> on your phone or computer. Search for your business name and location. If it doesn’t appear, tap or click “Add your business to Google.”</p>
+    
+    <p>You’ll be guided to fill in a few simple details: your business name, category (like “Bakery” or “Barber Shop”), phone number, and address. Upload a few clear photos — your storefront, your products, or even your smiling face behind the counter.</p>
+    
+    <p>Once you submit, Google may take a few days to review and approve your listing. But once it’s live, you’ll start appearing in local searches — often above bigger competitors.</p>
+    
+    <p><strong>Pro Tip:</strong> After a great service, gently ask happy customers to leave you a review: “Thank you so much for your support! If you enjoyed your experience, we’d love a quick review on Google — it helps us grow 😊” Positive reviews boost your visibility and build trust with new customers.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 5. Turn Followers into Customers</h3>
+    <p>Having followers is nice — but what you really want is paying customers. The good news? Turning followers into buyers doesn’t require hard selling. It just requires smart, friendly nudges.</p>
+    
+    <p>Try offering a <strong>special deal for your online audience</strong> — like “First 10 WhatsApp orders today get 10% off!” or “Mention this post and get a free drink with your meal.” It rewards your followers and creates urgency.</p>
+    
+    <p>Use <strong>scarcity and deadlines</strong> to encourage action: “Only 5 left in stock!” or “Today only — don’t miss out!” People are more likely to act when they feel something is limited or time-sensitive.</p>
+    
+    <p><strong>Share proof</strong> that people love your business. Post photos of happy customers, screenshots of thank-you messages (with permission), or videos of deliveries going out. Social proof builds trust faster than any ad.</p>
+    
+    <p>And always — <strong>make it easy to buy</strong>. Include your phone number, WhatsApp link, physical address, and payment options (like Cash, EFT, or Zapper) in every post or bio. Remove any friction between interest and purchase.</p>
+    
+    <p><strong>Remember:</strong> One thoughtful, personal message can lead to five new customers — because happy buyers tell their friends. Digital marketing is word-of-mouth, amplified.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🚫 6. Common Mistakes to Avoid</h3>
+    <p>Even with the best tools, it’s easy to make mistakes that push customers away instead of pulling them in. Here’s what to watch out for — and how to fix it.</p>
+    
+    <p><strong>Don’t spam.</strong> Sending too many messages — especially unsolicited ones — feels pushy and annoying. Focus on quality over quantity. One helpful, well-timed message is worth ten generic blasts.</p>
+    
+    <p><strong>Never ignore messages.</strong> Even if you can’t answer fully right away, acknowledge the message with a quick “Hi, thanks for reaching out — I’ll get back to you in 10 minutes!” Silence feels like rejection. A reply — even a short one — builds trust.</p>
+    
+    <p><strong>Avoid poor-quality photos.</strong> Blurry, dark, or cluttered images make your product look unappealing — even if it’s amazing in real life. Use natural light, clean backgrounds, and take a few shots to pick the best one. Your phone’s camera is powerful — use it well.</p>
+    
+    <p><strong>Always include contact info.</strong> If someone sees your post and wants to buy — but can’t find your number, location, or WhatsApp link — you’ve lost the sale. Make your contact details visible in every post, story, and bio.</p>
+    
+    <p><strong>Golden Rule:</strong> Be real. Be kind. Be consistent. People don’t buy from perfect brands — they buy from real people they like and trust. Show up as yourself, serve with heart, and keep showing up — that’s the real secret to digital marketing success.</p>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 7 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 7";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

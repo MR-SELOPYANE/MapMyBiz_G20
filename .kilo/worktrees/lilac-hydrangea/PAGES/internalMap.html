@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Africa Business Map</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { width: 100%; height: 100vh; background:#e9eef5; }
+
+    :root{
+      --bg: rgba(255,255,255,0.96);
+      --shadow: 0 2px 10px rgba(0,0,0,0.15);
+      --radius: 14px;
+      --blue:#2563eb; --blue-700:#1d4ed8;
+      --red:#e11d48; --green:#16a34a; --orange:#ea580c;
+      --gray:#64748b;
+    }
+
+    /* Top-left control panel */
+    .panel {
+      position: absolute; top: 12px; left: 12px; z-index: 1000;
+      background: var(--bg); backdrop-filter: blur(6px);
+      box-shadow: var(--shadow); border-radius: var(--radius);
+      padding: 10px; width: 320px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .row + .row { margin-top: 8px; }
+
+    .btn {
+      border: 1px solid #e5e7eb; background:#fff; padding:8px 10px; border-radius: 10px;
+      cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.08); font-size: 14px;
+      transition: background 0.15s ease, transform 0.05s ease, border-color .15s;
+      user-select: none;
+    }
+    .btn:hover { background:#f8fafc; }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: var(--blue); color:#fff; border-color: transparent; }
+    .btn.primary:hover { background: var(--blue-700); }
+
+    .btn-chip { padding:6px 10px; font-size: 13px; border-radius: 999px; }
+    .btn-chip.active { border-color: currentColor; box-shadow: inset 0 0 0 1px currentColor; }
+
+    /* Color chips */
+    .chip-food { color: var(--red); }
+    .chip-shops { color: var(--blue); }
+    .chip-crafts { color: var(--green); }
+    .chip-nature { color: var(--orange); }
+
+    input[type="text"], select {
+      flex: 1; padding: 8px 10px; border-radius: 10px; border: 1px solid #e5e7eb;
+      outline: none; font-size: 14px;
+    }
+    input[type="text"]:focus, select:focus { border-color: var(--blue); }
+
+    .muted { font-size: 12px; color: var(--gray); margin: 4px 0 0 2px; }
+
+    /* Back floating button (top-right) */
+    .back-wrap {
+      position: absolute; top: 12px; right: 12px; z-index: 1000;
+    }
+    .back-btn {
+      background:#fff; border:1px solid #e5e7eb; border-radius: 999px; padding: 10px 14px;
+      font-size:14px; box-shadow: var(--shadow); cursor: pointer;
+    }
+    .back-btn:hover { background:#f8fafc; }
+
+    /* Small helper tooltip bubble */
+    .bubble {
+      background:#111827; color:#fff; font-size:12px; padding:6px 8px; border-radius: 8px;
+      position:absolute; top: 66px; right: 12px; z-index: 999; opacity:.9;
+    }
+
+    /* Legend */
+    .legend { display:flex; gap:8px; align-items:center; flex-wrap: wrap; font-size:12px; }
+    .dot { width:10px; height:10px; border-radius:999px; display:inline-block; }
+  </style>
+</head>
+<body>
+  <div id="map" role="region" aria-label="Map of South Africa showing businesses"></div>
+
+  <!-- Back -->
+  <div class="back-wrap">
+    <button class="back-btn" id="back-btn" title="Back">← Back</button>
+  </div>
+
+  <!-- Quick tip -->
+  <div class="bubble">Tip: Fill the form, click “Place Business”, then click the map.</div>
+
+  <!-- Controls / Form -->
+  <div class="panel" aria-label="Controls and business form">
+    <!-- Search -->
+    <div class="row">
+      <input id="search" type="text" placeholder="Search businesses (name/description)"/>
+    </div>
+
+    <!-- Filters -->
+    <div class="row" id="filters" role="group" aria-label="Filter by category">
+      <button class="btn btn-chip active" data-cat="All">All</button>
+      <button class="btn btn-chip chip-food" data-cat="Food">Food</button>
+      <button class="btn btn-chip chip-shops" data-cat="Shops">Shops</button>
+      <button class="btn btn-chip chip-crafts" data-cat="Crafts">Crafts</button>
+      <button class="btn btn-chip chip-nature" data-cat="Nature">Nature</button>
+      <button class="btn btn-chip chip-crafts" data-cat="Tourism">Tourism & Experiences</button>
+      <button class="btn btn-chip chip-nature" data-cat="Retails">Retails</button>
+      <button class="btn btn-chip chip-nature" data-cat="Services">Services</button>
+    </div>
+
+    <!-- Legend -->
+    <div class="row legend" aria-hidden="true" style="margin-top:6px;">
+      <span class="dot" style="background:#e11d48"></span> Food
+      <span class="dot" style="background:#2563eb"></span> Shops
+      <span class="dot" style="background:#16a34a"></span> Crafts
+      <span class="dot" style="background:#ea580c"></span> Nature
+      <span class="dot" style="background:rgb(162, 162, 162)"></span> Tourism
+      <span class="dot" style="background:lightgreen"></span>Services 
+      <span class="dot" style="background:rgb(68, 12, 12)"></span> Retails
+    </div>
+
+    <!-- Add Business -->
+    <div class="row" style="margin-top:10px;">
+      <input type="text" id="biz-name" placeholder="Business Name" required/>
+    </div>
+    <div class="row">
+      <input type="text" id="biz-desc" placeholder="Short Description" required/>
+    </div>
+    <div class="row">
+      <select id="biz-cat" title="Category">
+        <option value="all">All Businesses</option>
+        <option value="food">🍽️ Food & Eats</option>
+        <option value="crafts">🎨 Crafts & Artisans</option>
+        <option value="shops">🛍️ Local Shops</option>
+        <option value="nature">🏞️ Nature </option>
+        <option value="services">🧑‍🔧Services (Hair, Repair, etc.)</option>
+        <option value="tourism">Tourism & Experiences</option>
+        <option value="retail">👔Retail & 👗Clothing</option>
+      </select>
+      <button class="btn primary" id="place-btn">Place Business</button>
+    </div>
+    <p class="muted">After clicking “Place Business”, click on the map to set the location.</p>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Map My Biz</h4>
+        <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+          <a id="openTerms">Terms & Conditions</a>
+          <br>
+          <a id="openPrivacy">Privacy Policy</a>
+          <br>
+          <a id="openPopia">POPIA Compliance</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@mapmybiz.co.za</p>
+        <p>Phone: +27 11 123 4567</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; 2025 Map My Biz. All rights reserved.
+    </div>
+  </footer>
+  <!-- Combined Legal Modal -->
+<div id="legalModal" class="modal">
+  <div class="modal-content">
+    <span class="close" aria-label="Close">&times;</span>
+    <div class="modal-header">Legal Information</div>
+
+    <!-- Tabs -->
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+      <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+      <button class="tab-btn" data-tab="popia">POPIA Compliance</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <!-- Terms -->
+      <div id="tab-terms" class="tab-content">
+        <h3>1. Introduction</h3>
+        <p>Welcome to Map My Biz. By accessing or using our website, learning platform, or services, you agree to comply with these Terms and Conditions. If you do not agree, please do not use our services.</p>
+        <h3>2. Purpose of Map My Biz</h3>
+        <ul>
+          <li>Provides accredited learning modules to aspiring entrepreneurs through kiosks.</li>
+          <li>Showcases certified businesses on a smart map for tourists.</li>
+          <li>Enables tourists to discover, support, and donate to rural businesses.</li>
+        </ul>
+        <h3>3. Use of Services</h3>
+        <ul>
+          <li>Entrepreneurs must register truthfully and complete modules to be listed.</li>
+          <li>Businesses listed on the smart map are responsible for the accuracy of their information.</li>
+          <li>Tourists use the website at their own discretion when engaging with businesses or making donations.</li>
+        </ul>
+        <h3>4. Donations and Payments</h3>
+        <ul>
+          <li>Donations made through Map My Biz go directly to the chosen business.</li>
+          <li>Map My Biz does not guarantee the use of donations once received by businesses.</li>
+          <li>Map My Biz is not liable for disputes between donors and entrepreneurs.</li>
+        </ul>
+        <h3>5. Intellectual Property</h3>
+        <p>All content on the Map My Biz platform — including text, design, software, and logos — is owned by or licensed to Map My Biz. Users may not copy, modify, or distribute materials without permission.</p>
+        <h3>6. Limitation of Liability</h3>
+        <ul>
+          <li>Map My Biz provides services “as is.”</li>
+          <li>We are not liable for business performance, tourist experiences, or third-party interactions.</li>
+          <li>We are not responsible for technical issues beyond our control.</li>
+        </ul>
+        <h3>7. Changes to Terms</h3>
+        <p>We may update these Terms at any time. Continued use of the platform means acceptance of the revised Terms.</p>
+      </div>
+
+      <!-- Privacy -->
+      <div id="tab-privacy" class="tab-content" style="display:none;">
+        <h3>1. Introduction</h3>
+        <p>Map My Biz respects your privacy and is committed to protecting your personal information.</p>
+        <h3>2. Information We Collect</h3>
+        <ul>
+          <li><strong>Entrepreneurs:</strong> Name, contact details, business information, learning progress.</li>
+          <li><strong>Tourists/Users:</strong> Basic browsing data, voluntary donations, and booking interactions.</li>
+          <li><strong>Kiosk Data:</strong> Learning results stored locally, then securely backed up.</li>
+        </ul>
+        <h3>3. How We Use Your Information</h3>
+        <ul>
+          <li>To deliver learning modules and track progress.</li>
+          <li>To verify businesses before listing them on the smart map.</li>
+          <li>To process donations and display business information to tourists.</li>
+          <li>To improve our platform and ensure accessibility.</li>
+        </ul>
+        <h3>4. Sharing of Information</h3>
+        <ul>
+          <li>We do not sell or trade personal information.</li>
+          <li>Business information (e.g., location, description, images) will be publicly visible on the smart map.</li>
+          <li>Donation transactions are processed securely through third-party providers.</li>
+        </ul>
+        <h3>5. Data Security</h3>
+        <ul>
+          <li>Data collected at kiosks is encrypted and backed up regularly.</li>
+          <li>We take reasonable steps to protect personal data, but no system is completely secure.</li>
+        </ul>
+        <h3>6. User Rights</h3>
+        <ul>
+          <li>Access and correct your personal data.</li>
+          <li>Request removal of your information from our platform.</li>
+          <li>Opt out of marketing communication.</li>
+        </ul>
+        <h3>7. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. Updates will be posted on our website.</p>
+      </div>
+
+      <!-- POPIA -->
+      <div id="tab-popia" class="tab-content" style="display:none;">
+        <h3>POPIA Compliance (South Africa)</h3>
+        <p>The Protection of Personal Information Act (POPIA) gives you rights over your personal data.</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request what data we hold.</li>
+          <li><strong>Right to Correction:</strong> Update inaccurate information.</li>
+          <li><strong>Right to Deletion:</strong> Ask us to delete your data.</li>
+          <li><strong>Right to Object:</strong> Opt out of direct marketing.</li>
+        </ul>
+        <p>Contact us at support@mapmybiz.co.za to exercise these rights.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer" style="text-align:center; margin-top:12px;">
+      <label style="display:block; margin-bottom:10px; font-size:.95rem; color:#555;">
+        <input type="checkbox" id="agreeCheckbox" />
+        I have read and agree to the <strong>Terms & Conditions</strong>, <strong>Privacy Policy</strong>, and <strong>POPIA Compliance</strong>.
+      </label>
+      <button id="acceptLegalBtn" class="btn-primary" disabled>Accept & Continue</button>
+    </div>
+  </div>
+</div>
+
+  <script>
+    // --- South Africa bounds (approx): SW & NE corners
+    const SA_BOUNDS = L.latLngBounds(
+      L.latLng(-34.834, 16.460),  // SW
+      L.latLng(-22.125, 32.894)   // NE
+    );
+  
+    const COLORS = {
+      Food:   '#e11d48',
+      Shops:  '#2563eb',
+      Crafts: '#16a34a',
+      Nature: '#ea580c'
+    };
+  
+    // --- Init map
+    const map = L.map('map', {
+  center: [-30.5595, 22.9375],
+  zoom: 6,
+  maxBounds: [
+    [-35.0, 16.0], // Southwest
+    [-22.0, 33.0]  // Northeast
+  ],
+  maxBoundsViscosity: 1.0 // Makes bounds "sticky" — user can't drag outside
+}).setView([-30.5595, 22.9375], 6);
+    map.fitBounds(SA_BOUNDS);
+    map.setMaxBounds(SA_BOUNDS.pad(0.08)); // lock panning near SA
+  
+    // Base layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+  
+    // Business layer
+    const bizLayer = L.layerGroup().addTo(map);
+  
+    // --- State
+    let businesses = [];
+    const markers = new Map();
+    let pendingBiz = null;
+    let activeCategory = 'All';
+    let searchQuery = '';
+  
+    // --- Storage helpers
+    const KEY = 'sa_biz_map_v1';
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(businesses)); } catch {}
+    }
+    function load() {
+      try {
+        const raw = localStorage.getItem(KEY);
+        if (raw) businesses = JSON.parse(raw);
+      } catch {}
+    }
+  
+    // --- UI elements
+    const backBtn = document.getElementById('back-btn');
+    const placeBtn = document.getElementById('place-btn');
+    const nameInput = document.getElementById('biz-name');
+    const descInput = document.getElementById('biz-desc');
+    const catSelect = document.getElementById('biz-cat');
+    const filters = document.getElementById('filters');
+    const searchInput = document.getElementById('search');
+  
+    // --- Get URL parameter
+    function getUrlParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+  
+    // On page load: check URL for category
+    window.addEventListener('load', () => {
+      const categoryFromUrl = getUrlParam('category');
+      if (categoryFromUrl && ['Food', 'Shops', 'Crafts', 'Nature'].includes(categoryFromUrl)) {
+        activeCategory = categoryFromUrl;
+        // Update active button
+        document.querySelectorAll('[data-cat]').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        const targetBtn = document.querySelector(`[data-cat="${categoryFromUrl}"]`);
+        if (targetBtn) {
+          targetBtn.classList.add('active');
+          // Optional: Scroll to filter
+          targetBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+      // Apply filter after load
+      applyFilters();
+    });
+  
+    backBtn.addEventListener('click', () => {
+      if (history.length > 1) history.back();
+      else window.location.href = '../index.html';
+    });
+  
+    placeBtn.addEventListener('click', () => {
+      const name = nameInput.value.trim();
+      const desc = descInput.value.trim();
+      const category = catSelect.value;
+      if (!name || !desc) { alert('Please fill name and description.'); return; }
+      pendingBiz = { name, desc, category };
+      placeBtn.textContent = 'Click map to place…';
+      placeBtn.disabled = true;
+      setTimeout(() => { placeBtn.textContent = 'Placing… (click map)'; }, 50);
+    });
+  
+    // Filter buttons
+    filters.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-cat]');
+      if (!btn) return;
+      activeCategory = btn.dataset.cat;
+      [...filters.querySelectorAll('.btn-chip')].forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    });
+  
+    // Search
+    searchInput.addEventListener('input', () => {
+      searchQuery = searchInput.value.trim().toLowerCase();
+      applyFilters();
+    });
+  
+    // Place on map click
+    map.on('click', (e) => {
+      if (!pendingBiz) return;
+      const id = crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random());
+      const { name, desc, category } = pendingBiz;
+      const biz = {
+        id, name, desc, category,
+        lat: e.latlng.lat, lng: e.latlng.lng,
+        createdAt: Date.now()
+      };
+      businesses.push(biz);
+      save();
+      ensureMarker(biz);
+      applyFilters(true);
+  
+      pendingBiz = null;
+      placeBtn.textContent = 'Place Business';
+      placeBtn.disabled = false;
+      nameInput.value = ''; descInput.value = '';
+    });
+  
+    function ensureMarker(biz) {
+      if (markers.has(biz.id)) return markers.get(biz.id);
+      const marker = L.circleMarker([biz.lat, biz.lng], {
+        radius: 8, color: COLORS[biz.category] || '#444',
+        fillColor: COLORS[biz.category] || '#444',
+        fillOpacity: 0.95, weight: 2
+      });
+      marker.bindPopup(renderPopup(biz));
+      markers.set(biz.id, marker);
+      return marker;
+    }
+  
+    function renderPopup(biz) {
+      const d = new Date(biz.createdAt || Date.now());
+      const when = d.toLocaleString();
+      return `
+        <div style="min-width:180px">
+          <div style="font-weight:700">${escapeHTML(biz.name)}</div>
+          <div style="margin:4px 0">${escapeHTML(biz.desc)}</div>
+          <div style="font-size:12px; color:#64748b">${escapeHTML(biz.category)} • ${when}</div>
+          <div style="font-size:11px; color:#64748b">📍 ${biz.lat.toFixed(4)}, ${biz.lng.toFixed(4)}</div>
+          <div style="margin-top:6px; display:flex; gap:6px;">
+            <button class="leaflet-popup-close-button" type="button" title="Delete" onclick="window.__delBiz('${biz.id}')">Delete</button>
+          </div>
+        </div>
+      `;
+    }
+  
+    function escapeHTML(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'<','>':'>','"':'&quot;',"'":'&#39;'}[m])); }
+  
+    window.__delBiz = function(id){
+      const idx = businesses.findIndex(b => b.id === id);
+      if (idx === -1) return;
+      const m = markers.get(id);
+      if (m) { m.remove(); markers.delete(id); }
+      businesses.splice(idx,1);
+      save();
+      applyFilters(true);
+    }
+  
+    function matchesFilters(biz){
+      const catOK = (activeCategory === 'All') || (biz.category === activeCategory);
+      if (!catOK) return false;
+      if (!searchQuery) return true;
+      return (biz.name.toLowerCase().includes(searchQuery) ||
+              biz.desc.toLowerCase().includes(searchQuery));
+    }
+  
+    function applyFilters(keepOpenPopups = false){
+      bizLayer.clearLayers();
+      businesses.forEach(b => {
+        const m = ensureMarker(b);
+        if (matchesFilters(b)) {
+          m.addTo(bizLayer);
+          if (keepOpenPopups && m.isPopupOpen()) m.openPopup();
+        }
+      });
+    }
+  
+    // Initial load
+    load();
+    businesses.forEach(b => ensureMarker(b));
+    applyFilters();
+  
+    // Hide the tip bubble after 5s
+    setTimeout(() => {
+      const tip = document.querySelector('.bubble');
+      if (tip) tip.remove();
+    }, 5000);
+  </script>
+</body>
+</html>

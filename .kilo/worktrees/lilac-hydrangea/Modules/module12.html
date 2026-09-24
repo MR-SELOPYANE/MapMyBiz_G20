@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 12: Personal Finance & Money Management | Map My Biz</title>
+
+  <!-- Correct paths to CSS and JS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+    .tip-box {
+      background-color: #fff8e1;
+      border: 1px solid #ffcc80;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-size: 0.95rem;
+    }
+    .example {
+      background-color: #e8f5f9;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+    <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 12: Personal Finance & Money Management</h1>
+    <p>Learn how to manage your personal money wisely — even when business income changes</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>In this module, you will learn how to separate your business income from your personal spending, so your household stays stable. You’ll discover how to create a simple budget that covers your essential needs like rent, food, school, and transport. You’ll also learn how to pay yourself fairly from your business, like a regular salary, to avoid financial stress. We’ll show you how to build an emergency fund for both personal and business surprises, and how to avoid overspending during good months. With these tools, you’ll gain control over your money and create a foundation for long-term stability and growth.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💼 1. Business Money vs. Personal Money</h3>
+    <p>Just because money comes into your business doesn’t mean it’s all yours to spend at home. It’s important to understand the difference between business income and personal income.</p>
+    <p><strong>Business income</strong> is the money you earn from sales. This must first cover your costs, taxes, and any reinvestment needed to keep your business running. <strong>Personal income</strong> is the money you take home to pay for your household needs — things like food, rent, school fees, and transport.</p>
+    <p>The golden rule is to always separate your business and personal money — even if you start with just two envelopes or two bank accounts. This simple step brings clarity and control.</p>
+    <div class="tip-box">
+      💡 <strong>Tip:</strong> Decide in advance how much you will “pay yourself” each week or month — treat it like a salary, no matter how small at first.
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📝 2. Create a Simple Household Budget</h3>
+    <p>A budget helps you live within your means and avoid stress when money is tight. Start by tracking your monthly personal expenses so you know exactly what you need to cover.</p>
+    <p>For example, your essential costs might include rent or home payments, electricity and water, food and groceries, school or children’s needs, transport, phone and internet, and a small amount for unexpected items.</p>
+    <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+      <tr style="background-color: #f0f8ff;">
+        <th>Expense</th>
+        <th>Amount (R)</th>
+      </tr>
+      <tr>
+        <td>Rent / Home</td>
+        <td>R1,500</td>
+      </tr>
+      <tr>
+        <td>Electricity & Water</td>
+        <td>R400</td>
+      </tr>
+      <tr>
+        <td>Food & Groceries</td>
+        <td>R1,200</td>
+      </tr>
+      <tr>
+        <td>School / Children</td>
+        <td>R300</td>
+      </tr>
+      <tr>
+        <td>Transport</td>
+        <td>R600</td>
+      </tr>
+      <tr>
+        <td>Phone & Internet</td>
+        <td>R300</td>
+      </tr>
+      <tr>
+        <td>Miscellaneous</td>
+        <td>R200</td>
+      </tr>
+      <tr style="font-weight: bold;">
+        <td>Total Monthly Expenses</td>
+        <td>R4,500</td>
+      </tr>
+    </table>
+    <p>This means you need at least R4,500 per month for your household to stay stable. Use this number to guide your business goals and income planning.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💰 3. Pay Yourself a Regular “Salary”</h3>
+    <p>Instead of taking money from your business whenever you feel like it, set a fixed amount that you withdraw each week or month. This creates discipline and helps your household budget work.</p>
+    <p>If your business is new, start small — for example, R500 per week. As your profits grow and become more reliable, you can gradually increase your personal pay. But always make sure your business costs are covered first before taking money out.</p>
+    <div class="example">
+      <strong>Example:</strong> Sipho takes R1,200 every Friday from his repair shop profits. He uses this for home expenses. The rest stays in the business for tools, stock, and future growth.
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🛡️ 4. Build an Emergency Fund</h3>
+    <p>Life is unpredictable — you might face illness, a car breakdown, or a month with slow sales. An emergency fund helps you stay calm and in control when surprises happen.</p>
+    <p>Your goal should be to save enough to cover 1 to 3 months of your personal expenses. For example, if you spend R4,500 per month, aim to save between R4,500 and R13,500 over time. Start small — even R20, R50, or R100 per week adds up.</p>
+    <p>Keep this money in a separate bank account or a trusted stokvel — somewhere safe and not too easy to access. The rule is simple: only use this fund for real emergencies, not for shopping, parties, or impulse buys.</p>
+    <div class="tip-box">
+      💡 <strong>Challenge:</strong> This month, save just R100 in your “Emergency Jar.” Next month, try R200. Keep building it step by step.
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📉 5. Avoid Overspending When Business is Good</h3>
+    <p>It’s natural to feel excited when you have a great week and earn more than usual. But irregular income means good months must help cover the slower ones.</p>
+    <p>Don’t rush to upgrade your lifestyle — like buying a new phone or throwing a big party — just because one week was strong. Ask yourself: “Can I afford this every month?” If the answer is no, it’s better to wait.</p>
+    <p>Instead of spending extra money on short-term pleasures, use it to grow your business or save for the future. That way, you build lasting security.</p>
+    <p><strong>Example:</strong> You made R3,000 in one week — that’s great! But if your average weekly income is R1,500, don’t start living like R3,000 is normal. Save the extra to prepare for leaner times.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📈 6. Plan for Growth & Stability</h3>
+    <p>Good personal finance gives you the freedom to grow your business with confidence. Start by making sure your basic home needs are covered every month. Once that’s stable, focus on building a small emergency fund to protect your family and business.</p>
+    <p>Next, reinvest a portion of your profits into your business — better tools, more stock, or new skills. Finally, begin saving for bigger life goals like a car, a home, or your children’s education.</p>
+    <p>Remember: a stable home life reduces stress and helps you run a better, more focused business. When your personal finances are in order, your business can truly grow.</p>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 12 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 12";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+<script type="module" src="../JS/script.js"></script>
+</body>
+</html>

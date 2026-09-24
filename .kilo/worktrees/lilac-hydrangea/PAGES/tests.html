@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Biz - Tests</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/nv.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./course.html" >COURSES</a>
+      <a href="./tests.html"class="active">TESTS</a>
+      <a href="./scores.html" >SCORES</a>
+    </div>
+   <!-- User Profile Dropdown -->
+<div class="user-profile" id="userProfile">
+  <div class="user-icon">👤</div>
+  <span id="userNameDisplay">Loading...</span>
+  <ul class="dropdown" id="dropdownMenu">
+    <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+    <li><a href="#" id="logoutBtn">Logout</a></li>
+  </ul>
+</div>
+  </nav>
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Tests & Quizzes</h1>
+    <p>Test your knowledge and track your progress with these quizzes.</p>
+  </header>
+
+  <!-- Tests List -->
+  <main class="tests-container">
+    <section class="test-card">
+      <h2>Test: Starting Your Small Business</h2>
+      <p>Assess your understanding of the steps to launch a successful small business.</p>
+      <button class="btn-primary" onclick="window.location.href='quiz3.html'">Start Test</button>
+    </section>
+
+    <section class="test-card">
+      <h2>Test: Basic Financial Literacy</h2>
+      <p>Evaluate your knowledge of managing personal and business finances.</p>
+      <button class="btn-primary" onclick="window.location.href='quiz_finance.html'">Start Test</button>
+    </section>
+
+    <section class="test-card">
+      <h2>Test: Business Accounting Fundamentals</h2>
+      <p>Check how well you understand basic accounting principles for small businesses.</p>
+      <button class="btn-primary" onclick="window.location.href='quiz_accounting.html'">Start Test</button>
+    </section>
+
+    <section class="test-card">
+      <h2>Test: Marketing Strategies for Small Businesses</h2>
+      <p>Test your grasp of marketing concepts to promote and grow your business.</p>
+      <button class="btn-primary" onclick="window.location.href='quiz_marketing.html'">Start Test</button>
+    </section>
+
+    <section class="test-card">
+      <h2>Test: Business Planning & Growth</h2>
+      <p>Evaluate your ability to plan and manage sustainable business growth.</p>
+      <button class="btn-primary" onclick="window.location.href='quiz_planning.html'">Start Test</button>
+    </section>
+  </main>
+
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

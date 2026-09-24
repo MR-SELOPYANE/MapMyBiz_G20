@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Your CIPC Business to Map - Map My Biz</title>
+  <link rel="stylesheet" href="../CSS/lg.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/addBusiness.html">Register with CIPC</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html" class="active">Business</a>
+    </div>
+    <!-- User Profile Dropdown -->
+    <div class="user-profile" id="userProfile">
+      <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="header-section">
+      <h1>Add Your CIPC-Registered Business to the Map</h1>
+      <p class="subtitle">
+        Only businesses registered with CIPC may be listed. Please enter your official registration details below.
+      </p>
+      <div class="cipc-verified-badge">
+        <span>CIPC-Verified Business Registration Required</span>
+      </div>
+    </div>
+
+    <form id="addBusinessForm">
+      <!-- CIPC Registration Number -->
+      <div class="form-group">
+        <label for="cipcRegNumber">Company Registration Number *</label>
+        <input type="text" id="cipcRegNumber" name="cipcRegNumber" placeholder="e.g. 2020/123456/07" required />
+        <small class="hint">Found on your CoR14.1 Certificate from CIPC.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="cipcCustomerCode">CIPC Customer Code (if any)</label>
+        <input type="text" id="cipcCustomerCode" name="cipcCustomerCode" placeholder="e.g. CUST-9A3B2C" />
+        <small class="hint">Optional — if you’ve registered on CIPC BizPortal before.</small>
+      </div>
+    
+      <!-- Legal Consent -->
+      <div class="legal-consent">
+        <label>
+          <input type="checkbox" id="agreeTerms" required />
+          I confirm that this business is registered with CIPC and that I am authorized to represent it. I agree to keep all information accurate and up to date.
+        </label>
+        <label>
+          <input type="checkbox" id="agreePopia" required />
+          I consent to the processing of my personal and business information in accordance with POPIA (Act 4 of 2013).
+        </label>
+      </div>
+
+      <button type="submit" class="btn-primary">Add Business to Map</button>
+    </form>
+
+    <div id="resultMessage" class="message" style="margin-top: 1.5rem;"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Map My Biz</h4>
+        <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a id="openTerms">Terms & Conditions</a><br>
+        <a id="openPrivacy">Privacy Policy</a><br>
+        <a id="openPopia">POPIA Compliance</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@mapmybiz.co.za</p>
+        <p>Phone: +27 11 123 4567</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; 2025 Map My Biz. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Legal Modal (optional, if not already loaded) -->
+  <!-- ... your existing modal code ... -->
+
+  <style>
+    .header-section { text-align: center; margin-bottom: 2rem; }
+    .subtitle { font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto 1rem; }
+    .cipc-verified-badge { margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; color: #2e7d32; font-weight: 500; }
+    .cipc-verified-badge img { margin-bottom: 0; }
+
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .hint {
+      display: block;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+
+    .legal-consent {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .legal-consent label {
+      display: block;
+      margin: 0.75rem 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .message {
+      padding: 1rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    .message.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .message.error {
+      background: #ffebee;
+      color: #c62828;
+    }
+  </style>
+
+  <script type="module" src="../JS/script.js"></script>
+</body>
+</html>

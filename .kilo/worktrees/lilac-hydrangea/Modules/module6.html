@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 6: Accounting Fundamentals | Map My Biz</title>
+
+  <!-- Correct paths to CSS and JS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <style>
+    .module-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    .module-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .module-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .module-header p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .lesson-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+    }
+    .lesson-section h3 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+    .lesson-section ul, .lesson-section ol {
+      padding-left: 20px;
+    }
+    .action-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-success {
+      background-color: #2ec4b6;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .completion-badge {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      color: #2e7d32;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="../PAGES/dashboard.html">Home</a>
+      <a href="../PAGES/course.html">Courses</a>
+      <a href="../PAGES/map.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>Smart Map</a>
+      <a href="#">VR Training</a>
+      <a href="../PAGES/business.html">Business</a>
+    </div>
+    <div class="language-selector">
+      <select>
+        <option value="en">English</option>
+        <option value="es">Afrikaans</option>
+      </select>
+    </div>
+   <div class="user-profile" id="userProfile">
+    <div class="user-icon">👤</div>
+      <span id="userNameDisplay">Loading...</span>
+      <ul class="dropdown" id="dropdownMenu">
+        <li><a href="./updateinfo.html">Edit Personal Info</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Module Content -->
+<div class="module-container">
+  <div class="module-header">
+    <h1>📘 Module 6: Accounting Fundamentals</h1>
+    <p>Learn the basics of business accounting — no experience needed!</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🎯 Learning Objectives</h3>
+    <p>This module will introduce you to the essential world of accounting — not as a complex, intimidating subject, but as a simple, powerful tool every small business owner needs. You’ll understand what accounting really is: a way to track your money so you know exactly where you stand.</p>
+    <p>We’ll walk you through the most important terms — like income, expenses, profit, assets, and liabilities — in plain language, using everyday examples you can relate to. You’ll learn why keeping your business money separate from personal spending is one of the smartest decisions you can make.</p>
+    <p>You’ll also set up a simple, practical system to record every transaction — whether you use a notebook, a spreadsheet, or a free app. And finally, you’ll discover how to use your own financial records to make smarter decisions — like what to sell more of, where to cut costs, and when you’re ready to grow.</p>
+    <p>Accounting isn’t about numbers for numbers’ sake — it’s about clarity, control, and confidence in your business.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>🧾 1. What Is Accounting?</h3>
+    <p><strong>Accounting</strong> is simply the process of recording, organizing, and understanding the money flowing in and out of your business. It’s not just for accountants or big corporations — it’s for anyone who wants to run their business with confidence and control.</p>
+    
+    <p>Why does it matter? Because without accounting, you’re flying blind. You won’t know if you’re actually making a profit — or slowly losing money. You’ll struggle to prepare for tax season, apply for loans or grants, or spot problems like rising costs before they become crises.</p>
+    
+    <p>The good news? You don’t need a degree, fancy software, or years of experience. All you need is consistency, honesty, and a willingness to write things down. Even five minutes a day can make a huge difference.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💰 2. Key Accounting Terms Made Simple</h3>
+    <p>Let’s break down the most important accounting words — in plain language, with real examples.</p>
+    
+    <p><strong>Income (or Revenue)</strong> is the money your business earns from sales. If you sell 50 vetkoek at R10 each, your income for the day is R500.</p>
+    
+    <p><strong>Expenses</strong> are the costs you pay to run your business — things like flour, oil, packaging, transport, rent, or airtime for business calls.</p>
+    
+    <p><strong>Profit</strong> is what’s left after you subtract your expenses from your income. Using the vetkoek example: R500 income minus R200 expenses = R300 profit. If your expenses are higher than your income, that’s a loss — and a signal to adjust.</p>
+    
+    <p><strong>Assets</strong> are things your business owns that have value — like cash in your till, equipment (a stove or mixer), or inventory (bags of flour or vetkoek ready to sell).</p>
+    
+    <p><strong>Liabilities</strong> are what your business owes — like a loan from a friend, an unpaid bill to your supplier, or rent you haven’t paid yet.</p>
+    
+    <p><strong>Capital (or Owner’s Equity)</strong> is your personal investment in the business — the money or assets you’ve put in to get started or keep it going.</p>
+    
+    <p><strong>Simple Example:</strong><br>
+    You start with R1,000 of your own money (your capital). You spend R300 on ingredients (expense). You sell vetkoek and earn R500 (income). Your profit for the day is R200. Your total assets now include R1,200 cash (R1,000 starting + R500 income - R300 expenses). No liabilities? Then your equity is R1,200.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📌 3. Keep Business & Personal Money Separate</h3>
+    <p>One of the most common — and costly — mistakes small business owners make is mixing personal and business money. When you use your business cash to pay for groceries or school fees, or dip into your personal savings to cover business costs without tracking it, you lose all clarity.</p>
+    
+    <p>Start by opening a <strong>dedicated business bank account</strong> — even if it’s a basic one. If that’s not possible right away, use a separate wallet, envelope, or mobile money wallet just for business. The physical separation makes a psychological difference — and keeps your records clean.</p>
+    
+    <p><strong>Track every single transaction</strong> — no matter how small. Write down every sale and every expense, ideally daily. A R10 transport cost or a R50 sale might seem insignificant alone, but over time, they add up — and missing them skews your profit picture.</p>
+    
+    <p><strong>Save every receipt.</strong> Use a simple folder, a shoebox, or even your phone’s camera to snap photos. These are your proof of expenses — essential for tax time and for understanding where your money goes.</p>
+    
+    <p><strong>Tip:</strong> Use a free app like <strong>Wave</strong> or <strong>1Money</strong> to track your money digitally — or start with a simple notebook. The tool matters less than the habit.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📒 4. The Simple Record-Keeping System</h3>
+    <p>You don’t need complex ledgers or accounting degrees. Start with this basic, practical table — you can draw it in a notebook, build it in Excel, or find a template online.</p>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+      <tr style="background-color: #f0f8ff;">
+        <th>Date</th>
+        <th>Description</th>
+        <th>Income (R)</th>
+        <th>Expenses (R)</th>
+        <th>Balance (R)</th>
+      </tr>
+      <tr>
+        <td>01/04</td>
+        <td>Started Business</td>
+        <td>1,000</td>
+        <td>0</td>
+        <td>1,000</td>
+      </tr>
+      <tr>
+        <td>02/04</td>
+        <td>Bought Flour & Oil</td>
+        <td>0</td>
+        <td>300</td>
+        <td>700</td>
+      </tr>
+      <tr>
+        <td>02/04</td>
+        <td>Sales</td>
+        <td>500</td>
+        <td>0</td>
+        <td>1,200</td>
+      </tr>
+    </table>
+
+    <p>Update this daily — or at least weekly. Over time, you’ll see patterns: which days are busiest, which expenses are growing, whether your profit is increasing. This simple habit turns guesswork into strategy — and panic into planning.</p>
+    <p>When tax season comes, you’ll be ready. When someone asks how your business is doing, you’ll know. And when you dream of expanding, you’ll have the numbers to guide you.</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📊 5. Use Accounting to Make Smart Decisions</h3>
+    <p>Your financial records aren’t just paperwork — they’re your business’s story, told in numbers. And once you start reading that story, you can make smarter, more confident decisions.</p>
+    
+    <p>Look at your records to see <strong>what’s really selling</strong>. Maybe your chicken vetkoek brings in twice the profit of the plain one — so you should make more of them. Or maybe your afternoon sales are stronger than mornings — so you adjust your hours.</p>
+    
+    <p>Watch for <strong>where you’re spending too much</strong>. If your transport costs doubled last month, ask why — and find a cheaper way. If packaging is eating up 30% of your profit, look for alternatives. Your records show you the leaks — so you can plug them.</p>
+    
+    <p>Use your numbers to decide <strong>when you’re ready to grow</strong>. If you’ve made a consistent profit for three months or more, and your cash flow is stable, you might be ready to buy more equipment, hire help, or open a second stall.</p>
+    
+    <p><strong>Ask yourself these questions every week:</strong><br>
+    • How much did I earn this week?<br>
+    • How much did I spend — and on what?<br>
+    • Did I make a profit — and how does it compare to last week?<br>
+    • What surprised me? What can I improve next week?</p>
+    
+    <p>That’s it. No jargon. No stress. Just honest, simple tracking — and using what you learn to build a stronger, smarter business.</p>
+  </div>
+
+  <!-- Completion Feedback -->
+  <div id="completionBadge" class="completion-badge">
+    🎉 Congratulations! Module 6 has been marked as completed.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <a href="../PAGES/dashboard.html" class="btn">Back to Dashboard</a>
+    <button id="markCompleteBtn" class="btn btn-success">Mark as Complete & Continue</button>
+  </div>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const markBtn = document.getElementById("markCompleteBtn");
+      const completionBadge = document.getElementById("completionBadge");
+  
+      // Define module name (you can set this per module)
+      const moduleName = "Module 6";  // Change this in each module: "Module 2", etc.
+  
+      // Fallback: If markModuleAsCompleted is not loaded from script.js
+      if (typeof markModuleAsCompleted === 'undefined') {
+        window.markModuleAsCompleted = async function (moduleId) {
+          // Fallback to localStorage if Supabase isn't ready
+          let completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+          if (!completed.includes(moduleId)) {
+            completed.push(moduleId);
+            localStorage.setItem("completedModules", JSON.stringify(completed));
+          }
+          // Simulate progress update
+          if (typeof updateProgressUI === 'function') {
+            await updateProgressUI();
+          }
+        };
+      }
+  
+      // Save last opened module
+      if (typeof saveLastModule === 'function') {
+        saveLastModule(moduleName);
+      } else {
+        localStorage.setItem("lastOpenedModule", moduleName);
+      }
+  
+      // Mark module as completed when button is clicked
+      markBtn.addEventListener("click", async function () {
+        // Mark in Supabase or fallback
+        if (typeof markModuleAsCompleted === 'function') {
+          await markModuleAsCompleted(moduleName);
+        }
+  
+        // Show completion message
+        completionBadge.style.display = "block";
+  
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../PAGES/dashboard.html";
+        }, 1500);
+      });
+  
+      // Optional: Remove auto-completion on load
+      // ❌ Avoid this line if you don't want instant credit:
+      // markModuleAsCompleted("Module 1");
+    });
+  </script>
+<script type="module" src="../JS/script.js"></script>
+</body>
+</html>

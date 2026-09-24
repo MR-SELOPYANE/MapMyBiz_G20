@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Biz – Business Directory</title>
+  <link rel="stylesheet" href="../CSS/c.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* Override for directory */
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #f9f9fc;
+    }
+
+    .hero {
+        background: linear-gradient(135deg, #0A8791 0%, #2ec4b6 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    /* Search & Filter Bar */
+    .search-filter {
+      max-width: 800px;
+      margin: 30px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 20px;
+    }
+
+    .search-filter input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #00897b;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .search-filter select {
+      padding: 12px 16px;
+      border: 1px solid #00897b;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: white;
+      color: #333;
+    }
+
+    /* Business Cards */
+    .business-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card-business {
+      background: #e8f5f5;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 100%;
+      max-width: 350px;
+      transition: transform 0.3s ease;
+      border: 1px solid #b2dfdb;
+    }
+
+    .card-business:hover {
+      transform: translateY(-8px);
+    }
+
+    .card-business .logo {
+      width: 80px;
+      height: 80px;
+      background: #b2dfdb;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .card-business h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      color: #00897b;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .card-business .category {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #e91e63;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .card-business p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .card-business .contact {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .card-business .contact a {
+      color: #00897b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-orange {
+      background-color: #ffb300;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+
+    .btn-orange:hover {
+      background-color: #ffaa00;
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      grid-column: 1 / -1;
+      color: #777;
+      font-style: italic;
+    }
+
+    /* Footer CTA */
+    .cta-footer {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    .cta-footer h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-footer p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .card-business .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="../Assets/MMB.png" alt="Map My Biz Logo" />
+      </div>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="./map.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a90e2" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>Smart Map</a>
+        <a href="../index.html" class="cta-button">Log In</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Explore Local Businesses</h1>
+    <p>Discover and support entrepreneurs in rural communities from food to crafts, services to tourism.</p>
+  </section>
+
+  <!-- Search & Filter -->
+  <div class="search-filter">
+    <input type="text" placeholder="Search by name or keyword..." id="searchInput" />
+    <select id="categoryFilter">
+      <option value="">All Categories</option>
+      <option value="food">Food & Catering</option>
+      <option value="crafts">Crafts & Artisans</option>
+      <option value="services">Services (Hair, Repair, etc.)</option>
+      <option value="tourism">Tourism & Experiences</option>
+      <option value="retail">Retail & Clothing</option>
+    </select>
+  </div>
+
+  <!-- Business Cards -->
+  <div class="business-cards" id="businessList">
+
+    <!-- Business 1 -->
+    <div class="card-business" data-category="food" data-name="Thandi's Kitchen">
+      <div class="logo">
+        <img src="../Images/MMB  available business images/Thandi's kitchen.png" />
+      </div>
+      <h3>Thandi's kitchen</h3>
+      <div class="category">Food & Catering</div>
+      <p>Homemade traditional meals, baked goods, and catering for events. Famous for her umngqusho and amagwinya.</p>
+      <div class="contact">
+        <a href="tel:+27123456789">Call</a>
+        <a href="https://wa.me/27123456789">WhatsApp</a>
+      </div>
+      <a href="../PAGES/businessId.html?id=thandi-kitchen" class="btn-orange">View Profile</a>
+    </div>
+
+    <!-- Business 2 -->
+    <div class="card-business" data-category="crafts" data-name="Zanele Beads">
+      <div class="logo">
+        <img src="../Images/MMB  available business images/Zanele beads.png" />
+      </div>
+      <h3>Zanele Beads</h3>
+      <div class="category">Crafts & Artisans</div>
+      <p>Handmade beadwork, necklaces, and decor. Each piece tells a story of culture and creativity.</p>
+      <div class="contact">
+        <a href="tel:+27123456790">Call</a>
+        <a href="https://wa.me/27123456790">WhatsApp</a>
+      </div>
+      <a href="../PAGES/businessId.html?id=zanele-beads" class="btn-orange">View Profile</a>
+    </div>
+
+    <!-- Business 3 -->
+    <div class="card-business" data-category="services" data-name="Sipho's Repair">
+      <div class="logo">
+        <img src="../Images/MMB  available business images/Sipho's repairs.png" />
+      </div>
+      <h3>Sipho's Repair</h3>
+      <div class="category">Services</div>
+      <p>Electronics and appliance repair. Fast, affordable, and reliable service for the whole community.</p>
+      <div class="contact">
+        <a href="tel:+27123456791">Call</a>
+        <a href="https://wa.me/27123456791">WhatsApp</a>
+      </div>
+      <a href="./PAGES/businessId.html?id=sipho-repair" class="btn-orange">View Profile</a>
+    </div>
+
+    <!-- Business 4 -->
+    <div class="card-business" data-category="tourism" data-name="Heritage Trails">
+      <div class="logo">
+        <img src="../Images/MMB  available business images/Heritage trails.jpg"  />
+      </div>
+      <h3>Heritage Trails</h3>
+      <div class="category">Tourism & Experiences</div>
+      <p>Guided nature walks, cultural storytelling, and ancestral site visits. Learn from the elders.</p>
+      <div class="contact">
+        <a href="tel:+27123456792">Call</a>
+        <a href="https://wa.me/27123456792">WhatsApp</a>
+      </div>
+      <a href="./PAGES/businessId.html?id=heritage-trails" class="btn-orange">View Profile</a>
+    </div>
+
+    <!-- Business 5 -->
+    <div class="card-business" data-category="retail" data-name="Nkosi Clothing">
+      <div class="logo">
+        <img src="../Images/MMB  available business images/Clothing business.png" />
+      </div>
+      <h3>Nkosi Clothing</h3>
+      <div class="category">Retail & Clothing</div>
+      <p>Custom-made traditional attire and modern African fashion. Proudly handmade.</p>
+      <div class="contact">
+        <a href="tel:+27123456793">Call</a>
+        <a href="https://wa.me/27123456793">WhatsApp</a>
+      </div>
+      <a href="./PAGES/businessId.html?id=nkosi-clothing" class="btn-orange">View Profile</a>
+    </div>
+
+  </div>
+
+  <!-- Call to Action Footer -->
+  <section class="cta-footer">
+    <h2>Are You a Rural Entrepreneur?</h2>
+    <p>Add your business to the map and reach more customers — local and visiting.</p>
+    <a href="../PAGES/si.html" class="btn-primary">List Your Business</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Map My Biz</h4>
+        <p>Map My Biz connects communities, entrepreneurs, and tourists by showcasing local businesses and providing accredited learning opportunities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+          <a id="openTerms">Terms & Conditions</a>
+          <br>
+          <a id="openPrivacy">Privacy Policy</a>
+          <br>
+          <a id="openPopia">POPIA Compliance</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@mapmybiz.co.za</p>
+        <p>Phone: +27 11 123 4567</p>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      &copy; 2025 Map My Biz. All rights reserved.
+    </div>
+  </footer>
+  <!-- Combined Legal Modal -->
+<div id="legalModal" class="modal">
+  <div class="modal-content">
+    <span class="close" aria-label="Close">&times;</span>
+    <div class="modal-header">Legal Information</div>
+
+    <!-- Tabs -->
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+      <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+      <button class="tab-btn" data-tab="popia">POPIA Compliance</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <!-- Terms -->
+      <div id="tab-terms" class="tab-content">
+        <h3>1. Introduction</h3>
+        <p>Welcome to Map My Biz. By accessing or using our website, learning platform, or services, you agree to comply with these Terms and Conditions. If you do not agree, please do not use our services.</p>
+        <h3>2. Purpose of Map My Biz</h3>
+        <ul>
+          <li>Provides accredited learning modules to aspiring entrepreneurs through kiosks.</li>
+          <li>Showcases certified businesses on a smart map for tourists.</li>
+          <li>Enables tourists to discover, support, and donate to rural businesses.</li>
+        </ul>
+        <h3>3. Use of Services</h3>
+        <ul>
+          <li>Entrepreneurs must register truthfully and complete modules to be listed.</li>
+          <li>Businesses listed on the smart map are responsible for the accuracy of their information.</li>
+          <li>Tourists use the website at their own discretion when engaging with businesses or making donations.</li>
+        </ul>
+        <h3>4. Donations and Payments</h3>
+        <ul>
+          <li>Donations made through Map My Biz go directly to the chosen business.</li>
+          <li>Map My Biz does not guarantee the use of donations once received by businesses.</li>
+          <li>Map My Biz is not liable for disputes between donors and entrepreneurs.</li>
+        </ul>
+        <h3>5. Intellectual Property</h3>
+        <p>All content on the Map My Biz platform — including text, design, software, and logos — is owned by or licensed to Map My Biz. Users may not copy, modify, or distribute materials without permission.</p>
+        <h3>6. Limitation of Liability</h3>
+        <ul>
+          <li>Map My Biz provides services “as is.”</li>
+          <li>We are not liable for business performance, tourist experiences, or third-party interactions.</li>
+          <li>We are not responsible for technical issues beyond our control.</li>
+        </ul>
+        <h3>7. Changes to Terms</h3>
+        <p>We may update these Terms at any time. Continued use of the platform means acceptance of the revised Terms.</p>
+      </div>
+
+      <!-- Privacy -->
+      <div id="tab-privacy" class="tab-content" style="display:none;">
+        <h3>1. Introduction</h3>
+        <p>Map My Biz respects your privacy and is committed to protecting your personal information.</p>
+        <h3>2. Information We Collect</h3>
+        <ul>
+          <li><strong>Entrepreneurs:</strong> Name, contact details, business information, learning progress.</li>
+          <li><strong>Tourists/Users:</strong> Basic browsing data, voluntary donations, and booking interactions.</li>
+          <li><strong>Kiosk Data:</strong> Learning results stored locally, then securely backed up.</li>
+        </ul>
+        <h3>3. How We Use Your Information</h3>
+        <ul>
+          <li>To deliver learning modules and track progress.</li>
+          <li>To verify businesses before listing them on the smart map.</li>
+          <li>To process donations and display business information to tourists.</li>
+          <li>To improve our platform and ensure accessibility.</li>
+        </ul>
+        <h3>4. Sharing of Information</h3>
+        <ul>
+          <li>We do not sell or trade personal information.</li>
+          <li>Business information (e.g., location, description, images) will be publicly visible on the smart map.</li>
+          <li>Donation transactions are processed securely through third-party providers.</li>
+        </ul>
+        <h3>5. Data Security</h3>
+        <ul>
+          <li>Data collected at kiosks is encrypted and backed up regularly.</li>
+          <li>We take reasonable steps to protect personal data, but no system is completely secure.</li>
+        </ul>
+        <h3>6. User Rights</h3>
+        <ul>
+          <li>Access and correct your personal data.</li>
+          <li>Request removal of your information from our platform.</li>
+          <li>Opt out of marketing communication.</li>
+        </ul>
+        <h3>7. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. Updates will be posted on our website.</p>
+      </div>
+
+      <!-- POPIA -->
+      <div id="tab-popia" class="tab-content" style="display:none;">
+        <h3>POPIA Compliance (South Africa)</h3>
+        <p>The Protection of Personal Information Act (POPIA) gives you rights over your personal data.</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request what data we hold.</li>
+          <li><strong>Right to Correction:</strong> Update inaccurate information.</li>
+          <li><strong>Right to Deletion:</strong> Ask us to delete your data.</li>
+          <li><strong>Right to Object:</strong> Opt out of direct marketing.</li>
+        </ul>
+        <p>Contact us at support@mapmybiz.co.za to exercise these rights.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer" style="text-align:center; margin-top:12px;">
+      <label style="display:block; margin-bottom:10px; font-size:.95rem; color:#555;">
+        <input type="checkbox" id="agreeCheckbox" />
+        I have read and agree to the <strong>Terms & Conditions</strong>, <strong>Privacy Policy</strong>, and <strong>POPIA Compliance</strong>.
+      </label>
+      <button id="acceptLegalBtn" class="btn-primary" disabled>Accept & Continue</button>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Search & Filter Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchInput = document.getElementById("searchInput");
+      const categoryFilter = document.getElementById("categoryFilter");
+      const businessList = document.getElementById("businessList");
+      const cards = businessList.getElementsByClassName("card-business");
+
+      // Real-time search and filter
+      function filterBusinesses() {
+        const searchValue = searchInput.value.toLowerCase();
+        const categoryValue = categoryFilter.value;
+
+        Array.from(cards).forEach(card => {
+          const name = card.getAttribute("data-name").toLowerCase();
+          const category = card.getAttribute("data-category");
+
+          const matchesSearch = name.includes(searchValue);
+          const matchesCategory = categoryValue === "" || category === categoryValue;
+
+          if (matchesSearch && matchesCategory) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      searchInput.addEventListener("input", filterBusinesses);
+      categoryFilter.addEventListener("change", filterBusinesses);
+    });
+  </script>
+  
+</body>
+</html>
