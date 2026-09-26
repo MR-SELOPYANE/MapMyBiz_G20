@@ -5,10 +5,24 @@ import { navigate } from "../router/index.js";
 import { renderToast } from "../components/ToastContainer.jsx";
 import { el } from "../utils/dom.js";
 
-function AddBusinessView() {
+function AddBusinessView({ query = {} } = {}) {
   const root = el("div", "mmp-auth-card");
   root.style.maxWidth = "560px";
+
+  const preselectedCategory = BUSINESS_CATEGORIES.some((c) => c.value === query.category)
+    ? query.category
+    : "";
+
   root.appendChild(el("h2", null, "Register a business"));
+  if (preselectedCategory === "tourism") {
+    root.appendChild(
+      el(
+        "p",
+        "mmp-form-hint",
+        "Tourism & Experiences selected — fill in the details and our team will verify your host profile and add your availability, inclusions and safety information.",
+      ),
+    );
+  }
 
   if (!isAuthenticated()) {
     root.appendChild(el("p", null, "You need to sign in before listing a business."));
@@ -45,6 +59,7 @@ function AddBusinessView() {
     const o = document.createElement("option");
     o.value = c.value;
     o.textContent = `${c.emoji} ${c.label}`;
+    if (c.value === preselectedCategory) o.selected = true;
     select.appendChild(o);
   });
   catGroup.appendChild(select);

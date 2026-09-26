@@ -17,7 +17,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.44.0",
+    "@supabase/supabase-js": "^2.117.1",
     "leaflet": "^1.9.4"
   },
   "devDependencies": {

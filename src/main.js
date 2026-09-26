@@ -1,10 +1,10 @@
 import "./styles/style.css";
 import "./styles/toast.css";
+import "./styles/dashboard.css";
 import { init as initRouter, navigate } from "./router/index.js";
-import { setUser, isAuthenticated } from "./store/auth.store.js";
-import { getCurrentUser as getSupabaseUser } from "./services/auth.service.js";
-import supabase from "./services/supabase.js";
-import { renderToast } from "./components/ToastContainer.jsx";
+import { setUser, clearUser, isAuthenticated, getCurrentUser } from "./store/auth.store.js";
+import { isAdminUser } from "./utils/roles.js";
+import { getSessionUser, watchAuthState, ensureUserProfile } from "./services/auth.service.js";
 import { Navbar } from "./components/Navbar.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Chatbot } from "./components/Chatbot.jsx";
@@ -21,6 +21,8 @@ import { AddBusinessView } from "./views/AddBusinessView.jsx";
 import { JobsView } from "./views/JobsView.jsx";
 import { VrView } from "./views/VrView.jsx";
 import { ProfileView } from "./views/ProfileView.jsx";
+import { SubscriptionsView } from "./views/SubscriptionsView.jsx";
+import { AdminDashboardView } from "./views/AdminDashboardView.jsx";
 
 let appInitialized = false;
 let viewRoot = null;
@@ -43,7 +45,12 @@ const viewRegistry = {
   module: ModuleView,
   jobs: JobsView,
   vr: VrView,
+  subscriptions: SubscriptionsView,
+  admin: AdminDashboardView,
 };
+
+/** Views only an authenticated admin may open. */
+const ADMIN_VIEWS = ["admin"];
 
 const PUBLIC_VIEWS = [
   "home",
@@ -57,29 +64,30 @@ const PUBLIC_VIEWS = [
   "reset",
   "tourism",
   "vr",
+  "subscriptions",
 ];
 
-async function clearStaleServiceWorkers() {
-  if (!("serviceWorker" in navigator)) return;
-  try {
-    const registrations = await navigator.serviceWorker.getRegistrations();
-    await Promise.all(registrations.map((reg) => reg.unregister()));
-    if (window.caches) {
-      const keys = await caches.keys();
-      await Promise.all(keys.map((key) => caches.delete(key)));
-    }
-  } catch (err) {
-    console.warn("Could not clear service workers", err);
+/**
+ * Boots authentication from Supabase alone: hydrates the auth store from
+ * the persisted session, repairs a missing `user_profiles` row, and keeps
+ * the store in sync with sign-in / sign-out / token refresh events.
+ *
+ * @returns {Promise<void>}
+ */
+async function initAuth() {
+  const { user } = await getSessionUser();
+  if (user) {
+    setUser(user);
+    await ensureUserProfile(user);
   }
-}
 
-async function registerServiceWorker() {
-  if (!("serviceWorker" in navigator)) return;
-  try {
-    await navigator.serviceWorker.register("/sw.js");
-  } catch (err) {
-    console.warn("Service worker registration failed:", err);
-  }
+  watchAuthState((nextUser) => {
+    if (nextUser) {
+      setUser(nextUser);
+    } else if (getCurrentUser()) {
+      clearUser();
+    }
+  });
 }
 
 function buildShell(appRoot) {
@@ -93,48 +101,16 @@ function buildShell(appRoot) {
   appRoot.appendChild(Chatbot());
 }
 
-function renderView(viewName, params = {}) {
+function renderView(viewName, params = {}, path = "", query = {}) {
   const ViewComponent = viewRegistry[viewName] || viewRegistry.home;
   if (!viewRoot) return;
   viewRoot.innerHTML = "";
   window.scrollTo(0, 0);
 
-  const viewElement = ViewComponent({ ...params, view: viewName });
+  const viewElement = ViewComponent({ ...params, view: viewName, path, query });
   if (viewElement) {
     viewElement.classList.add("mmp-view");
     viewRoot.appendChild(viewElement);
-  }
-}
-
-function initAuthListener() {
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (event === "SIGNED_IN" && session?.user) {
-      setUser({
-        id: session.user.id,
-        email: session.user.email,
-        fullName: session.user.user_metadata?.full_name || "",
-        phone: session.user.user_metadata?.phone || "",
-        saId: session.user.user_metadata?.sa_id || "",
-      });
-    } else if (event === "SIGNED_OUT") {
-      setUser(null);
-    }
-  });
-}
-
-async function checkSession() {
-  try {
-    const { user, error } = await getSupabaseUser();
-    if (error || !user) return;
-    setUser({
-      id: user.id,
-      email: user.email,
-      fullName: user.user_metadata?.full_name || "",
-      phone: user.user_metadata?.phone || "",
-      saId: user.user_metadata?.sa_id || "",
-    });
-  } catch (err) {
-    console.warn("Session check error:", err);
   }
 }
 
@@ -149,22 +125,28 @@ function onRouteChange(route) {
   let view = route.view || "home";
   if (!route.view) view = "home";
 
-  if (!isAuthenticated() && !PUBLIC_VIEWS.includes(view)) {
+  const auth = isAuthenticated();
+  if (!auth && !PUBLIC_VIEWS.includes(view)) {
     navigate("/login");
     return;
   }
 
-  renderView(view, route.params);
+  if (ADMIN_VIEWS.includes(view) && !isAdminUser(getCurrentUser())) {
+    navigate("/dashboard");
+    return;
+  }
+
+  renderView(view, route.params, route.path, route.query);
 }
 
 export async function initApp() {
   if (appInitialized) return;
   appInitialized = true;
 
-  await clearStaleServiceWorkers();
+  await initAuth();
+
   window.addEventListener("error", (event) => {
     console.error("Global error:", event.error);
-    renderToast("An unexpected error occurred. Please try again.", "error");
   });
   window.addEventListener("unhandledrejection", (event) => {
     console.error("Unhandled rejection:", event.reason);
@@ -174,17 +156,12 @@ export async function initApp() {
   buildShell(appRoot);
   initRouter(onRouteChange);
 
-  checkSession();
-  initAuthListener();
-  registerServiceWorker();
-
   return { navigate };
 }
 
 if (typeof window !== "undefined") {
   initApp().catch((err) => {
     console.error("Failed to initialize app:", err);
-    renderToast("Failed to initialize application", "error");
   });
 }
 

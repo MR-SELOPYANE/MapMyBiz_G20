@@ -20,6 +20,12 @@ export const routes = [
   { path: "/login", view: "login" },
   { path: "/signup", view: "signup" },
   { path: "/profile", view: "profile" },
+  { path: "/subscriptions", view: "subscriptions" },
+  { path: "/admin", view: "admin" },
+  { path: "/admin/subscriptions", view: "admin" },
+  { path: "/admin/promotions", view: "admin" },
+  { path: "/admin/analytics", view: "admin" },
+  { path: "/admin/approvals", view: "admin" },
   { path: "/module/:id", view: "module" },
   { path: "/add-business", view: "add-business" },
   { path: "/my-business", view: "my-business" },
@@ -53,13 +59,30 @@ function compileRoute(pattern) {
   return { regex: new RegExp(regexStr), keys };
 }
 
+/**
+ * Splits a hash path into its path and query-string parts.
+ *
+ * @param {string} hash - The raw hash, with or without a leading `#`.
+ * @returns {{ path: string, query: Object }} Path and parsed query params.
+ */
+function splitPathAndQuery(hash) {
+  const raw = String(hash || "").replace(/^#/, "") || "/";
+  const questionIndex = raw.indexOf("?");
+  if (questionIndex === -1) return { path: raw, query: {} };
+  const path = raw.slice(0, questionIndex) || "/";
+  const query = {};
+  new URLSearchParams(raw.slice(questionIndex + 1)).forEach((value, key) => {
+    query[key] = value;
+  });
+  return { path, query };
+}
+
 /** Resolves the current hash into a view name and route params.
  *
- * @returns {{ view: string|null, params: Object, path: string }}
+ * @returns {{ view: string|null, params: Object, path: string, query: Object }}
  */
 export function getCurrentRoute() {
-  const hash = window.location.hash || "#/";
-  const path = hash.replace(/^#/, "") || "/";
+  const { path, query } = splitPathAndQuery(window.location.hash || "#/");
   const normalized = path.startsWith("/") ? path : "/" + path;
 
   for (const route of routes) {
@@ -70,11 +93,11 @@ export function getCurrentRoute() {
       keys.forEach((key, index) => {
         params[key] = decodeURIComponent(match[index + 1]);
       });
-      return { view: route.view, params, path: normalized };
+      return { view: route.view, params, path: normalized, query };
     }
   }
 
-  return { view: null, params: {}, path: normalized };
+  return { view: null, params: {}, path: normalized, query };
 }
 
 /**

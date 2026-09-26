@@ -1,0 +1,829 @@
+/**
+ * Styles for the user dashboard, the pricing page and the admin
+ * dashboard. Imported once from main.js and shared by the three views.
+ */
+
+:root {
+  --mmb-teal: #0a8791;
+  --mmb-teal-dark: #09676c;
+  --mmb-navy: #1a3b5d;
+  --mmb-border: #b8d8d8;
+  --mmb-surface: #ffffff;
+  --mmb-bg: #f4f8f8;
+  --mmb-muted: #55636f;
+  --mmb-green: #16a34a;
+  --mmb-red: #dc2626;
+  --mmb-amber: #d97706;
+  --mmb-gold: #d4af37;
+}
+
+.mmb-dash {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 18px 64px;
+  text-align: left;
+  color: var(--mmb-navy);
+  font-family: inherit;
+}
+
+.mmb-dash__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.mmb-dash__title {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.mmb-dash__subtitle {
+  margin: 4px 0 0;
+  color: var(--mmb-muted);
+  font-size: 0.92rem;
+}
+
+/* --- Plan banner ------------------------------------------------------ */
+
+.mmb-plan-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+  color: #fff;
+  background: linear-gradient(120deg, var(--mmb-teal), var(--mmb-navy));
+  border-left: 6px solid var(--mmb-gold);
+}
+
+.mmb-plan-banner--free {
+  background: linear-gradient(120deg, #64748b, #334155);
+  border-left-color: #94a3b8;
+}
+
+.mmb-plan-banner__text {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.mmb-plan-banner__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin: 0 0 2px;
+}
+
+.mmb-plan-banner__value {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.mmb-plan-banner__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* --- Buttons ---------------------------------------------------------- */
+
+.mmb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--mmb-teal);
+  color: #fff;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.mmb-btn:hover:not(:disabled) {
+  background: var(--mmb-teal-dark);
+}
+
+.mmb-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mmb-btn--ghost {
+  background: transparent;
+  color: var(--mmb-teal);
+  border-color: var(--mmb-teal);
+}
+
+.mmb-btn--ghost:hover:not(:disabled) {
+  background: rgba(10, 135, 145, 0.1);
+  color: var(--mmb-teal-dark);
+}
+
+.mmb-btn--light {
+  background: #fff;
+  color: var(--mmb-navy);
+}
+
+.mmb-btn--light:hover:not(:disabled) {
+  background: #e6f4f4;
+}
+
+.mmb-btn--small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+/* --- Cards ------------------------------------------------------------ */
+
+.mmb-dash__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.mmb-card {
+  background: var(--mmb-surface);
+  border: 1px solid var(--mmb-border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 3px 10px rgba(26, 59, 93, 0.06);
+}
+
+.mmb-card--wide {
+  grid-column: 1 / -1;
+}
+
+.mmb-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.mmb-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--mmb-navy);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mmb-card__hint {
+  margin: 0 0 14px;
+  font-size: 0.82rem;
+  color: var(--mmb-muted);
+}
+
+.mmb-card--locked {
+  background: #fbfdfd;
+  border-style: dashed;
+}
+
+.mmb-lock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(10, 135, 145, 0.06);
+}
+
+/* --- Metric tiles ----------------------------------------------------- */
+
+.mmb-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.mmb-tile {
+  background: var(--mmb-surface);
+  border: 1px solid var(--mmb-border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.mmb-tile__value {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--mmb-teal);
+  line-height: 1.1;
+}
+
+.mmb-tile__label {
+  font-size: 0.78rem;
+  color: var(--mmb-muted);
+  margin-top: 4px;
+}
+
+.mmb-tile__delta {
+  font-size: 0.78rem;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.mmb-up { color: var(--mmb-green); }
+.mmb-down { color: var(--mmb-red); }
+.mmb-flat { color: var(--mmb-muted); }
+
+/* --- Progress --------------------------------------------------------- */
+
+.mmb-progress {
+  height: 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  overflow: hidden;
+  margin: 6px 0 10px;
+}
+
+.mmb-progress__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--mmb-teal);
+  transition: width 0.4s ease;
+}
+
+.mmb-progress__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--mmb-muted);
+}
+
+/* --- Trend bars ------------------------------------------------------- */
+
+.mmb-trend {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 130px;
+  padding: 8px 0 0;
+  margin-bottom: 8px;
+}
+
+.mmb-trend__bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+}
+
+.mmb-trend__fill {
+  width: 100%;
+  max-width: 42px;
+  border-radius: 6px 6px 0 0;
+  background: var(--mmb-teal);
+  min-height: 3px;
+}
+
+.mmb-trend__bar--forecast .mmb-trend__fill {
+  background: repeating-linear-gradient(45deg, #cbd5e1, #cbd5e1 4px, #e2e8f0 4px, #e2e8f0 8px);
+}
+
+.mmb-trend__label {
+  font-size: 0.68rem;
+  color: var(--mmb-muted);
+  white-space: nowrap;
+}
+
+/* --- Forms ------------------------------------------------------------ */
+
+.mmb-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.mmb-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: var(--mmb-muted);
+}
+
+.mmb-input,
+.mmb-select,
+.mmb-textarea {
+  padding: 9px 10px;
+  border: 1px solid var(--mmb-border);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--mmb-navy);
+  background: #fff;
+  width: 100%;
+}
+
+.mmb-input:focus,
+.mmb-select:focus,
+.mmb-textarea:focus {
+  outline: 2px solid rgba(10, 135, 145, 0.25);
+  border-color: var(--mmb-teal);
+}
+
+/* --- Lists ------------------------------------------------------------ */
+
+.mmb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mmb-list__item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 0;
+  border-bottom: 1px solid #eef2f4;
+}
+
+.mmb-list__item:last-child {
+  border-bottom: 0;
+}
+
+.mmb-list__main {
+  min-width: 0;
+  flex: 1 1 180px;
+}
+
+.mmb-list__title {
+  font-weight: 600;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.mmb-list__meta {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--mmb-muted);
+}
+
+.mmb-empty {
+  padding: 16px;
+  border: 1px dashed var(--mmb-border);
+  border-radius: 10px;
+  text-align: center;
+  color: var(--mmb-muted);
+  font-size: 0.88rem;
+}
+
+/* --- Badges ----------------------------------------------------------- */
+
+.mmb-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.mmb-badge--free { background: #e2e8f0; color: #475569; }
+.mmb-badge--pro { background: #d1fae5; color: #065f46; }
+.mmb-badge--premium { background: #fef3c7; color: #92400e; }
+.mmb-badge--success { background: #dcfce7; color: #166534; }
+.mmb-badge--warning { background: #fef3c7; color: #92400e; }
+.mmb-badge--danger { background: #fee2e2; color: #991b1b; }
+.mmb-badge--info { background: #dbeafe; color: #1e40af; }
+
+/* --- AI panel --------------------------------------------------------- */
+
+.mmb-ai__score {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.mmb-ai__ring {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+  background: var(--mmb-teal);
+  flex: 0 0 auto;
+}
+
+.mmb-ai__headline {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.mmb-ai__source {
+  margin: 3px 0 0;
+  font-size: 0.74rem;
+  color: var(--mmb-muted);
+}
+
+.mmb-ai__section {
+  margin-top: 14px;
+}
+
+.mmb-ai__section h4 {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mmb-muted);
+}
+
+.mmb-ai__insight {
+  border-left: 4px solid var(--mmb-teal);
+  background: #f7fbfb;
+  padding: 9px 12px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 8px;
+}
+
+.mmb-ai__insight--high { border-left-color: var(--mmb-red); }
+.mmb-ai__insight--medium { border-left-color: var(--mmb-amber); }
+.mmb-ai__insight--low { border-left-color: var(--mmb-green); }
+
+.mmb-ai__insight strong {
+  display: block;
+  font-size: 0.88rem;
+}
+
+.mmb-ai__insight p {
+  margin: 3px 0 0;
+  font-size: 0.84rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.mmb-ai__action {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin-bottom: 7px;
+}
+
+/* --- Certificates ----------------------------------------------------- */
+
+.mmb-cert {
+  border: 1px solid var(--mmb-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #ffffff, #f7fbfb);
+}
+
+.mmb-cert--earned {
+  border-color: var(--mmb-gold);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.18);
+}
+
+.mmb-cert__name {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.mmb-cert__desc {
+  margin: 5px 0 10px;
+  font-size: 0.83rem;
+  color: var(--mmb-muted);
+  line-height: 1.5;
+}
+
+.mmb-cert__ref {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  color: var(--mmb-teal);
+  font-weight: 600;
+}
+
+/* --- Tables (admin) --------------------------------------------------- */
+
+.mmb-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--mmb-border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.mmb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  min-width: 640px;
+}
+
+.mmb-table th,
+.mmb-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eef2f4;
+  vertical-align: middle;
+}
+
+.mmb-table th {
+  background: #f1f7f7;
+  color: var(--mmb-navy);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: sticky;
+  top: 0;
+}
+
+.mmb-table tbody tr:hover {
+  background: #f8fbfb;
+}
+
+.mmb-table__actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mmb-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.mmb-toolbar__search {
+  flex: 1 1 220px;
+}
+
+/* --- Admin tabs ------------------------------------------------------- */
+
+.mmb-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--mmb-border);
+  padding-bottom: 8px;
+}
+
+.mmb-tab {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #eef5f5;
+  color: var(--mmb-navy);
+  font: inherit;
+  font-size: 0.87rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mmb-tab:hover {
+  background: #dcecec;
+}
+
+.mmb-tab--active {
+  background: var(--mmb-teal);
+  color: #fff;
+}
+
+/* --- Account menu (navbar, Supabase sessions) ------------------------- */
+
+.mmb-account {
+  position: relative;
+}
+
+.mmb-account__menu {
+  position: relative;
+}
+
+.mmb-account__summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #e6f4f4;
+  color: var(--mmb-navy);
+  font-size: 0.88rem;
+  font-weight: 600;
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mmb-account__summary::-webkit-details-marker {
+  display: none;
+}
+
+.mmb-account__summary:hover {
+  background: #d5ecec;
+}
+
+.mmb-account__dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 200px;
+  padding: 8px;
+  border: 1px solid var(--mmb-border);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(26, 59, 93, 0.16);
+  display: flex;
+  flex-direction: column;
+  z-index: 40;
+}
+
+.mmb-account__dropdown a,
+.mmb-account__signout {
+  display: block;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--mmb-navy);
+  font: inherit;
+  font-size: 0.88rem;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mmb-account__dropdown a:hover,
+.mmb-account__signout:hover {
+  background: #eef7f7;
+}
+
+.mmb-account__signout {
+  margin-top: 4px;
+  border-top: 1px solid #eef2f4;
+  border-radius: 0 0 8px 8px;
+  color: var(--mmb-red);
+  font-weight: 600;
+}
+
+.mmb-account__signout:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Pricing ---------------------------------------------------------- */
+
+.mmb-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.mmb-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  border: 2px solid var(--mmb-border);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+}
+
+.mmb-plan--current {
+  border-color: var(--mmb-teal);
+  box-shadow: 0 6px 18px rgba(10, 135, 145, 0.14);
+}
+
+.mmb-plan--popular::after {
+  content: "Most popular";
+  position: absolute;
+  top: -11px;
+  right: 16px;
+  background: var(--mmb-gold);
+  color: #3b2f06;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mmb-plan__name {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.mmb-plan__price {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--mmb-teal);
+}
+
+.mmb-plan__price small {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--mmb-muted);
+}
+
+.mmb-plan__tagline {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--mmb-muted);
+  line-height: 1.5;
+}
+
+.mmb-plan__features {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  font-size: 0.86rem;
+  flex: 1;
+}
+
+.mmb-plan__features li {
+  padding: 5px 0 5px 22px;
+  position: relative;
+  line-height: 1.45;
+}
+
+.mmb-plan__features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--mmb-green);
+  font-weight: 700;
+}
+
+.mmb-faq {
+  margin-top: 26px;
+}
+
+.mmb-faq details {
+  border: 1px solid var(--mmb-border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  background: #fff;
+}
+
+.mmb-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.mmb-faq p {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--mmb-muted);
+  line-height: 1.55;
+}
+
+.mmb-note {
+  font-size: 0.8rem;
+  color: var(--mmb-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .mmb-dash {
+    padding: 18px 12px 48px;
+  }
+
+  .mmb-dash__title {
+    font-size: 1.4rem;
+  }
+
+  .mmb-tile__value {
+    font-size: 1.4rem;
+  }
+}

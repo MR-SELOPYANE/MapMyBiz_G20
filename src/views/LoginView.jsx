@@ -1,4 +1,4 @@
-import { signIn, signUp, resetPassword } from "../services/auth.service.js";
+import { signIn, signUp, resetPassword, ensureUserProfile } from "../services/auth.service.js";
 import { setUser } from "../store/auth.store.js";
 import { renderToast } from "../components/ToastContainer.jsx";
 import { navigate } from "../router/index.js";
@@ -109,14 +109,25 @@ function LoginView(opts = {}) {
         });
         if (error) throw error;
         if (data?.user) {
-          setUser({
+          const user = {
             id: data.user.id,
             email: data.user.email,
             fullName: data.user.user_metadata?.full_name || fullNameInput.input.value.trim(),
-          });
+            phone: data.user.user_metadata?.phone || "",
+            saId: data.user.user_metadata?.sa_id || saId,
+          };
+          setUser(user);
+          await ensureUserProfile(user);
         }
-        renderToast("Account created. Check your email if confirmation is required.", "success");
-        navigate("/dashboard");
+        if (data?.session) {
+          renderToast("Account created. Welcome to Map My Biz.", "success");
+          navigate("/dashboard");
+        } else {
+          // Email confirmation is switched on in the Supabase project, so
+          // there is no session yet — the user must confirm first.
+          renderToast("Check your email to confirm your account, then log in.", "info", 6000);
+          navigate("/login");
+        }
         return;
       }
 
@@ -124,13 +135,15 @@ function LoginView(opts = {}) {
       if (error) throw error;
       const user = data?.user;
       if (user) {
-        setUser({
+        const appUser = {
           id: user.id,
           email: user.email,
           fullName: user.user_metadata?.full_name || "",
           phone: user.user_metadata?.phone || "",
           saId: user.user_metadata?.sa_id || "",
-        });
+        };
+        setUser(appUser);
+        await ensureUserProfile(appUser);
       }
       renderToast("Welcome back.", "success");
       if (opts.onSuccess) opts.onSuccess(data);

@@ -1,6 +1,7 @@
 /**
  * @file Saved content service.
- * @description Manages offline bookmarks for courses, jobs, and businesses.
+ * @description Manages offline bookmarks for courses, jobs, businesses, and
+ * tourism experiences.
  * Stored in `localStorage` under the `mmb_saved` key. Works 100% offline and
  * requires no server, so it is safe to use on basic phones with no data.
  */
@@ -13,6 +14,7 @@ export const SAVED_TYPES = {
   COURSE: "course",
   JOB: "job",
   BUSINESS: "business",
+  EXPERIENCE: "experience",
 };
 
 /**
@@ -151,4 +153,18 @@ export function listSaved(type) {
  */
 export function countSaved(type) {
   return listSaved(type).length;
+}
+
+/**
+ * Removes every bookmark, optionally limited to one type.
+ *
+ * @param {string} [type] - Optional type filter.
+ * @returns {{ removed: number, error: Error|null }}
+ */
+export function clearSaved(type) {
+  const store = readStore();
+  const targets = type ? Object.keys(store).filter((key) => store[key].type === type) : Object.keys(store);
+  targets.forEach((key) => delete store[key]);
+  writeStore(store);
+  return { removed: targets.length, error: null };
 }

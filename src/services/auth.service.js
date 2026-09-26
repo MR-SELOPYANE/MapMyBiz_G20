@@ -211,6 +211,83 @@ export async function updateUserProfile({ fullName, email, phone, location, saId
 }
 
 /**
+ * Maps a Supabase auth user onto the app's user shape
+ * (`{ id, email, fullName, phone, saId }`), which is what
+ * `store/auth.store.js` persists.
+ *
+ * @param {Object|null} user - A Supabase user object.
+ * @returns {Object|null} The app user, or `null` when signed out.
+ */
+export function mapSupabaseUser(user) {
+  if (!user) return null;
+  const meta = user.user_metadata || {};
+  return {
+    id: user.id,
+    email: user.email || meta.email || "",
+    fullName: meta.full_name || meta.name || "",
+    phone: meta.phone || user.phone || "",
+    saId: meta.sa_id || "",
+    role: meta.role || null,
+  };
+}
+
+/**
+ * Reads the current Supabase session and returns the mapped user.
+ *
+ * @returns {Promise<{ user: Object|null, error: Object|null }>}
+ */
+export async function getSessionUser() {
+  const { data, error } = await supabase.auth.getSession();
+  if (error) return { user: null, error };
+  return { user: mapSupabaseUser(data?.session?.user ?? null), error: null };
+}
+
+/**
+ * Subscribes to Supabase auth events (sign in, sign out, token refresh).
+ * The listener is called synchronously with the mapped user so it is safe
+ * to update the auth store from inside it.
+ *
+ * @param {Function} listener - Callback receiving `(user, event)`.
+ * @returns {Function} An unsubscribe function.
+ */
+export function watchAuthState(listener) {
+  const { data } = supabase.auth.onAuthStateChange((event, session) => {
+    listener(mapSupabaseUser(session?.user ?? null), event);
+  });
+  return () => data?.subscription?.unsubscribe?.();
+}
+
+/**
+ * Makes sure a `user_profiles` row exists for the given user. Sign-ups
+ * that failed to insert a profile (offline sign-up, email not confirmed
+ * yet) are repaired here so the admin dashboards always see the user.
+ *
+ * @param {Object} user - The app user object.
+ * @returns {Promise<{ error: Object|null }>}
+ */
+export async function ensureUserProfile(user) {
+  if (!user?.id) return { error: null };
+
+  const row = {
+    id: user.id,
+    email: user.email || null,
+    full_name: user.fullName || null,
+    phone: user.phone || null,
+    sa_id: user.saId || null,
+    updated_at: new Date().toISOString(),
+  };
+
+  try {
+    const { error } = await supabase
+      .from("user_profiles")
+      .upsert(row, { onConflict: "id", ignoreDuplicates: true });
+    return { error };
+  } catch (err) {
+    return { error: err };
+  }
+}
+
+/**
  * Deletes the current user's profile (signs them out afterwards as a
  * safe client-side operation).
  *

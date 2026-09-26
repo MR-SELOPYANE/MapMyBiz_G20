@@ -85,6 +85,44 @@ export function businessShareMessage(business = {}) {
 }
 
 /**
+ * Builds a share message for a tourism experience listing.
+ *
+ * @param {Object} experience - The experience to share.
+ * @returns {string}
+ */
+export function tourismShareMessage(experience = {}) {
+  const name = experience.name || "a rural experience";
+  const where = experience.town || experience.location || experience.province;
+  const whereText = where ? ` in ${where}` : "";
+  const price = experience.price ? ` from R${experience.price} per person` : "";
+  return `I'm booking "${name}"${whereText}${price} on Map My Biz — verified rural experiences across South Africa. Join me?`;
+}
+
+/**
+ * Builds the pre-filled booking request a tourist sends to a host on WhatsApp.
+ *
+ * @param {Object} experience - The experience being booked.
+ * @param {Object} [details={}] - Booking details.
+ * @param {string} [details.date] - Requested date.
+ * @param {number|string} [details.guests] - Number of guests.
+ * @returns {string}
+ */
+export function bookingRequestMessage(experience = {}, details = {}) {
+  const name = experience.name || "your experience";
+  const host = experience.host ? `Hi ${experience.host},` : "Hello,";
+  const lines = [
+    host,
+    "",
+    `I found "${name}" on Map My Biz and would like to book.`,
+  ];
+  if (details.date) lines.push(`Preferred date: ${details.date}`);
+  if (details.guests) lines.push(`Guests: ${details.guests}`);
+  if (details.notes) lines.push(details.notes);
+  lines.push("", "Could you confirm availability and the total price?");
+  return lines.join("\n");
+}
+
+/**
  * Builds a share message for a course card.
  *
  * @param {Object} course - The course to share.

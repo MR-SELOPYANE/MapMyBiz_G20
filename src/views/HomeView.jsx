@@ -11,7 +11,7 @@ function HomeView() {
       <p>Access mentorship, marketing tools, and practical learning — all in one place. Turn your dream into a thriving business.</p>
       <div class="hero-buttons">
         <a href="#/courses" class="btn-primary" data-go="/courses">Start Learning Free</a>
-        <a href="#/tourism" class="btn-orange" data-go="/tourism">Join us as a tourist</a>
+        <a href="#/tourism" class="btn-orange" data-go="/tourism">Explore rural experiences</a>
         <a href="#about" class="btn-secondary" data-scroll="about">Learn More</a>
       </div>
     </div>
